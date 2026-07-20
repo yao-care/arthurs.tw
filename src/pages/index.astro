@@ -23,14 +23,14 @@ const caseWall = CASES.slice(0, 8);
   {/* 1. Hero */}
   <section class="hero section">
     <div class="container">
-      <span class="eyebrow">傳統產業的 AI 網站</span>
-      <h1>網站做完就放著？<br />Arthurs 讓 AI 幫你一直顧。</h1>
+      <h1 class="hero-brand">Arthurs</h1>
+      <ul class="hero-acronym">
+        {BRAND_ACRONYM.letters.filter((l) => l.label).map((l) => (
+          <li><b>{l.ch}</b><span class="ha-term">{l.label}</span><span class="ha-cn">{l.note}</span></li>
+        ))}
+      </ul>
       <p class="sub">
-        看不懂 AI、沒空管網站沒關係。付一次 {SITE.price} 元顧問費，我用 AI 幫你把難維護的舊網站，換成自己擁有、聊天就能更新的新網站，並帶你上手。
-      </p>
-      <p class="brand-hint">
-        <strong>Arthurs</strong> 這名字，就是一個好網站該有的五件事——
-        <span class="brand-hint-letters">交給 AI 維護（<b>A</b>）、被搜尋和 AI 找到（<b>R</b>）、資料看得到（<b>T</b>）、完全是你的（<b>H</b>）、聊天就能更新（<b>U</b>）</span>。
+        看不懂 AI、沒空管網站也沒關係。付一次 {SITE.price} 元顧問費，我幫你做一個上面這五件事都做到的網站，並帶你上手。
       </p>
       <div class="btn-row">
         <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>

@@ -53,10 +53,10 @@ export const PILLARS = [
 export const BRAND_ACRONYM = {
   word: "Arthurs",
   letters: [
-    { ch: "A", label: "AI-Ready", note: "可交給 AI 維護" },
-    { ch: "R", label: "Rankable", note: "持續被搜尋與 AI 找到" },
+    { ch: "A", label: "AI-Ready", note: "交給 AI 維護" },
+    { ch: "R", label: "Rankable", note: "被搜尋、被 AI 找到" },
     { ch: "T", label: "Trackable", note: "資料看得到" },
-    { ch: "H", label: "Human-Owned", note: "網站是你的" },
+    { ch: "H", label: "Human-Owned", note: "完全是你的" },
     { ch: "U", label: "Updatable", note: "聊天就能更新" },
     { ch: "r", label: "", note: "" },
     { ch: "s", label: "", note: "" },
