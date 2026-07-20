@@ -97,8 +97,8 @@ strong { font-weight: 700; }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 .hero-acronym {
-  list-style: none; padding: 0; margin: 0 0 1.75rem;
-  display: grid; gap: 1.1rem; max-width: var(--maxw-prose);
+  list-style: none; padding: 0; margin: 0 0 1.5rem;
+  display: grid; gap: 0.85rem; max-width: var(--maxw-prose);
 }
 /* 兩欄：左＝字母（跨兩列），右＝英文名（上）＋中文描述（下），描述佔滿剩餘寬度不再被切窄 */
 .hero-acronym li {
@@ -188,7 +188,7 @@ strong { font-weight: 700; }
 @media (min-width: 1024px) { .has-mobile-cta { padding-bottom: 0; } }
 
 /* ── Hero ── */
-.hero { background: var(--color-brand-deep); color: var(--color-text-on-dark); }
+.hero { background: var(--color-brand-deep); color: var(--color-text-on-dark); padding-block: clamp(2rem, 5vw, 4rem); }
 .hero h1 { color: var(--color-white); }
 .hero .sub { font-size: var(--text-lg); color: var(--color-text-on-dark); margin: 1.25rem 0 1.75rem; }
 .hero .btn-secondary { color: var(--color-white); border-color: var(--color-white-a20); }
