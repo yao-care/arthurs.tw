@@ -13,7 +13,7 @@ export function organizationSchema() {
     "@id": `${ORIGIN}/#organization`,
     name: SITE.name,
     url: ORIGIN,
-    description: `${SITE.tagline}。為傳統產業提供一次 ${SITE.price} 元、客戶自有、可用 AI 聊天更新的網站建置服務。`,
+    description: `${SITE.tagline}。不分行業，提供一次 ${SITE.price} 元、客戶自有、可用 AI 聊天更新的網站建置服務。`,
     ...(SITE.email ? { email: SITE.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   };
@@ -40,7 +40,7 @@ export function serviceSchema() {
     provider: { "@id": `${ORIGIN}/#organization` },
     areaServed: "TW",
     description:
-      "一次性顧問服務：替看不懂 AI 的傳統產業老闆，用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。",
+      "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。",
     offers: {
       "@type": "Offer",
       price: String(SITE.price),

@@ -7,7 +7,7 @@ export const GET: APIRoute = ({ site }) => {
   const abs = (p: string) => new URL(p, origin).href;
   const body = `# ${SITE.name}（${SITE.domain}）
 
-> ${SITE.tagline}。核心是一筆 ${SITE.price} 元的一次性顧問服務：替看不懂 AI 的傳統產業老闆，用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
+> ${SITE.tagline}。核心是一筆 ${SITE.price} 元的一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
 
 ## 這是什麼服務
 核心商品是「${SITE.price} 元一次性顧問服務」。理念：大家都能享受 AI 紅利，但很多老闆看不懂、沒空——付一次 ${SITE.price} 元顧問費，我用 AI 幫你把難維護的舊網站換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 更新；沒有月費。AI 會依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章草稿，經人工確認後發布。
