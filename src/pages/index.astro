@@ -184,11 +184,14 @@ const caseWall = CASES.slice(0, 8);
             {PLAN.extra.map((x) => <li>{x}</li>)}
           </ul>
           <p class="muted" style="margin-top: 1rem;">
-            部分功能（購物車、會員、即時庫存、複雜預約、大型資料庫等）不包含或需另外評估。
+            部分功能（{PLAN.notFits.slice(0, 5).join("、")}等）不包含或需另外評估。
           </p>
         </div>
       </div>
-      <p style="margin-top: 1.5rem;"><a href="/pricing/" class="btn btn-secondary">看顧問服務內容</a></p>
+      <p class="btn-row" style="margin-top: 1.5rem;">
+        <a href="/pricing/" class="btn btn-secondary">看顧問服務內容</a>
+        <a href="/diy/" class="btn btn-secondary">會用 Claude？也可以自己做（DIY）</a>
+      </p>
     </div>
   </section>
 
