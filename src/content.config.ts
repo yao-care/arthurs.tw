@@ -48,16 +48,7 @@ const updates = defineCollection({
   }),
 });
 
-// 網站案例（首批整理中；不得捏造）
-const cases = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/cases" }),
-  schema: z.object({
-    title: z.string(),
-    industry: z.string(),
-    summary: z.string(),
-    order: z.number().default(100),
-    status: z.enum(["published", "wip"]).default("wip"),
-  }),
-});
+// 網站案例：目前案例牆由 site.ts 的 CASES 陣列驅動（真實已上線站），
+// 尚未改用 content collection，故此處不宣告 cases，避免死 schema。
 
-export const collections = { qa, articles, updates, cases };
+export const collections = { qa, articles, updates };

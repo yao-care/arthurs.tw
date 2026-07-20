@@ -7,7 +7,7 @@ export const SITE = {
   url: "https://arthurs.tw",
   // 一句話定位
   tagline: "讓 AI 幫你更新、分析，持續改善的網站",
-  // 對外聯絡（TODO：待用戶提供正式 Email / LINE 後補上）
+  // 對外聯絡（用戶提供）
   email: "service@yao.care",
   line: "https://line.me/ti/p/i0_EpxFQVc",
   price: 6000,     // 一次性顧問費（NT$）：含用 AI 建站＋交接＋帶你上手；沒有月費
@@ -151,6 +151,6 @@ export const CASES = [
 
 // QA 分類（/qa/ 用）
 export const QA_CATEGORIES = [
-  "價格與服務範圍", "建置與交付", "AI 更新網站", "AI 自動文章與內容",
+  "價格與服務範圍", "AI 更新網站", "AI 自動文章與內容",
   "Google 搜尋、AEO 與 GEO", "所有權、主機與安全", "顧問與後續服務",
 ];

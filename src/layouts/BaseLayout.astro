@@ -15,6 +15,7 @@ interface Props {
 const { title, description = SITE.tagline, schemas = [], ogType = "website" } = Astro.props;
 const fullTitle = title === SITE.name ? title : `${title}｜${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const ogImage = new URL("/og.png", Astro.site ?? Astro.url.origin).href;
 const baseSchemas = [organizationSchema(), websiteSchema(), ...schemas];
 const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
@@ -36,9 +37,14 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="zh_TW" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content={SITE.themeColor} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {baseSchemas.map((s) => (
