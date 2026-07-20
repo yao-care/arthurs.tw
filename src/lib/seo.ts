@@ -1,6 +1,6 @@
 // JSON-LD 結構化資料產生器（GEO/AEO：讓搜尋引擎與 AI 更容易理解本站）。
 // 只描述真實事實，不杜撰。
-import { SITE } from "./site";
+import { SITE, PRICE_LABEL } from "./site";
 
 const ORIGIN = SITE.url;
 export const abs = (p: string) => new URL(p, ORIGIN).href;
@@ -13,7 +13,7 @@ export function organizationSchema() {
     "@id": `${ORIGIN}/#organization`,
     name: SITE.name,
     url: ORIGIN,
-    description: `${SITE.tagline}。不分行業，提供一次 ${SITE.price} 元、客戶自有、可用 AI 聊天更新的網站建置服務。`,
+    description: `${SITE.tagline}。不分行業，提供一次 ${PRICE_LABEL} 元、客戶自有、可用 AI 聊天更新的網站建置服務。`,
     ...(SITE.email ? { email: SITE.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   };

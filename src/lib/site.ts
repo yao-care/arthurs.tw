@@ -5,8 +5,8 @@ export const SITE = {
   name: "Arthurs",
   domain: "arthurs.tw",
   url: "https://arthurs.tw",
-  // 一句話定位
-  tagline: "讓 AI 幫你更新、分析，持續改善的網站",
+  // 一句話定位（顧問服務視角；餵全站預設 meta、footer、Organization schema）
+  tagline: "看不懂 AI、沒空管網站？我用 AI 幫你把網站建好、帶你上手",
   // 對外聯絡（用戶提供）
   email: "service@yao.care",
   line: "https://line.me/ti/p/i0_EpxFQVc",
@@ -17,6 +17,10 @@ export const SITE = {
   gaId: "G-86T9ZDJGYH", // GA4 評估 ID（公開值，全站輸出）；BaseLayout 亦支援 PUBLIC_GA_ID 覆寫
 };
 
+// 價格顯示用單一來源：面向讀者一律用這個（含千分位「6,000」）；
+// 結構化資料的 Offer.price 仍用 String(SITE.price) 的純數字「6000」。
+export const PRICE_LABEL = SITE.price.toLocaleString("en-US");
+
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。
 export const POSITIONING =
   "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——付一次 6,000 元顧問費，我用 AI 幫你把網站建好、帶你上手。";
@@ -26,7 +30,7 @@ export const NAV = [
   { label: "服務方式", href: "/service/" },
   { label: "AI 自動內容", href: "/content-lab/" },
   { label: "案例與示範", href: "/cases/" },
-  { label: "方案價格", href: "/pricing/" },
+  { label: "方案與價格", href: "/pricing/" },
   { label: "常見問題", href: "/qa/" },
 ];
 
@@ -37,29 +41,18 @@ export const CTA = {
   secondary: { label: "看 AI 怎麼更新網站", href: "/how-it-works/" },
 };
 
-// 五大定位支柱 —— 品牌名 Arthurs 拆字：AI-Ready 一字給了 A＋R（AI + Ready），
-// Trackable→T、Human-Owned→H、Updatable→U，Rankable 給尾巴的 R，合起來拼成 ARTHUR；
-// 結尾 s 是複數，不列為承諾。順序即拼字順序；letter 供揭曉區塊點亮（AI-Ready 佔「AR」兩字母）。
+// 五大定位支柱（全站唯一來源）—— 品牌名 Arthurs 拆字：AI-Ready 一字給了 A＋R（AI + Ready），
+// Trackable→T、Human-Owned→H、Updatable→U，Rankable 給尾巴的 R，合起來拼成 ARTHUR；結尾 s＝複數。
+// 順序即拼字順序。欄位：chars=在拼字裡佔的字母（hero 字母欄／揭曉大字／卡片徽章共用）、
+// label=英文名、title=中英合併標題、note=短描述（hero／llms 用）、desc=長描述（卡片用）。
+export const BRAND = { word: "Arthurs", acronym: "Arthur", plural: "s" };
 export const PILLARS = [
-  { key: "ai-ready", letter: "AR", title: "AI-Ready 可交給 AI 維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。" },
-  { key: "trackable", letter: "T", title: "Trackable 資料看得到", desc: "串接 Google Search Console 與 Analytics，知道客戶怎麼找到你、看了什麼。" },
-  { key: "human-owned", letter: "H", title: "Human-Owned 網站是你的", desc: "帳號、網址、網站資料全部屬於你，隨時可以自己管理或交給別人接手。" },
-  { key: "updatable", letter: "U", title: "Updatable 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。" },
-  { key: "rankable", letter: "R", title: "Rankable 持續被找到", desc: "為 Google 搜尋與 AI 問答（AEO、GEO）持續改善內容，讓客戶更容易找到你。" },
+  { key: "ai-ready", chars: "AR", label: "AI-Ready", title: "AI-Ready 可交給 AI 維護", note: "能交給 ChatGPT、Claude 等 AI 協助維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。" },
+  { key: "trackable", chars: "T", label: "Trackable", title: "Trackable 資料看得到", note: "串接 Search Console、Google Analytics", desc: "串接 Google Search Console 與 Analytics，知道客戶怎麼找到你、看了什麼。" },
+  { key: "human-owned", chars: "H", label: "Human-Owned", title: "Human-Owned 網站是你的", note: "帳號、網址、網站資料都屬於你", desc: "帳號、網址、網站資料全部屬於你，隨時可以自己管理或交給別人接手。" },
+  { key: "updatable", chars: "U", label: "Updatable", title: "Updatable 聊天就能更新", note: "不必操作複雜後台，用聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。" },
+  { key: "rankable", chars: "R", label: "Rankable", title: "Rankable 持續被找到", note: "為 Google 搜尋、AEO、GEO 持續改善", desc: "為 Google 搜尋與 AI 問答（AEO、GEO）持續改善內容，讓客戶更容易找到你。" },
 ];
-
-// 品牌名拆字對照（hero 與揭曉區塊共用）。chars = 該承諾在 Arthurs 拼字裡佔的字母：
-// AI-Ready 佔「AR」、Rankable 佔最後的「R」，串起來＝ARTHUR；結尾 s＝複數，不列為承諾。
-export const BRAND_ACRONYM = {
-  word: "Arthurs",
-  parts: [
-    { chars: "AR", label: "AI-Ready", note: "能交給 ChatGPT、Claude 等 AI 協助維護" },
-    { chars: "T", label: "Trackable", note: "串接 Search Console、Google Analytics" },
-    { chars: "H", label: "Human-Owned", note: "帳號、網址、網站資料都屬於你" },
-    { chars: "U", label: "Updatable", note: "不必操作複雜後台，用聊天就能更新" },
-    { chars: "R", label: "Rankable", note: "為 Google 搜尋、AEO、GEO 持續改善" },
-  ],
-};
 
 // 網站六大痛點
 export const PAINS = [
@@ -125,19 +118,20 @@ export const PLAN = {
 // 所有權四項承諾
 export const OWNERSHIP = ["帳號是你的", "網址是你的", "網站資料是你的", "完整交接文件也是你的"];
 
-// 首頁精選 QA（連到獨立 QA 頁）
+// 首頁精選 QA：只存 slug，問句一律取自 QA 集合正本（避免第二份硬編漂移、
+// 也避免首頁 FAQ 結構化資料與 /qa/ 給出不同問句）。順序即首頁顯示順序。
 export const FEATURED_QA = [
-  { q: "6,000 元顧問服務包含什麼？", slug: "what-does-6000-include" },
-  { q: "為什麼不用支付主機維護費？", slug: "why-no-hosting-maintenance-fee" },
-  { q: "完全不懂 AI 也能用嗎？", slug: "can-beginners-use-ai" },
-  { q: "AI 可以自己新增產品和文章嗎？", slug: "can-ai-write-articles" },
-  { q: "AI 如何決定要更新什麼內容？", slug: "how-does-ai-choose-content" },
-  { q: "AI 修改錯誤怎麼辦？", slug: "what-if-ai-makes-a-mistake" },
-  { q: "網站真的全部屬於我嗎？", slug: "who-owns-the-website" },
-  { q: "能保證 Google 排名嗎？", slug: "can-google-ranking-be-guaranteed" },
-  { q: "能保證 ChatGPT 推薦嗎？", slug: "can-chatgpt-recommendation-be-guaranteed" },
-  { q: "付完 6,000 之後，還要一直付錢嗎？", slug: "is-consulting-required" },
-  { q: "哪些網站不適合這個服務？", slug: "what-functions-are-not-included" },
+  "what-does-6000-include",
+  "why-no-hosting-maintenance-fee",
+  "can-beginners-use-ai",
+  "can-ai-write-articles",
+  "how-does-ai-choose-content",
+  "what-if-ai-makes-a-mistake",
+  "who-owns-the-website",
+  "can-google-ranking-be-guaranteed",
+  "can-chatgpt-recommendation-be-guaranteed",
+  "is-consulting-required",
+  "what-functions-are-not-included",
 ];
 
 // AI 自動內容運作流程（首頁 + content-lab 共用）

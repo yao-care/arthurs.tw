@@ -2,16 +2,17 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import {
-  SITE, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
-  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING, BRAND_ACRONYM,
+  SITE, PRICE_LABEL, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
+  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
 
 const qa = await getCollection("qa");
 const answerOf = (slug: string) => qa.find((q) => q.id === slug)?.data.answer ?? "";
-const featured = FEATURED_QA.filter((f, i, arr) => arr.findIndex((x) => x.slug === f.slug) === i);
+const questionOf = (slug: string) => qa.find((q) => q.id === slug)?.data.question ?? "";
+const featured = [...new Set(FEATURED_QA)].filter((slug) => qa.some((q) => q.id === slug));
 const faq = faqSchema(
-  featured.slice(0, 10).map((f) => ({ question: f.q, answer: answerOf(f.slug) })).filter((x) => x.answer)
+  featured.slice(0, 10).map((slug) => ({ question: questionOf(slug), answer: answerOf(slug) })).filter((x) => x.answer)
 );
 const caseWall = CASES.slice(0, 8);
 ---
@@ -25,7 +26,7 @@ const caseWall = CASES.slice(0, 8);
     <div class="container">
       <h1 class="hero-brand" aria-label="Arthurs"><span class="hb-acronym">Arthur</span><span class="hb-plural">s</span></h1>
       <ul class="hero-acronym">
-        {BRAND_ACRONYM.parts.map((p) => (
+        {PILLARS.map((p) => (
           <li><b>{p.chars}</b><span class="ha-term">{p.label}</span><span class="ha-cn">{p.note}</span></li>
         ))}
       </ul>
@@ -78,13 +79,13 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">為什麼叫 Arthurs</span>
       <h2 class="section-title">這個名字不是隨便取的，<br />是我們對每個網站的五個承諾。</h2>
       <p class="brand-word" aria-label="Arthurs">
-        {PILLARS.map((p) => <span class="brand-word-live">{p.letter}</span>)}<span class="brand-word-tail">s</span>
+        {PILLARS.map((p) => <span class="brand-word-live">{p.chars}</span>)}<span class="brand-word-tail">s</span>
       </p>
       <p class="lede" style="margin-top: 1rem;">A·R 來自 AI-Ready，最後的 R 是 Rankable，中間 T·H·U 各一個；結尾的 s 是複數。</p>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {PILLARS.map((p) => (
           <div class="card">
-            <span class="num-badge">{p.letter}</span>
+            <span class="num-badge">{p.chars}</span>
             <h3>{p.title}</h3>
             <p class="muted">{p.desc}</p>
           </div>
@@ -168,7 +169,7 @@ const caseWall = CASES.slice(0, 8);
   <section class="section">
     <div class="container">
       <span class="eyebrow">6,000 元顧問服務</span>
-      <h2 class="section-title">看不懂沒關係，一次 {SITE.price} 元，我幫你把 AI 網站搞定。</h2>
+      <h2 class="section-title">看不懂沒關係，一次 {PRICE_LABEL} 元，我幫你把 AI 網站搞定。</h2>
       <p class="lede">{POSITIONING}</p>
       <div class="grid grid-2" style="margin-top: 2rem;">
         <div class="card">
@@ -233,10 +234,10 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">常見問題</span>
       <h2 class="section-title">買之前，你可能想問。</h2>
       <div class="grid grid-2" style="margin-top: 2rem;">
-        {featured.slice(0, 12).map((f) => (
-          <a href={`/qa/${f.slug}/`} class="card card-link">
-            <h3 style="font-size: var(--text-lg);">{f.q}</h3>
-            {answerOf(f.slug) && <p class="muted">{answerOf(f.slug).slice(0, 60)}…</p>}
+        {featured.slice(0, 12).map((slug) => (
+          <a href={`/qa/${slug}/`} class="card card-link">
+            <h3 style="font-size: var(--text-lg);">{questionOf(slug)}</h3>
+            {answerOf(slug) && <p class="muted">{answerOf(slug).slice(0, 60)}…</p>}
           </a>
         ))}
       </div>

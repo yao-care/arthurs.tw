@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { SITE, CTA } from "../../lib/site";
+import { SITE, PRICE_LABEL, CTA } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "自己動手做", path: "/diy/" }])];
 const need = [
@@ -23,7 +23,7 @@ const steps = [
     <div class="container prose">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 自己動手做</p>
       <h1>會的人，自己來。</h1>
-      <p class="lede">我們相信 AI 紅利大家都能享受，所以把做法公開。你會用 Claude，就下載這份 skill 自己做，不用付我一毛錢。真的不會、沒空，再把 {SITE.price} 元顧問費交給我幫你搞定。</p>
+      <p class="lede">我們相信 AI 紅利大家都能享受，所以把做法公開。你會用 Claude，就下載這份 skill 自己做，不用付我一毛錢。真的不會、沒空，再把 {PRICE_LABEL} 元顧問費交給我幫你搞定。</p>
       <p class="fs-xs muted" style="margin-top: 0.75rem;">本頁適合有一點技術基礎的人（會用終端機、GitHub）。看不懂也沒關係——那正是顧問服務要替你做的。</p>
     </div>
   </section>
@@ -58,7 +58,7 @@ const steps = [
       <div class="prose" style="margin-top: 2rem;">
         <h2 style="font-size: var(--text-lg);">誠實提醒</h2>
         <p class="muted">
-          自己動手需要一點技術基礎（會用終端機、GitHub）。這套做法能提高被搜尋與被 AI 引用的機會，但不保證 Google 排名、不保證被 AI 推薦、不保證帶來訂單。真的中途卡住，隨時可以轉成 {SITE.price} 元顧問服務，我幫你把剩下的做完、帶你上手。
+          自己動手需要一點技術基礎（會用終端機、GitHub）。這套做法能提高被搜尋與被 AI 引用的機會，但不保證 Google 排名、不保證被 AI 推薦、不保證帶來訂單。真的中途卡住，隨時可以轉成 {PRICE_LABEL} 元顧問服務，我幫你把剩下的做完、帶你上手。
         </p>
         <p style="margin-top: 1.5rem;">
           <a href={CTA.primary.href} class="btn btn-primary">不想自己弄？把網址傳給我</a>
