@@ -97,12 +97,20 @@ strong { font-weight: 700; }
 }
 .hero-acronym {
   list-style: none; padding: 0; margin: 0 0 1.75rem;
-  display: grid; gap: 0.6rem; max-width: var(--maxw-prose);
+  display: grid; gap: 1.1rem; max-width: var(--maxw-prose);
 }
-.hero-acronym li { display: flex; align-items: baseline; gap: 0.75rem; font-size: var(--text-lg); }
-.hero-acronym b { flex: none; min-width: 1.8em; color: var(--color-accent); font-weight: 800; font-size: var(--text-xl); letter-spacing: 0.05em; }
-.hero-acronym .ha-term { color: var(--color-white); font-weight: 700; }
-.hero-acronym .ha-cn { color: var(--color-text-on-dark); }
+/* 兩欄：左＝字母（跨兩列），右＝英文名（上）＋中文描述（下），描述佔滿剩餘寬度不再被切窄 */
+.hero-acronym li {
+  display: grid; grid-template-columns: auto 1fr;
+  column-gap: 1rem; row-gap: 0.2rem; align-items: baseline;
+  font-size: var(--text-lg);
+}
+.hero-acronym b {
+  grid-column: 1; grid-row: 1 / span 2; align-self: start; min-width: 1.8em;
+  color: var(--color-accent); font-weight: 800; font-size: var(--text-xl); letter-spacing: 0.05em;
+}
+.hero-acronym .ha-term { grid-column: 2; grid-row: 1; color: var(--color-white); font-weight: 700; }
+.hero-acronym .ha-cn { grid-column: 2; grid-row: 2; color: var(--color-text-on-dark); }
 
 /* ── 五大定位大字揭曉 ── */
 .brand-word {
