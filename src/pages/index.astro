@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import {
   SITE, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
-  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING,
+  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING, BRAND_ACRONYM,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
 
@@ -27,6 +27,10 @@ const caseWall = CASES.slice(0, 8);
       <h1>網站做完就放著？<br />讓 AI 幫你更新、分析，持續改善。</h1>
       <p class="sub">
         看不懂 AI、沒空管網站？付一次 {SITE.price} 元顧問費，我用 AI 幫你把難維護的舊網站，換成自己擁有、能聊天更新的新網站，並帶你上手。
+      </p>
+      <p class="brand-hint">
+        <strong>Arthurs</strong> 這個名字，就是我們對每個網站的承諾拼起來的——
+        <span class="brand-hint-letters"><b>A</b>I-Ready · <b>R</b>ankable · <b>T</b>rackable · <b>H</b>uman-Owned · <b>U</b>pdatable</span>。
       </p>
       <div class="btn-row">
         <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>
@@ -71,14 +75,21 @@ const caseWall = CASES.slice(0, 8);
     </div>
   </section>
 
-  {/* 五大定位（AI-Ready / Updatable / Trackable / Rankable / Human-Owned） */}
+  {/* 五大定位 —— 品牌名 Arthurs 逐字揭曉（A·R·T·H·U + r·s） */}
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow">這個網站的五個承諾</span>
-      <h2 class="section-title">AI-Ready、可追蹤、可更新、能被找到，而且是你的。</h2>
+      <span class="eyebrow">為什麼叫 Arthurs</span>
+      <h2 class="section-title">這個名字不是隨便取的，<br />是我們對每個網站的五個承諾。</h2>
+      <p class="brand-word" aria-label="Arthurs">
+        {BRAND_ACRONYM.letters.map((l) => (
+          <span class={l.label ? "brand-word-live" : "brand-word-tail"}>{l.ch}</span>
+        ))}
+      </p>
+      <p class="lede" style="margin-top: 1rem;">{BRAND_ACRONYM.tail}</p>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {PILLARS.map((p) => (
           <div class="card">
+            <span class="num-badge">{p.letter}</span>
             <h3>{p.title}</h3>
             <p class="muted">{p.desc}</p>
           </div>
