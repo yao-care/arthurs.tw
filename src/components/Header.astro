@@ -3,7 +3,7 @@ import { SITE, NAV, CTA } from "../lib/site";
 ---
 <header class="site-header">
   <div class="container bar">
-    <a href="/" class="brand">{SITE.name}<span>.tw</span></a>
+    <a href="/" class="brand" aria-label={`${SITE.name}.tw`}><span class="b-acr">Arthur</span><span class="b-plural">s</span><span class="b-tld">.tw</span></a>
     <nav class="nav-main" aria-label="主選單">
       {NAV.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
