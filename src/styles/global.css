@@ -153,8 +153,8 @@ strong { font-weight: 700; }
 
 /* ── Hero ── */
 .hero { background: var(--color-brand-deep); color: var(--color-text-on-dark); }
-.hero h1 { color: var(--color-white); max-width: 20ch; }
-.hero .sub { font-size: var(--text-lg); color: var(--color-text-on-dark); max-width: 40ch; margin: 1.25rem 0 1.75rem; }
+.hero h1 { color: var(--color-white); }
+.hero .sub { font-size: var(--text-lg); color: var(--color-text-on-dark); margin: 1.25rem 0 1.75rem; }
 .hero .btn-secondary { color: var(--color-white); border-color: var(--color-white-a20); }
 
 /* ── 頁尾 ── */
