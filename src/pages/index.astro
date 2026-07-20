@@ -23,7 +23,7 @@ const caseWall = CASES.slice(0, 8);
   {/* 1. Hero */}
   <section class="hero section">
     <div class="container">
-      <h1 class="hero-brand">Arthurs</h1>
+      <h1 class="hero-brand" aria-label="Arthurs"><span class="hb-acronym">Arthur</span><span class="hb-plural">s</span></h1>
       <ul class="hero-acronym">
         {BRAND_ACRONYM.parts.map((p) => (
           <li><b>{p.chars}</b><span class="ha-term">{p.label}</span><span class="ha-cn">{p.note}</span></li>

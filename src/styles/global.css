@@ -95,6 +95,8 @@ strong { font-weight: 700; }
   font-size: var(--text-3xl); font-weight: 800; letter-spacing: 0.04em;
   margin: 0.25rem 0 1.5rem;
 }
+.hero-brand .hb-acronym { color: var(--color-accent); }
+.hero-brand .hb-plural { color: var(--color-white); opacity: 0.45; }
 .hero-acronym {
   list-style: none; padding: 0; margin: 0 0 1.75rem;
   display: grid; gap: 1.1rem; max-width: var(--maxw-prose);
