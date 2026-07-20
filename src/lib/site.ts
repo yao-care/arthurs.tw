@@ -14,6 +14,7 @@ export const SITE = {
   priceModel: "一次性顧問費",
   ownerNote: "帳號、網址、網站資料都屬於你自己。",
   themeColor: "#10323f", // 供 <meta theme-color>；HTML 屬性不能用 var()，故置於 .ts（不受設計守門掃描）
+  gaId: "G-86T9ZDJGYH", // GA4 評估 ID（公開值，全站輸出）；BaseLayout 亦支援 PUBLIC_GA_ID 覆寫
 };
 
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。

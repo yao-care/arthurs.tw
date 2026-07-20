@@ -17,7 +17,7 @@ const fullTitle = title === SITE.name ? title : `${title}｜${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 const ogImage = new URL("/og.png", Astro.site ?? Astro.url.origin).href;
 const baseSchemas = [organizationSchema(), websiteSchema(), ...schemas];
-const gaId = import.meta.env.PUBLIC_GA_ID;
+const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
 ---
 
 <!doctype html>
