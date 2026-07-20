@@ -1,0 +1,15 @@
+---
+import { SITE, NAV, CTA } from "../lib/site";
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand">{SITE.name}<span>.tw</span></a>
+    <nav class="nav-main" aria-label="主選單">
+      {NAV.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <a href={CTA.header.href} class="btn btn-primary header-cta">{CTA.header.label}</a>
+  </div>
+</header>
+<div class="mobile-cta">
+  <a href={CTA.mobile.href} class="btn btn-primary">{CTA.mobile.label}</a>
+</div>

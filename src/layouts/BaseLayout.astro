@@ -1,0 +1,66 @@
+---
+import "../styles/variables.css";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { organizationSchema, websiteSchema } from "../lib/seo";
+import { SITE } from "../lib/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  schemas?: object[];
+  ogType?: string;
+}
+const { title, description = SITE.tagline, schemas = [], ogType = "website" } = Astro.props;
+const fullTitle = title === SITE.name ? title : `${title}｜${SITE.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const baseSchemas = [organizationSchema(), websiteSchema(), ...schemas];
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    {/* Open Graph */}
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content={SITE.themeColor} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {baseSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body class="has-mobile-cta">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

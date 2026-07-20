@@ -1,0 +1,63 @@
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+
+// QA 知識庫
+const qa = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/qa" }),
+  schema: z.object({
+    question: z.string(),
+    category: z.string(),
+    answer: z.string(),
+    order: z.number().default(100),
+    updated: z.string().optional(),
+    related: z.array(z.string()).default([]),
+  }),
+});
+
+// 最新文章
+const articles = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
+  schema: z.object({
+    title: z.string(),
+    category: z.string(),
+    summary: z.string(),
+    order: z.number().default(100),
+    created: z.string().optional(),
+    updated: z.string().optional(),
+    reason: z.string().optional(),
+    sources: z.string().optional(),
+    aiHelp: z.string().optional(),
+    humanReview: z.string().optional(),
+    related: z.array(z.string()).default([]),
+  }),
+});
+
+// 網站更新紀錄（公開展示本站持續被改善）
+const updates = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/updates" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    page: z.string().optional(),
+    reason: z.string().optional(),
+    source: z.string().optional(),
+    aiHelp: z.string().optional(),
+    humanReview: z.string().optional(),
+    watch: z.string().optional(),
+    status: z.enum(["published", "wip", "planned"]).default("published"),
+  }),
+});
+
+// 網站案例（首批整理中；不得捏造）
+const cases = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cases" }),
+  schema: z.object({
+    title: z.string(),
+    industry: z.string(),
+    summary: z.string(),
+    order: z.number().default(100),
+    status: z.enum(["published", "wip"]).default("wip"),
+  }),
+});
+
+export const collections = { qa, articles, updates, cases };

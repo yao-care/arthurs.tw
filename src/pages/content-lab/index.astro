@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { CONTENT_FLOW, CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+
+const articles = (await getCollection("articles")).sort((a, b) => a.data.order - b.data.order);
+const updates = (await getCollection("updates")).sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+const qaCount = (await getCollection("qa")).length;
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI 自動內容", path: "/content-lab/" }])];
+---
+<BaseLayout title="AI 自動內容實驗室" description="公開展示 AI 如何發現內容缺口、產生文章、更新網站並觀察結果。這個網站的文章不是想到什麼才寫什麼，而是根據真實問題與數據持續補上答案。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ AI 自動內容</p>
+      <h1>AI 自動內容實驗室</h1>
+      <p class="lede">這裡公開展示：AI 如何發現問題、產生內容、更新網站並觀察結果。看的是這個網站自己，不是別人的截圖。</p>
+    </div>
+  </section>
+
+  {/* 這個網站如何成長 */}
+  <section class="section">
+    <div class="container prose">
+      <span class="eyebrow">這個網站如何持續成長</span>
+      <h2 class="section-title">這個網站的文章，不是想到什麼才寫什麼。</h2>
+      <p>
+        AI 會持續查看客戶提出的問題、Google 搜尋資料及網站來客行為，找出網站還沒有回答完整的內容。接著由 AI 協助建立文章或 QA，經過人工確認後正式發布，再持續觀察搜尋、閱讀與詢問表現。
+      </p>
+      <ol class="flow" style="margin-top: 1.5rem;">
+        {CONTENT_FLOW.map((s) => <li>{s}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  {/* 內容機會（示意） */}
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">最近發現的內容機會</span>
+      <h2 class="section-title">從真實問題找出網站的內容缺口。</h2>
+      <p class="lede">每一個內容機會都會記下：客戶問了什麼、有哪些相關搜尋、網站缺什麼答案、AI 建議怎麼補，以及處理到哪個階段。</p>
+      <div class="card" style="margin-top: 1.5rem; max-width: 46rem;">
+        <p style="margin: 0 0 0.75rem;"><span class="badge badge-ok">已發布</span> <span class="fs-xs muted">範例</span></p>
+        <dl class="deflist">
+          <div><dt>客戶問題</dt><dd>6,000 元的網站為什麼不用支付主機維護費？</dd></div>
+          <div><dt>網站缺口</dt><dd>原本只有價格說明，沒有完整解釋免費網站空間、網域費及第三方政策風險。</dd></div>
+          <div><dt>AI 建議</dt><dd>新增獨立常見問題，並在價格頁與所有權說明加入相關連結。</dd></div>
+        </dl>
+        <p style="margin-top: 0.75rem;"><a href="/qa/why-no-hosting-maintenance-fee/">看這一題 →</a></p>
+      </div>
+      <p class="fs-xs muted" style="margin-top: 0.75rem;">上方為呈現方式示意；隨著客戶提問累積，這一區會換成真實紀錄。</p>
+    </div>
+  </section>
+
+  {/* 最近自動產生的文章（真實） */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">最近自動產生的文章</span>
+      <h2 class="section-title">每一篇都標明：為什麼寫、根據什麼、人工確認了什麼。</h2>
+      <div class="grid grid-2" style="margin-top: 1.5rem;">
+        {articles.slice(0, 6).map((a) => (
+          <a href={`/articles/${a.id}/`} class="card card-link">
+            <h3 style="font-size: var(--text-lg);">{a.data.title}</h3>
+            {a.data.reason && <p class="muted">{a.data.reason}</p>}
+            {a.data.humanReview && <p class="fs-xs muted">人工確認：{a.data.humanReview}</p>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 最近更新的既有內容（真實） */}
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">最近更新紀錄</span>
+      <h2 class="section-title">網站上線後不會停止改善。</h2>
+      <div class="grid grid-2" style="margin-top: 1.5rem;">
+        {updates.slice(0, 4).map((u) => (
+          <div class="card">
+            <p style="margin: 0 0 0.4rem;"><span class="fs-xs muted">{u.data.date}</span></p>
+            <h3 style="font-size: var(--text-lg);">{u.data.title}</h3>
+            {u.data.reason && <p class="muted">{u.data.reason}</p>}
+          </div>
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/updates/" class="btn btn-secondary">看完整更新紀錄</a></p>
+    </div>
+  </section>
+
+  {/* 成效展示（誠實：資料累積中） */}
+  <section class="section">
+    <div class="container prose">
+      <span class="eyebrow">成效展示</span>
+      <h2 class="section-title">用數據確認下一步，而不是喊口號。</h2>
+      <p>
+        目前這個網站剛上線，搜尋與流量資料正在累積。等資料足夠，這一區會公開彙總數字：新增文章與 QA 數量、最近三十天更新頁數、有自然搜尋曝光的文章數、以及「傳網站網址」的點擊次數。
+      </p>
+      <p><strong>目前累積：</strong>常見問題 {qaCount} 題、文章 {articles.length} 篇、更新紀錄 {updates.length} 筆。</p>
+      <p class="muted">
+        我們不保證一定提升 Google 排名、一定被 ChatGPT 推薦，或一定增加訂單。我們承諾的是：持續收集資料、找出內容缺口、改善內容，並用數據確認下一步。
+      </p>
+      <p style="margin-top: 1.5rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

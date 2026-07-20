@@ -1,0 +1,81 @@
+# GitHub Pages 部署（團隊共用手刻模式，源自 dreamer868 版；不用 withastro/action）
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://arthurs.tw
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      # build 內含 scripts/check-design.mjs 守門，設計違規會在這裡 fail
+      - run: pnpm build
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Pages CDN propagation
+        run: sleep 15
+
+      - name: Fetch sitemap and verify all URLs
+        run: |
+          # 自訂網域 DNS 尚未生效時，網站還無法連線——此時軟略過（不讓工作紅），
+          # DNS 生效後本步驟會自動開始強制每個 URL 回 200。
+          if ! curl -sf --max-time 20 "$SITE_URL/sitemap-index.xml" -o /tmp/idx.xml; then
+            echo "::warning::$SITE_URL 尚無法連線（自訂網域 DNS 可能未生效），略過 URL 驗證。"
+            exit 0
+          fi
+          SITEMAPS=$(grep -oP '(?<=<loc>)[^<]+' /tmp/idx.xml)
+          URLS=""
+          for sm in $SITEMAPS; do
+            URLS="$URLS $(curl -sf "$sm" | grep -oP '(?<=<loc>)[^<]+')"
+          done
+          TOTAL=0; FAILED=0; FAIL_LIST=""
+          for u in $URLS; do
+            TOTAL=$((TOTAL + 1))
+            CODE=$(curl -sf -o /dev/null -w '%{http_code}' "$u" || echo 000)
+            if [ "$CODE" != "200" ]; then
+              FAILED=$((FAILED + 1)); FAIL_LIST="$FAIL_LIST\n  ✗ $CODE $u"
+            fi
+          done
+          echo "===== Verification ====="
+          echo "Total: $TOTAL  Failed: $FAILED"
+          if [ "$FAILED" -gt 0 ]; then echo -e "Failed:$FAIL_LIST"; exit 1; fi
+          echo "All URLs returned 200 ✓"

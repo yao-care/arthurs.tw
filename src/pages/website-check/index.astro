@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網站健檢", path: "/website-check/" }])];
+const checks = [
+  "網站內容是否過時", "產品及服務是否清楚", "Google 是否容易理解網站",
+  "AI 是否容易理解公司業務", "網站是否適合持續更新", "是否具備搜尋及流量資料",
+  "網站是否掌握在你自己手中", "是否適合 6,000 元方案",
+];
+---
+<BaseLayout title="網站健檢" description="把現在的網站網址傳給我，先幫你看看問題在哪裡：內容是否過時、Google 與 AI 是否容易理解、是否適合改成 AI 網站。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 網站健檢</p>
+      <h1>把現在的網站網址傳給我，我先幫你看看問題在哪裡。</h1>
+      <p class="lede">先不用決定要不要重做網站。看完再決定也不遲。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2 style="font-size: var(--text-lg);">我們會先看這幾件事</h2>
+          <ul class="check-list" style="margin-top: 1rem;">{checks.map((c) => <li>{c}</li>)}</ul>
+          <p class="muted" style="margin-top: 1.5rem;">
+            收到你的網站網址後，我們會先從內容、搜尋理解、AI 理解及後續管理方式，看看目前最值得改善的地方。
+          </p>
+        </div>
+        <div class="card">
+          <form id="check-form">
+            <div class="field"><label for="company">公司名稱</label><input id="company" name="company" required /></div>
+            <div class="field"><label for="contact">聯絡人</label><input id="contact" name="contact" required /></div>
+            <div class="field"><label for="phone">聯絡方式（電話或 Email）</label><input id="phone" name="phone" required /></div>
+            <div class="field"><label for="url">現有網站網址</label><input id="url" name="url" placeholder="https://" /></div>
+            <div class="field"><label for="industry">公司產業</label><input id="industry" name="industry" /></div>
+            <div class="field"><label for="problem">最想解決的問題</label><textarea id="problem" name="problem"></textarea></div>
+            <div class="field">
+              <label for="ai">是否已有 ChatGPT 或其他 AI 訂閱</label>
+              <select id="ai" name="ai"><option value="">請選擇</option><option>已有</option><option>沒有</option><option>不確定</option></select>
+            </div>
+            <div class="field"><label for="note">其他補充</label><textarea id="note" name="note"></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">送出網站網址</button>
+            <p id="form-note" class="fs-xs muted" style="margin-top: 0.75rem;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script is:inline define:vars={{ email: SITE.email, line: SITE.line }}>
+    const form = document.getElementById("check-form");
+    const note = document.getElementById("form-note");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = new FormData(form);
+      const lines = [
+        "公司名稱：" + (f.get("company") || ""),
+        "聯絡人：" + (f.get("contact") || ""),
+        "聯絡方式：" + (f.get("phone") || ""),
+        "現有網站網址：" + (f.get("url") || ""),
+        "公司產業：" + (f.get("industry") || ""),
+        "最想解決的問題：" + (f.get("problem") || ""),
+        "是否已有 AI 訂閱：" + (f.get("ai") || ""),
+        "其他補充：" + (f.get("note") || ""),
+      ].join("\n");
+      if (email) {
+        const subject = encodeURIComponent("網站健檢申請：" + (f.get("company") || ""));
+        window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + encodeURIComponent(lines);
+        window.setTimeout(() => { window.location.href = "/website-check/thank-you/"; }, 400);
+      } else if (line) {
+        note.textContent = "請把上面的資料透過我們的 LINE 傳給我們：" + line;
+      } else {
+        note.textContent = "表單收件方式設定中。請直接把公司名稱與現有網站網址寄給我們，我們會盡快回覆。";
+      }
+    });
+  </script>
+</BaseLayout>

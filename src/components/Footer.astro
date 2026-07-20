@@ -1,0 +1,59 @@
+---
+import { SITE } from "../lib/site";
+const cols = [
+  {
+    h: "服務",
+    links: [
+      { label: "服務方式", href: "/service/" },
+      { label: "AI 如何運作", href: "/how-it-works/" },
+      { label: "方案與價格", href: "/pricing/" },
+      { label: "操作示範", href: "/demo/" },
+    ],
+  },
+  {
+    h: "內容與案例",
+    links: [
+      { label: "AI 自動內容", href: "/content-lab/" },
+      { label: "最新文章", href: "/articles/" },
+      { label: "網站案例", href: "/cases/" },
+      { label: "更新紀錄", href: "/updates/" },
+    ],
+  },
+  {
+    h: "了解更多",
+    links: [
+      { label: "常見問題", href: "/qa/" },
+      { label: "網站健檢", href: "/website-check/" },
+      { label: "關於我們", href: "/about/" },
+      { label: "聯絡我們", href: "/about/#contact" },
+    ],
+  },
+];
+const year = 2026;
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="font-size: var(--text-xl);">{SITE.name}<span>.tw</span></div>
+        <p style="margin-top: 0.75rem; max-width: 32ch; color: var(--color-text-on-dark);">
+          {SITE.tagline}。一次 {SITE.price} 元，把難以維護的舊網站，換成自己擁有、可以和 AI 聊天更新的新網站。
+        </p>
+        <p style="margin-top: 1rem;">
+          <a href="/website-check/" class="btn btn-primary">傳網站網址給我</a>
+        </p>
+      </div>
+      {cols.map((c) => (
+        <div>
+          <h4>{c.h}</h4>
+          <ul class="footer-links">
+            {c.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="footer-bottom">
+      © {year} {SITE.name}．{SITE.ownerNote}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,252 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import {
+  SITE, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
+  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES,
+} from "../lib/site";
+import { serviceSchema, faqSchema } from "../lib/seo";
+
+const qa = await getCollection("qa");
+const answerOf = (slug: string) => qa.find((q) => q.id === slug)?.data.answer ?? "";
+const featured = FEATURED_QA.filter((f, i, arr) => arr.findIndex((x) => x.slug === f.slug) === i);
+const faq = faqSchema(
+  featured.slice(0, 10).map((f) => ({ question: f.q, answer: answerOf(f.slug) })).filter((x) => x.answer)
+);
+const caseWall = CASES.slice(0, 8);
+---
+<BaseLayout
+  title={SITE.name}
+  description="網站做完就放著？一次 6,000 元，把難以維護的舊網站換成自己擁有、可以和 AI 聊天更新的新網站。串接 Google 搜尋與流量資料，AI 持續找出問題、改善內容。"
+  schemas={[serviceSchema(), faq]}
+>
+  {/* 1. Hero */}
+  <section class="hero section">
+    <div class="container">
+      <span class="eyebrow">傳統產業的 AI 網站</span>
+      <h1>網站做完就放著？<br />讓 AI 幫你更新、分析，持續改善。</h1>
+      <p class="sub">
+        一次 {SITE.price} 元，把難以維護的舊網站，換成自己擁有、可以和 AI 聊天更新的新網站。
+      </p>
+      <div class="btn-row">
+        <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>
+        <a href={CTA.secondary.href} class="btn btn-secondary btn-lg">{CTA.secondary.label}</a>
+      </div>
+    </div>
+  </section>
+
+  {/* 2. 痛點 */}
+  <section class="section section-light">
+    <div class="container">
+      <span class="eyebrow">你不孤單</span>
+      <h2 class="section-title">你不是沒有網站，<br />而是網站沒有人持續經營。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {PAINS.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p class="muted">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 3. 核心解法 */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">核心解法</span>
+      <h2 class="section-title">你需要的，不是再做一個放著不動的網站。</h2>
+      <p class="lede">
+        我們把你現有的公司資料，整理成一個能由 AI 持續協助管理的新網站。不需要學複雜後台，也不必每次修改都回頭找網站公司。
+      </p>
+      <div class="grid grid-2" style="margin-top: 2rem;">
+        {SOLUTIONS.map((s, i) => (
+          <div class="card">
+            <span class="num-badge">{i + 1}</span>
+            <h3>{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 五大定位（AI-Ready / Updatable / Trackable / Rankable / Human-Owned） */}
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">這個網站的五個承諾</span>
+      <h2 class="section-title">AI-Ready、可追蹤、可更新、能被找到，而且是你的。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {PILLARS.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p class="muted">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 4. AI 自動內容展示 */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">現場示範</span>
+      <h2 class="section-title">你現在看到的網站，也正在使用 AI 持續更新。</h2>
+      <p class="lede">
+        這個網站不是想到什麼才寫什麼。我們會根據客戶真正提出的問題、Google 搜尋資料及訪客閱讀行為，持續新增文章、補充答案並改善頁面。
+      </p>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        <div class="card">
+          <span class="badge badge-plan">最近發現</span>
+          <p style="margin-top: 0.75rem;">AI 最近發現哪些客戶問題，網站還沒有完整回答？</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-ok">最近新增</span>
+          <p style="margin-top: 0.75rem;">最近新增了哪些文章或 QA？為什麼需要新增？</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-wip">最近更新</span>
+          <p style="margin-top: 0.75rem;">哪些既有頁面被補充？是根據什麼資料進行改善？</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.5rem;">
+        <a href="/content-lab/" class="btn btn-secondary">看 AI 自動內容實驗室</a>
+      </p>
+    </div>
+  </section>
+
+  {/* 5. AI 自動內容運作流程 */}
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">運作流程</span>
+      <h2 class="section-title">不是讓 AI 亂寫文章，而是根據真實問題與數據補上答案。</h2>
+      <ol class="flow" style="margin-top: 2rem;">
+        {CONTENT_FLOW.map((step) => <li>{step}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  {/* 6. 實際操作示範 */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">操作示範</span>
+      <h2 class="section-title">聊天就能更新，錯了還能還原。</h2>
+      <div class="grid grid-2" style="margin-top: 2rem;">
+        <div class="card"><h3>聊天更新網站</h3><p class="muted">「請幫我新增一項 CNC 五軸加工服務」——AI 讀資料、整理標題與圖片、修改網站，你確認差異後才正式更新。</p></div>
+        <div class="card"><h3>AI 發現搜尋機會</h3><p class="muted">AI 發現「小量金屬加工」已有搜尋曝光，但網站沒有專門介紹，於是建議並產生對應頁面。</p></div>
+        <div class="card"><h3>AI 自動寫文章</h3><p class="muted">多位客戶問同一個問題，AI 比對現有內容、找出缺口、產生初稿，人工確認後發布。</p></div>
+        <div class="card"><h3>版本恢復</h3><p class="muted">改壞了或版面不對，查看修改紀錄、比較前後差異、選回先前正確版本。</p></div>
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/demo/" class="btn btn-secondary">看完整操作示範</a></p>
+    </div>
+  </section>
+
+  {/* 7. 三步驟建置流程 */}
+  <section class="section section-light">
+    <div class="container">
+      <span class="eyebrow">三步驟</span>
+      <h2 class="section-title">交給我們，三步就上線。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {STEPS.map((s, i) => (
+          <div class="card">
+            <span class="num-badge">{i + 1}</span>
+            <h3>{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 8. 6000 方案 */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">方案與價格</span>
+      <h2 class="section-title">一次 {SITE.price} 元，不按傳統頁數計費。</h2>
+      <div class="grid grid-2" style="margin-top: 2rem;">
+        <div class="card">
+          <h3>方案包含</h3>
+          <ul class="check-list" style="margin-top: 0.75rem;">
+            {PLAN.includes.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+        <div class="card">
+          <h3>費用另計</h3>
+          <ul class="x-list" style="margin-top: 0.75rem;">
+            {PLAN.extra.map((x) => <li>{x}</li>)}
+          </ul>
+          <p class="muted" style="margin-top: 1rem;">
+            部分功能（購物車、會員、即時庫存、複雜預約、大型資料庫等）不包含或需另外評估。
+          </p>
+        </div>
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/pricing/" class="btn btn-secondary">看完整方案內容</a></p>
+    </div>
+  </section>
+
+  {/* 9. 所有權 */}
+  <section class="section section-deep">
+    <div class="container">
+      <span class="eyebrow">網站所有權</span>
+      <h2 class="section-title">我們不是把你留在系統裡，而是把網站完整交給你。</h2>
+      <div class="grid grid-2" style="margin-top: 1.5rem; gap: 0.75rem;">
+        {OWNERSHIP.map((o) => (
+          <div class="card" style="background: var(--color-white-a12); border-color: var(--color-white-a20); color: var(--color-text-on-dark); box-shadow: none;">
+            <strong style="font-size: var(--text-lg);">{o}</strong>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem; max-width: 46ch;">
+        未來即使不再與我們合作，網站仍然可以繼續使用，也可以交給其他人接手。
+      </p>
+    </div>
+  </section>
+
+  {/* 10. 案例牆（真實作品） */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">真實作品</span>
+      <h2 class="section-title">我們替不同產業，把資料整理成能上線使用的網站。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {caseWall.map((c) => (
+          <a href={c.url} class="card card-link" target="_blank" rel="noopener">
+            <span class="badge">{c.industry}</span>
+            <h3 style="margin-top: 0.6rem;">{c.name}</h3>
+            <p class="muted">{c.desc}</p>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/cases/" class="btn btn-secondary">看全部案例</a></p>
+    </div>
+  </section>
+
+  {/* 11. 精選 QA */}
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">常見問題</span>
+      <h2 class="section-title">買之前，你可能想問。</h2>
+      <div class="grid grid-2" style="margin-top: 2rem;">
+        {featured.slice(0, 12).map((f) => (
+          <a href={`/qa/${f.slug}/`} class="card card-link">
+            <h3 style="font-size: var(--text-lg);">{f.q}</h3>
+            {answerOf(f.slug) && <p class="muted">{answerOf(f.slug).slice(0, 60)}…</p>}
+          </a>
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/qa/" class="btn btn-secondary">看全部常見問題</a></p>
+    </div>
+  </section>
+
+  {/* 12. 最終 CTA */}
+  <section class="section section-deep">
+    <div class="container text-center">
+      <h2 class="section-title mx-auto">先不用決定要不要重做網站。</h2>
+      <p class="lede mx-auto" style="margin-top: 1rem;">
+        把現在的網站網址傳給我。我先幫你看看：哪些內容已經過時、Google 是否容易理解、AI 是否能正確認識你的公司，以及是否適合改成 AI 網站。
+      </p>
+      <p style="margin-top: 1.75rem;">
+        <a href={CTA.primary.href} class="btn btn-primary btn-lg">傳網站網址給我</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

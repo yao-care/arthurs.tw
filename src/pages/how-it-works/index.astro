@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { CONTENT_FLOW, CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI 如何運作", path: "/how-it-works/" }])];
+const mechanisms = [
+  { title: "跟 AI 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI。它整理標題、介紹與圖片，改好後你確認差異才正式更新。" },
+  { title: "查看搜尋資料", desc: "AI 會查看客戶用哪些關鍵字找到你（Google Search Console），找出你有曝光、但網站還沒講清楚的服務。" },
+  { title: "查看來客資料", desc: "AI 會查看訪客從哪裡來、正在讀哪些內容（Google Analytics），判斷哪些頁面值得補強。" },
+  { title: "自動產生內容", desc: "把發現的缺口轉成文章、產品介紹、案例或 QA 的草稿；不是產生一份沒人看的報表。" },
+  { title: "所有權與交接", desc: "帳號、網址、網站資料都建立在你自己持有的空間裡。完整交接後，你可以自己管理，也可以交給別人接手。" },
+];
+---
+<BaseLayout title="AI 網站如何運作" description="從客戶提問、Google 搜尋與來客資料，到 AI 找出內容缺口、產生草稿、人工確認、正式發布並持續觀察——完整說明 AI 網站怎麼運作。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ AI 如何運作</p>
+      <h1>AI 網站如何運作</h1>
+      <p class="lede">重點不是「AI 很厲害」，而是它根據真實資料做事：你的客戶問了什麼、Google 上有人怎麼搜、訪客在看哪一頁。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {mechanisms.map((m) => (<div class="card"><h3>{m.title}</h3><p class="muted">{m.desc}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">完整流程</span>
+      <h2 class="section-title">從一個問題，到一篇上線的內容。</h2>
+      <ol class="flow" style="margin-top: 2rem;">
+        {CONTENT_FLOW.map((s) => <li>{s}</li>)}
+        <li>更新既有內容或產生下一篇內容</li>
+      </ol>
+      <p class="muted" style="margin-top: 1.5rem;">所有 AI 產出都會經過人工確認正確性與服務承諾，才會正式發布。不是讓 AI 大量亂寫文章。</p>
+      <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

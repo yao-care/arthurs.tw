@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "操作示範", path: "/demo/" }])];
+const demos = [
+  { title: "聊天更新網站", scene: "「請幫我新增一項 CNC 五軸加工服務，以下是產品資料與照片。」",
+    steps: ["AI 讀取你提供的資料", "AI 整理產品標題、介紹及圖片", "AI 修改網站內容", "你確認修改差異", "正式更新網站", "發現錯誤時恢復先前版本"] },
+  { title: "AI 發現搜尋機會", scene: "AI 發現「小量金屬加工」已有搜尋曝光，但網站沒有專門介紹這項服務。",
+    steps: ["顯示搜尋資料", "顯示 AI 的分析", "顯示建議新增的內容", "顯示產生的頁面或文章", "顯示發布後的觀察結果"] },
+  { title: "AI 自動寫文章", scene: "多位客戶詢問：網站做好後，為什麼還需要持續更新？",
+    steps: ["蒐集客戶問題", "比對網站現有內容", "找出內容缺口", "AI 建立文章架構與初稿", "人工檢查與補充", "發布並連結相關服務與 QA", "觀察搜尋與閱讀表現"] },
+  { title: "版本恢復", scene: "AI 修改後發現內容錯誤或版面不符合需求。",
+    steps: ["查看修改紀錄", "比較修改前後差異", "選擇先前正確版本", "恢復網站內容"] },
+];
+---
+<BaseLayout title="操作示範" description="四個實際操作情境：聊天更新網站、AI 發現搜尋機會、AI 自動寫文章、版本恢復。展示 AI 確實能更新網站，而且改錯了還能還原。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 操作示範</p>
+      <h1>操作示範</h1>
+      <p class="lede">下面用文字先把每個操作的情境與步驟講清楚。實際操作影片正在錄製中，會陸續放上來。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container stack" style="display: grid; gap: 1.5rem;">
+      {demos.map((d, i) => (
+        <div class="card">
+          <span class="num-badge">{i + 1}</span>
+          <h3>{d.title}</h3>
+          <p style="font-style: italic; color: var(--color-ink-soft);">情境：{d.scene}</p>
+          <ol class="flow" style="margin-top: 1rem;">
+            {d.steps.map((s) => <li>{s}</li>)}
+          </ol>
+          <p class="fs-xs muted" style="margin-top: 0.75rem;">操作影片：錄製中</p>
+        </div>
+      ))}
+      <p><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

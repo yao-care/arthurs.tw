@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+
+const updates = (await getCollection("updates")).sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+const badge = { published: ["badge-ok", "已發布"], wip: ["badge-wip", "進行中"], planned: ["badge-plan", "規劃中"] };
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網站更新紀錄", path: "/updates/" }])];
+---
+<BaseLayout title="網站更新紀錄" description="公開展示這個網站確實持續被改善，而不是上線後就停止更新。每筆紀錄包含更新原因、發現來源、AI 協助內容與人工確認。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 網站更新紀錄</p>
+      <h1>網站更新紀錄</h1>
+      <p class="lede">這個網站不是上線後就停住。每一次改動都公開記在這裡：為什麼改、根據什麼、AI 做了什麼、人工確認了什麼。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <div class="stack" style="--space: 1.5rem;">
+        {updates.map((u) => {
+          const [cls, label] = badge[u.data.status];
+          const rows = [
+            ["更新頁面", u.data.page], ["更新原因", u.data.reason], ["發現來源", u.data.source],
+            ["AI 協助", u.data.aiHelp], ["人工確認", u.data.humanReview], ["觀察目標", u.data.watch],
+          ].filter(([, v]) => v);
+          return (
+            <article class="card" style="margin-bottom: 1.5rem;">
+              <p style="margin: 0 0 0.4rem;"><span class={`badge ${cls}`}>{label}</span> <span class="fs-xs muted">{u.data.date}</span></p>
+              <h2 style="font-size: var(--text-lg); margin: 0 0 0.75rem;">{u.data.title}</h2>
+              <dl class="deflist">
+                {rows.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+              </dl>
+            </article>
+          );
+        })}
+      </div>
+      <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

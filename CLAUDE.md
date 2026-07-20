@@ -1,0 +1,57 @@
+# arthurs.tw — 維運手冊
+
+AI 網站銷售漏斗站：向傳統產業老闆介紹「一次 6,000 元、客戶自有、可用 AI 聊天更新」的建站服務。**網站本身即服務的活體示範**（用同一套方式建置、由 AI 持續協助更新內容）。
+
+- 正式站：https://arthurs.tw （GitHub Pages + 自訂根網域，`public/CNAME`）
+- Repo：`yao-care/arthurs.tw`（公開）
+- 部署：push `main` → `.github/workflows/deploy.yml` 自動 build＋部署 Pages。
+
+## 技術棧 / 常用指令
+Astro 6 + @astrojs/sitemap，純靜態，Node ≥ 22.12，pnpm。
+```bash
+pnpm install
+pnpm dev                # 本機開發 http://localhost:4321
+pnpm build              # 先跑設計守門，再 astro build（產 dist/）
+pnpm check:design       # 只跑設計規範守門
+```
+改動後務必 `pnpm build` 成功再 commit/push（CI 會再跑一次；green 才算數）。
+
+## 設計規範（守門：scripts/check-design.mjs，build 前自動跑，違規 fail）
+- **顏色**只在 `src/styles/variables.css` 定義：oklch 為準、hex 為 fallback；元件一律 `var(--color-*)`，不寫 hex/rgb。
+- **字級**一律 `--text-*` 階梯，**最小 18px**，內文不小於 `--text-base`；禁 px 硬編字級。
+- 禁 `!important`；禁外部 CDN（字型用系統堆疊）。
+- 例外：HTML 屬性無法用 var() 的顏色（如 `<meta theme-color>`）放 `src/lib/site.ts`（.ts 不受守門掃描）。
+- 品牌色：深藍青 primary（信任/可追蹤）＋暖琥珀 accent（人味）；佔位性質，要換色改 variables.css 的 oklch 與 hex 兩處。
+
+## 內容維護（最常見任務）
+內容與版型分離，內容在 `src/content/`（Content Collections，schema 在 `src/content.config.ts`）：
+
+| 集合 | 目錄 | 路由 | frontmatter 重點 |
+|------|------|------|------|
+| 常見問題 | `src/content/qa/<slug>.md` | `/qa/`、`/qa/<slug>/` | question, category, answer(50–100字), order, updated, related[] |
+| 文章 | `src/content/articles/<slug>.md` | `/articles/`、`/articles/<slug>/` | title, category, summary, order, created, updated, reason, sources, aiHelp, humanReview |
+| 更新紀錄 | `src/content/updates/<slug>.md` | `/updates/` | title, date, page, reason, source, aiHelp, humanReview, watch, status |
+| 案例 | `src/content/cases/`（目前案例牆改由 site.ts 的 CASES 驅動） | `/cases/` | — |
+
+- **新增一題 QA**：在 `src/content/qa/` 新增 `<slug>.md`，填齊 frontmatter；若要上首頁精選，於 `src/lib/site.ts` 的 `FEATURED_QA` 加一筆。
+- **新增一篇文章**：在 `src/content/articles/` 新增 `<slug>.md`。
+- **記一筆更新**：在 `src/content/updates/` 新增 `<date>-<slug>.md`（會顯示在 `/updates/` 與 content-lab）。
+
+## 文案原則（務必遵守）
+- **老闆語言**：首頁級頁面不出現 GitHub / repository / Pages / deploy / source code；改說「客戶自己持有的網站空間／帳號」。技術細節放 QA。
+- **誠實不灌水**：不保證 Google 排名、不保證被 AI 推薦、不保證訂單或固定時間成效；只承諾「持續依數據改善」。
+- **不捏造**客戶名稱、見證、數字、案例。`/cases/` 只放真實已上線作品（site.ts 的 CASES）。缺的證據（示範影片、成效數字）誠實標「錄製中／資料累積中」。
+- 去 AI 味：不用 emoji、不用「首先/其次/綜上所述」八股、不用浮誇形容詞；半形數字。
+
+## 單一真實來源
+- **事實與文案骨幹**：`src/lib/site.ts`（品牌、聯絡、導覽、五大定位、痛點、解法、方案、精選 QA、真實案例 CASES）。
+- **結構化資料**：`src/lib/seo.ts`（Organization / WebSite / Service / FAQPage / Breadcrumb / Article），由 `BaseLayout.astro` 與各頁輸出 JSON-LD。
+- **SEO/AEO/GEO**：`robots.txt.ts`（開放 AI 爬蟲＋sitemap）、`llms.txt.ts`（純文字摘要）、sitemap priority 差異化（astro.config.mjs）。
+
+## 待補（交接）
+- **聯絡管道**：`site.ts` 的 `SITE.email` / `SITE.line` 目前為空。填入後，`/website-check/` 表單會自動改用 mailto 送出、關於頁會顯示聯絡方式——這是讓整條「傳網址」漏斗真正收得到名單的關鍵。
+- **GA4**：設 repo 變數/建置環境變數 `PUBLIC_GA_ID=G-XXXX` 即開啟追蹤（`BaseLayout.astro` 已接）。
+- **GSC**：DNS 驗證 `sc-domain:arthurs.tw`，提交 sitemap。
+- **品牌色**：目前為深藍青＋暖琥珀佔位，用戶確認後可調 `variables.css`。
+- **每月顧問價格**：尚未定，QA 未寫死金額；定案後補 `/qa/is-consulting-required/` 與 pricing。
+- 第二階段內容：真實案例內頁、操作示範影片、法律頁（/privacy、/terms、/disclaimer）。

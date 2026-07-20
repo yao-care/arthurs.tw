@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, PLAN, OWNERSHIP, CTA } from "../../lib/site";
+import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
+const schemas = [
+  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與價格", path: "/pricing/" }]),
+  serviceSchema(),
+];
+---
+<BaseLayout title="方案與價格" description="一次 6,000 元建站，不按頁數計費。包含文案圖片整理、網站建置、手機平板電腦版面、自有網域綁定、Google Search Console 與 Analytics 設定、AI 更新方式與完整交接表。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與價格</p>
+      <h1>一次 {SITE.price} 元，不按傳統頁數計費。</h1>
+      <p class="lede">價格單純：一次建站費 {SITE.price} 元。網域費與你自己訂閱的 AI 另計，其餘沒有隱藏費用。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>方案包含</h3>
+          <ul class="check-list" style="margin-top: 0.75rem;">{PLAN.includes.map((x) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="stack" style="display: grid; gap: 1.5rem;">
+          <div class="card">
+            <h3>你需要提供</h3>
+            <ul class="check-list" style="margin-top: 0.75rem;">{PLAN.provide.map((x) => <li>{x}</li>)}</ul>
+          </div>
+          <div class="card">
+            <h3>費用另計</h3>
+            <ul class="x-list" style="margin-top: 0.75rem;">{PLAN.extra.map((x) => <li>{x}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>適用範圍</h3>
+          <ul class="pill-list" style="margin-top: 0.75rem;">{PLAN.fits.map((x) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h3>不包含或需另外評估</h3>
+          <ul class="x-list" style="margin-top: 0.75rem;">{PLAN.notFits.map((x) => <li>{x}</li>)}</ul>
+          <p class="fs-xs muted" style="margin-top: 0.75rem;">這類功能通常需要額外系統與維護，會另外評估，不在 {SITE.price} 元方案內。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-deep">
+    <div class="container text-center">
+      <h2 class="section-title mx-auto">網站做好後，完整屬於你。</h2>
+      <ul class="pill-list" style="justify-content: center; margin-top: 1rem;">
+        {OWNERSHIP.map((o) => <li style="background: var(--color-white-a12); border-color: var(--color-white-a20); color: var(--color-text-on-dark);">{o}</li>)}
+      </ul>
+      <p style="margin-top: 1.75rem;"><a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, SOLUTIONS, STEPS, CTA } from "../../lib/site";
+import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
+const schemas = [
+  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "服務方式", path: "/service/" }]),
+  serviceSchema(),
+];
+const services = [
+  { title: "AI 網站建置", desc: "把你現有的公司資料，整理成一個客戶自有、可用 AI 聊天更新的新網站。一次 6,000 元，不按頁數計費。", href: "/pricing/" },
+  { title: "內容持續成長", desc: "AI 依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章與 QA，人工確認後發布。", href: "/content-lab/" },
+  { title: "顧問服務", desc: "不懂 AI 也沒關係。可另外選擇每月顧問，由我們代為分析資料、規劃並更新內容。", href: "/qa/is-consulting-required/" },
+];
+---
+<BaseLayout title="服務方式" description="Arthurs 提供三種服務：AI 網站建置、內容持續成長、每月顧問。把難維護的舊網站換成客戶自有、可用 AI 聊天更新的新網站。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 服務方式</p>
+      <h1>服務方式</h1>
+      <p class="lede">我們做的不是「再放一個不會動的網站」，而是一個能被 AI 持續協助管理、而且完全屬於你的網站。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {services.map((s) => (
+          <a href={s.href} class="card card-link">
+            <h3>{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">網站能為你做的四件事</span>
+      <h2 class="section-title">不只做出來，還要持續改善。</h2>
+      <div class="grid grid-2" style="margin-top: 2rem;">
+        {SOLUTIONS.map((s, i) => (
+          <div class="card"><span class="num-badge">{i + 1}</span><h3>{s.title}</h3><p class="muted">{s.desc}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">三步驟</span>
+      <h2 class="section-title">從提供資料到完整交接。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {STEPS.map((s, i) => (
+          <div class="card"><span class="num-badge">{i + 1}</span><h3>{s.title}</h3><p class="muted">{s.desc}</p></div>
+        ))}
+      </div>
+      <p style="margin-top: 1.5rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+    </div>
+  </section>
+</BaseLayout>

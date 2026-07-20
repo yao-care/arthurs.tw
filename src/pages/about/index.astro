@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "關於我們", path: "/about/" }])];
+const contactLines = [
+  SITE.email ? { label: "Email", value: SITE.email, href: `mailto:${SITE.email}` } : null,
+  SITE.line ? { label: "LINE", value: SITE.line, href: SITE.line } : null,
+].filter(Boolean);
+---
+<BaseLayout title="關於我們" description="我們相信「大家都可以享受 AI 紅利」。把難以維護的舊網站，換成客戶自有、可用 AI 聊天更新的新網站；看不懂也沒關係，我們可以幫你搞定。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 關於我們</p>
+      <h1>大家都可以享受 AI 紅利。</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose stack">
+      <p>
+        AI 已經改變了網站的做法，但真正需要幫忙的傳統產業老闆，往往被複雜的工具與後台擋在門外。我們想做的事很簡單：讓每一位老闆，不論懂不懂 AI，都能擁有一個會持續進步的網站。
+      </p>
+      <p>
+        所以我們把網站做成「可以和 AI 聊天更新」的樣子。你會用，就自己更新；不會用也沒關係——把需求告訴我們，付一筆顧問費，我們幫你搞定。重點是網站一直往前走，而不是做完就停在那裡。
+      </p>
+      <p>
+        還有一件我們很在意的事：<strong>網站是你的。</strong>{SITE.ownerNote}未來就算不再和我們合作，網站仍然可以繼續使用，也可以交給別人接手。我們不把你留在系統裡。
+      </p>
+      <p>
+        這個網站本身，就是這套做法的示範。它用同一種方式建置，也由 AI 持續協助更新——你可以到<a href="/content-lab/">AI 自動內容</a>與<a href="/updates/">更新紀錄</a>看它怎麼長大。
+      </p>
+
+      <div id="contact" class="card" style="margin-top: 2rem;">
+        <h2 style="font-size: var(--text-lg); margin-top: 0;">聯絡我們</h2>
+        {contactLines.length > 0 ? (
+          <ul class="footer-links" style="margin-top: 0.75rem;">
+            {contactLines.map((c) => <li><strong>{c!.label}：</strong><a href={c!.href}>{c!.value}</a></li>)}
+          </ul>
+        ) : (
+          <p class="muted" style="margin-top: 0.75rem;">聯絡方式設定中。最快的方式是直接<a href="/website-check/">把現在的網站網址傳給我們</a>，我們會盡快回覆。</p>
+        )}
+        <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

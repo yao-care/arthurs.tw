@@ -1,0 +1,88 @@
+/* 設計 token（全站唯一色彩/字級來源）。
+ * 規範（團隊網站共用，同 dreamer868/folk.tw/yao.care/olderkkk）：
+ * - 顏色一律在此定義：oklch 為準、hex 為 fallback；元件只准 var(--…)，不寫 hex/rgb。
+ * - 字級一律 --text-* 階梯（最小 18px；內文不得小於 --text-base），禁 px 硬編字級、禁 important 宣告。
+ * - 字型系統堆疊，禁外部 CDN。
+ * - RWD mobile-first，斷點只用 min-width（sm 640 / md 768 / lg 1024 / xl 1280）。
+ * 守門：scripts/check-design.mjs（pnpm build 自動先跑，違規直接 fail）。
+ *
+ * 品牌色（arthurs.tw）：深藍青 primary＝信任/可追蹤/技術；暖琥珀 accent＝人味（Human-Owned）。
+ * 佔位性質，用戶要換色時改此檔 oklch 與 hex 兩處即可。 */
+
+:root {
+  /* ── 色彩（hex fallback；下方 @supports 區塊以 oklch 覆寫） ── */
+  --color-primary: #1c5b7d;       /* 品牌主色：深藍青 */
+  --color-primary-dark: #164a66;  /* 主色深：hover/深區塊 */
+  --color-brand-deep: #10323f;    /* 最深：深色區塊底 */
+  --color-accent: #c67d33;        /* 強調色：暖琥珀 */
+  --color-accent-dark: #a8681f;   /* 強調 hover */
+  --color-ok: #2f8256;            /* 成功/已發布 綠 */
+
+  --color-bg-light: #f5f7f8;      /* 冷灰白：一般區塊底 */
+  --color-bg-soft: #eef2f4;       /* 稍深卡片/交錯區塊底 */
+  --color-white: #ffffff;
+  --color-text: #17242c;          /* 主文字：暖黑 */
+  --color-ink-soft: #4b5a63;      /* 次要文字 */
+  --color-ink-muted: #7c8992;     /* 註記/弱化文字 */
+  --color-line: #d8dfe3;          /* 邊線/分隔 */
+  --color-text-on-dark: #e9f1f4;  /* 深色區塊上的淺色文字 */
+
+  /* ── 透明度變體與陰影（元件內禁 rgba/hex，一律引用這些） ── */
+  --color-primary-a10: rgba(28, 91, 125, 0.10);
+  --color-primary-a08: rgba(28, 91, 125, 0.08);
+  --color-accent-a12: rgba(198, 125, 51, 0.12);
+  --color-white-a12: rgba(255, 255, 255, 0.12);
+  --color-white-a20: rgba(255, 255, 255, 0.20);
+  --scrim-40: rgba(0, 0, 0, 0.40);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.12);
+  --shadow-float: 0 6px 20px rgba(0, 0, 0, 0.18);
+
+  /* ── 字級階梯（rem；最小 18px；--text-base 為內文下限）——全站鎖死，勿改小 ── */
+  --text-xs: 1.125rem;   /* 18px 標籤/徽章/免責註記 */
+  --text-sm: 1.25rem;    /* 20px 導覽/輔助資訊 */
+  --text-base: 1.375rem; /* 22px 內文 */
+  --text-lg: 1.625rem;   /* 26px 小標/卡片標題 */
+  --text-xl: 2rem;       /* 32px 段落標題 */
+  --text-2xl: clamp(2rem, 1.5rem + 2vw, 2.75rem);   /* 32→44px 頁面主標 */
+  --text-3xl: clamp(2.5rem, 1.8rem + 3.2vw, 4rem);  /* 40→64px Hero 大字 */
+
+  /* ── 字型（系統堆疊，不載外部字型） ── */
+  --font-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+
+  /* ── 版面 ── */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --maxw: 72rem;
+  --maxw-prose: 46rem;
+}
+
+@supports (color: oklch(0.5 0.1 250)) {
+  :root {
+    --color-primary: oklch(0.46 0.085 235);
+    --color-primary-dark: oklch(0.39 0.078 235);
+    --color-brand-deep: oklch(0.29 0.055 232);
+    --color-accent: oklch(0.68 0.12 62);
+    --color-accent-dark: oklch(0.59 0.115 58);
+    --color-ok: oklch(0.56 0.11 152);
+
+    --color-bg-light: oklch(0.972 0.004 220);
+    --color-bg-soft: oklch(0.95 0.007 220);
+    --color-white: oklch(1 0 0);
+    --color-text: oklch(0.27 0.02 230);
+    --color-ink-soft: oklch(0.46 0.018 230);
+    --color-ink-muted: oklch(0.62 0.013 228);
+    --color-line: oklch(0.9 0.007 225);
+    --color-text-on-dark: oklch(0.95 0.012 220);
+
+    --color-primary-a10: oklch(0.46 0.085 235 / 0.10);
+    --color-primary-a08: oklch(0.46 0.085 235 / 0.08);
+    --color-accent-a12: oklch(0.68 0.12 62 / 0.12);
+    --color-white-a12: oklch(1 0 0 / 0.12);
+    --color-white-a20: oklch(1 0 0 / 0.20);
+    --scrim-40: oklch(0 0 0 / 0.40);
+    --shadow-card: 0 2px 12px oklch(0 0 0 / 0.07);
+    --shadow-card-hover: 0 10px 28px oklch(0 0 0 / 0.12);
+    --shadow-float: 0 6px 20px oklch(0 0 0 / 0.18);
+  }
+}
