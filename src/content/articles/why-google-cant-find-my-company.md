@@ -10,6 +10,7 @@ sources: "客戶提問、網站 QA 缺口、搜尋字詞"
 aiHelp: "整理常見情境、建立文章架構、產生初稿"
 humanReview: "已檢查技術內容、價格範圍及服務承諾"
 related: []
+relatedQa: ["can-google-ranking-be-guaranteed"]
 ---
 
 ## 直接答案

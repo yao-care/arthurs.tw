@@ -5,6 +5,7 @@ answer: "完全是你的。登入帳號是你的、網址是你的、網站的�
 order: 2
 updated: "2026-07-20"
 related: ["why-no-hosting-maintenance-fee", "what-does-6000-include", "is-consulting-required"]
+relatedArticles: ["who-owns-the-website-data"]
 ---
 
 ## 詳細說明

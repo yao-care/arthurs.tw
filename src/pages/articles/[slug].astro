@@ -20,6 +20,11 @@ const meta = [
   ["人工確認", d.humanReview],
 ].filter(([, v]) => v);
 
+const allQa = await getCollection("qa");
+const relatedQa = (d.relatedQa ?? [])
+  .map((slug) => allQa.find((q) => q.id === slug))
+  .filter(Boolean);
+
 const schemas = [
   breadcrumbSchema([
     { name: "首頁", path: "/" },
@@ -48,6 +53,14 @@ const schemas = [
           <dl class="deflist" style="margin-top: 0.75rem;">
             {meta.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
           </dl>
+        </div>
+      )}
+      {relatedQa.length > 0 && (
+        <div style="margin-top: 2rem;">
+          <h2 style="font-size: var(--text-lg);">相關常見問題</h2>
+          <ul class="footer-links" style="margin-top: 0.75rem;">
+            {relatedQa.map((q) => <li><a href={`/qa/${q!.id}/`}>{q!.data.question}</a></li>)}
+          </ul>
         </div>
       )}
       <p style="margin-top: 2rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>

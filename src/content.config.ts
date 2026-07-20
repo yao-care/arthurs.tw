@@ -10,7 +10,8 @@ const qa = defineCollection({
     answer: z.string(),
     order: z.number().default(100),
     updated: z.string().optional(),
-    related: z.array(z.string()).default([]),
+    related: z.array(z.string()).default([]),          // 同集合（QA↔QA）
+    relatedArticles: z.array(z.string()).default([]),  // 跨集合：延伸閱讀文章 slug
   }),
 });
 
@@ -28,7 +29,8 @@ const articles = defineCollection({
     sources: z.string().optional(),
     aiHelp: z.string().optional(),
     humanReview: z.string().optional(),
-    related: z.array(z.string()).default([]),
+    related: z.array(z.string()).default([]),      // 同集合（文章↔文章）
+    relatedQa: z.array(z.string()).default([]),    // 跨集合：相關常見問題 slug
   }),
 });
 

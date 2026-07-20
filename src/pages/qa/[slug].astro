@@ -16,6 +16,10 @@ const all = await getCollection("qa");
 const related = (d.related ?? [])
   .map((slug) => all.find((q) => q.id === slug))
   .filter(Boolean);
+const allArticles = await getCollection("articles");
+const relatedArticles = (d.relatedArticles ?? [])
+  .map((slug) => allArticles.find((a) => a.id === slug))
+  .filter(Boolean);
 
 const schemas = [
   breadcrumbSchema([
@@ -42,6 +46,14 @@ const schemas = [
           <h2 style="font-size: var(--text-lg);">相關問題</h2>
           <ul class="footer-links" style="margin-top: 0.75rem;">
             {related.map((r) => <li><a href={`/qa/${r!.id}/`}>{r!.data.question}</a></li>)}
+          </ul>
+        </div>
+      )}
+      {relatedArticles.length > 0 && (
+        <div style="margin-top: 2rem;">
+          <h2 style="font-size: var(--text-lg);">延伸閱讀</h2>
+          <ul class="footer-links" style="margin-top: 0.75rem;">
+            {relatedArticles.map((a) => <li><a href={`/articles/${a!.id}/`}>{a!.data.title}</a></li>)}
           </ul>
         </div>
       )}

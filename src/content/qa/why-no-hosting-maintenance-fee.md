@@ -5,6 +5,7 @@ answer: "因為整個網站是建在你自己持有的帳號和你自己的網�
 order: 1
 updated: "2026-07-20"
 related: ["what-does-6000-include", "who-owns-the-website"]
+relatedArticles: ["why-annual-hosting-fee"]
 ---
 
 ## 詳細說明
