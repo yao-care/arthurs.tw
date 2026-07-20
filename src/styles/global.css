@@ -103,6 +103,9 @@ strong { font-weight: 700; }
 .hero-acronym b { flex: none; min-width: 1.1em; color: var(--color-accent); font-weight: 800; font-size: var(--text-xl); }
 .hero-acronym .ha-term { color: var(--color-white); font-weight: 700; }
 .hero-acronym .ha-cn { color: var(--color-text-on-dark); }
+.hero-acronym li.ha-tail { gap: 0; }
+.hero-acronym li.ha-tail b { color: var(--color-text-on-dark); opacity: 0.5; }
+.hero .hero-tail { font-size: var(--text-base); color: var(--color-text-on-dark); margin: 0.75rem 0 1.75rem; }
 
 /* ── 五大定位大字揭曉 ── */
 .brand-word {

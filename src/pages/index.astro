@@ -25,10 +25,13 @@ const caseWall = CASES.slice(0, 8);
     <div class="container">
       <h1 class="hero-brand">Arthurs</h1>
       <ul class="hero-acronym">
-        {BRAND_ACRONYM.letters.filter((l) => l.label).map((l) => (
-          <li><b>{l.ch}</b><span class="ha-term">{l.label}</span><span class="ha-cn">{l.note}</span></li>
+        {BRAND_ACRONYM.letters.map((l) => (
+          l.label
+            ? <li><b>{l.ch}</b><span class="ha-term">{l.label}</span><span class="ha-cn">{l.note}</span></li>
+            : <li class="ha-tail"><b>{l.ch}</b></li>
         ))}
       </ul>
+      <p class="hero-tail">{BRAND_ACRONYM.tail}</p>
       <div class="btn-row">
         <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>
         <a href={CTA.secondary.href} class="btn btn-secondary btn-lg">{CTA.secondary.label}</a>
