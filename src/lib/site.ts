@@ -10,10 +10,15 @@ export const SITE = {
   // 對外聯絡（TODO：待用戶提供正式 Email / LINE 後補上）
   email: "",       // e.g. hello@arthurs.tw
   line: "",        // e.g. https://line.me/R/ti/p/@xxxx
-  price: 6000,     // 一次建站費（NT$）
+  price: 6000,     // 一次性顧問費（NT$）：含用 AI 建站＋交接＋帶你上手；沒有月費
+  priceModel: "一次性顧問費",
   ownerNote: "帳號、網址、網站資料都屬於你自己。",
   themeColor: "#10323f", // 供 <meta theme-color>；HTML 屬性不能用 var()，故置於 .ts（不受設計守門掃描）
 };
+
+// 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。
+export const POSITIONING =
+  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——付一次 6,000 元顧問費，我用 AI 幫你把網站建好、帶你上手。";
 
 // 主選單（桌面）。href 指向 MVP 已建立的頁面。
 export const NAV = [
@@ -65,17 +70,17 @@ export const STEPS = [
   { title: "完整交接給你", desc: "你自己的帳號、你自己的網域、完整網站資料、AI 更新操作方式、搜尋與流量資料權限、完整交接表。完成後可以自己管理，需要協助時再找我們。" },
 ];
 
-// 6000 方案內容
+// 6,000 元顧問服務內容（一次性；這筆顧問費幫你把整件事搞定）
 export const PLAN = {
   includes: [
-    "客戶提供之文案與圖片整理",
-    "公司形象與服務網站建置",
+    "把你手上的文案與圖片整理成網站內容",
+    "用 AI 幫你把公司形象與服務網站建好",
     "產品與案例內容整理",
     "手機、平板及電腦版面",
-    "客戶自有網域綁定",
-    "Google Search Console 設定",
-    "Google Analytics 設定",
-    "AI 更新使用方式",
+    "綁定你自己的網域",
+    "設定 Google Search Console",
+    "設定 Google Analytics",
+    "手把手教你用 AI 更新網站（帶你上手）",
     "網站正式上線",
     "完整交接表",
   ],
@@ -88,9 +93,8 @@ export const PLAN = {
   extra: [
     "網域註冊費",
     "網域每年續約費",
-    "客戶自行訂閱的 AI 服務",
+    "你自己訂閱的 AI 服務（ChatGPT/Claude 等）",
     "額外客製功能",
-    "顧問服務",
   ],
   fits: [
     "公司形象網站", "產品服務介紹", "製造能力與設備介紹",
@@ -107,18 +111,17 @@ export const OWNERSHIP = ["帳號是你的", "網址是你的", "網站資料是
 
 // 首頁精選 QA（連到獨立 QA 頁）
 export const FEATURED_QA = [
-  { q: "一次 6,000 元包含什麼？", slug: "what-does-6000-include" },
+  { q: "6,000 元顧問服務包含什麼？", slug: "what-does-6000-include" },
   { q: "為什麼不用支付主機維護費？", slug: "why-no-hosting-maintenance-fee" },
-  { q: "完全不懂 AI 也能使用嗎？", slug: "can-beginners-use-ai" },
+  { q: "完全不懂 AI 也能用嗎？", slug: "can-beginners-use-ai" },
   { q: "AI 可以自己新增產品和文章嗎？", slug: "can-ai-write-articles" },
   { q: "AI 如何決定要更新什麼內容？", slug: "how-does-ai-choose-content" },
   { q: "AI 修改錯誤怎麼辦？", slug: "what-if-ai-makes-a-mistake" },
-  { q: "網站真的全部屬於客戶嗎？", slug: "who-owns-the-website" },
+  { q: "網站真的全部屬於我嗎？", slug: "who-owns-the-website" },
   { q: "能保證 Google 排名嗎？", slug: "can-google-ranking-be-guaranteed" },
   { q: "能保證 ChatGPT 推薦嗎？", slug: "can-chatgpt-recommendation-be-guaranteed" },
-  { q: "完工後一定要買顧問服務嗎？", slug: "is-consulting-required" },
-  { q: "網站頁數或產品數量有限制嗎？", slug: "what-does-6000-include" },
-  { q: "哪些網站不適合 6,000 元方案？", slug: "what-functions-are-not-included" },
+  { q: "付完 6,000 之後，還要一直付錢嗎？", slug: "is-consulting-required" },
+  { q: "哪些網站不適合這個服務？", slug: "what-functions-are-not-included" },
 ];
 
 // AI 自動內容運作流程（首頁 + content-lab 共用）

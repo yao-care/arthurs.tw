@@ -35,16 +35,17 @@ export function serviceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "AI 網站建置",
+    name: "AI 網站顧問服務",
+    serviceType: "顧問服務",
     provider: { "@id": `${ORIGIN}/#organization` },
     areaServed: "TW",
     description:
-      "把傳統產業既有資料整理成一個客戶自有、可用 AI 聊天更新、並串接 Google Search Console 與 Analytics 的網站。",
+      "一次性顧問服務：替看不懂 AI 的傳統產業老闆，用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。",
     offers: {
       "@type": "Offer",
       price: String(SITE.price),
       priceCurrency: "TWD",
-      description: "一次建站費，不按頁數計費；網域續約與 AI 訂閱另計。",
+      description: "一次性顧問費，含用 AI 建站、交接與帶你上手；沒有月費，網域續約與 AI 訂閱另計。",
     },
   };
 }

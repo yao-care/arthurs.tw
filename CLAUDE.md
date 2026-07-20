@@ -1,6 +1,6 @@
 # arthurs.tw — 維運手冊
 
-AI 網站銷售漏斗站：向傳統產業老闆介紹「一次 6,000 元、客戶自有、可用 AI 聊天更新」的建站服務。**網站本身即服務的活體示範**（用同一套方式建置、由 AI 持續協助更新內容）。
+AI 網站銷售漏斗站。**核心商品＝一次性 6,000 元顧問服務**（含用 AI 建站＋交接＋帶你上手；**沒有月費**）。定位：「大家都能享受 AI 紅利；你看不懂、沒空管網站沒關係，付一次 6,000 顧問費我幫你搞定」——**不是**便宜的按頁建站/網頁外包，別再把 6,000 寫成「建站費/不按頁數計費」。**網站本身即服務的活體示範**（用同一套方式建置、由 AI 持續協助更新內容）。
 
 - 正式站：https://arthurs.tw （GitHub Pages + 自訂根網域，`public/CNAME`）
 - Repo：`yao-care/arthurs.tw`（公開）
@@ -53,5 +53,5 @@ pnpm check:design       # 只跑設計規範守門
 - **GA4**：設 repo 變數/建置環境變數 `PUBLIC_GA_ID=G-XXXX` 即開啟追蹤（`BaseLayout.astro` 已接）。
 - **GSC**：DNS 驗證 `sc-domain:arthurs.tw`，提交 sitemap。
 - **品牌色**：目前為深藍青＋暖琥珀佔位，用戶確認後可調 `variables.css`。
-- **每月顧問價格**：尚未定，QA 未寫死金額；定案後補 `/qa/is-consulting-required/` 與 pricing。
+- **收費模型（已定案 2026-07-20）**：6,000＝一次性顧問費，無月費。若日後要加「後續協助/月費」層級，需回頭調 pricing、service 與 is-consulting-required / can-beginners-use-ai QA（目前這些都寫「不強制、日後再另談、不報月費數字」）。
 - 第二階段內容：真實案例內頁、操作示範影片、法律頁（/privacy、/terms、/disclaimer）。

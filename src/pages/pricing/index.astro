@@ -7,19 +7,19 @@ const schemas = [
   serviceSchema(),
 ];
 ---
-<BaseLayout title="方案與價格" description="一次 6,000 元建站，不按頁數計費。包含文案圖片整理、網站建置、手機平板電腦版面、自有網域綁定、Google Search Console 與 Analytics 設定、AI 更新方式與完整交接表。" schemas={schemas}>
+<BaseLayout title="方案與價格" description="6,000 元一次性顧問服務：看不懂 AI 也沒關係，我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。網域與 AI 訂閱另計。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與價格</p>
-      <h1>一次 {SITE.price} 元，不按傳統頁數計費。</h1>
-      <p class="lede">價格單純：一次建站費 {SITE.price} 元。網域費與你自己訂閱的 AI 另計，其餘沒有隱藏費用。</p>
+      <h1>6,000 元顧問服務，一次帶你上手。</h1>
+      <p class="lede">這不是按頁計費的網頁外包，也不是月費。付一次 {SITE.price} 元顧問費，我用 AI 幫你把網站建好、交接、教你之後自己用——讓看不懂的你，也享受得到 AI 紅利。網域費與你自己訂閱的 AI 另計，沒有其他隱藏費用。</p>
     </div>
   </section>
   <section class="section">
     <div class="container">
       <div class="grid grid-2">
         <div class="card">
-          <h3>方案包含</h3>
+          <h3>這筆顧問費幫你搞定的事</h3>
           <ul class="check-list" style="margin-top: 0.75rem;">{PLAN.includes.map((x) => <li>{x}</li>)}</ul>
         </div>
         <div class="stack" style="display: grid; gap: 1.5rem;">

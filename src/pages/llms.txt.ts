@@ -7,10 +7,10 @@ export const GET: APIRoute = ({ site }) => {
   const abs = (p: string) => new URL(p, origin).href;
   const body = `# ${SITE.name}（${SITE.domain}）
 
-> ${SITE.tagline}。為傳統產業提供一次 ${SITE.price} 元、客戶自有、可用 AI 聊天更新的網站建置服務，並串接 Google Search Console 與 Analytics。
+> ${SITE.tagline}。核心是一筆 ${SITE.price} 元的一次性顧問服務：替看不懂 AI 的傳統產業老闆，用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
 
 ## 這是什麼服務
-把難以維護的舊網站，換成一個客戶自己擁有、可以和 AI（ChatGPT、Claude 等）聊天更新的新網站。AI 會依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章草稿，經人工確認後發布。
+核心商品是「${SITE.price} 元一次性顧問服務」，不是便宜的按頁建站。理念：大家都能享受 AI 紅利，但很多老闆看不懂、沒空——付一次 ${SITE.price} 元顧問費，我用 AI 幫你把難維護的舊網站換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 更新；沒有月費。AI 會依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章草稿，經人工確認後發布。
 
 ## 五個定位
 - AI-Ready：能交給 AI 協助維護
@@ -19,8 +19,8 @@ export const GET: APIRoute = ({ site }) => {
 - Rankable：為 Google 搜尋、AEO、GEO 持續改善
 - Human-Owned：帳號、網址、網站資料都屬於客戶
 
-## 方案（一次 ${SITE.price} 元，不按頁數計費）
-包含：${PLAN.includes.join("、")}。
+## 顧問服務（一次性 ${SITE.price} 元；沒有月費）
+這筆顧問費幫你搞定：${PLAN.includes.join("、")}。
 費用另計：${PLAN.extra.join("、")}。
 不包含或需另外評估：${PLAN.notFits.join("、")}。
 

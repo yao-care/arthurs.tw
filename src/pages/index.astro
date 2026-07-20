@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import {
   SITE, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
-  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES,
+  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
 
@@ -17,7 +17,7 @@ const caseWall = CASES.slice(0, 8);
 ---
 <BaseLayout
   title={SITE.name}
-  description="網站做完就放著？一次 6,000 元，把難以維護的舊網站換成自己擁有、可以和 AI 聊天更新的新網站。串接 Google 搜尋與流量資料，AI 持續找出問題、改善內容。"
+  description="網站做完就放著？付一次 6,000 元顧問費，我用 AI 幫你把舊網站換成自己擁有、能聊天更新的新網站，並帶你上手。看不懂沒關係——大家都能享受 AI 紅利。"
   schemas={[serviceSchema(), faq]}
 >
   {/* 1. Hero */}
@@ -26,7 +26,7 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">傳統產業的 AI 網站</span>
       <h1>網站做完就放著？<br />讓 AI 幫你更新、分析，持續改善。</h1>
       <p class="sub">
-        一次 {SITE.price} 元，把難以維護的舊網站，換成自己擁有、可以和 AI 聊天更新的新網站。
+        看不懂 AI、沒空管網站？付一次 {SITE.price} 元顧問費，我用 AI 幫你把難維護的舊網站，換成自己擁有、能聊天更新的新網站，並帶你上手。
       </p>
       <div class="btn-row">
         <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>
@@ -161,11 +161,12 @@ const caseWall = CASES.slice(0, 8);
   {/* 8. 6000 方案 */}
   <section class="section">
     <div class="container">
-      <span class="eyebrow">方案與價格</span>
-      <h2 class="section-title">一次 {SITE.price} 元，不按傳統頁數計費。</h2>
+      <span class="eyebrow">6,000 元顧問服務</span>
+      <h2 class="section-title">看不懂沒關係，一次 {SITE.price} 元，我幫你把 AI 網站搞定。</h2>
+      <p class="lede">{POSITIONING}</p>
       <div class="grid grid-2" style="margin-top: 2rem;">
         <div class="card">
-          <h3>方案包含</h3>
+          <h3>這筆顧問費幫你搞定的事</h3>
           <ul class="check-list" style="margin-top: 0.75rem;">
             {PLAN.includes.map((x) => <li>{x}</li>)}
           </ul>
@@ -180,7 +181,7 @@ const caseWall = CASES.slice(0, 8);
           </p>
         </div>
       </div>
-      <p style="margin-top: 1.5rem;"><a href="/pricing/" class="btn btn-secondary">看完整方案內容</a></p>
+      <p style="margin-top: 1.5rem;"><a href="/pricing/" class="btn btn-secondary">看顧問服務內容</a></p>
     </div>
   </section>
 

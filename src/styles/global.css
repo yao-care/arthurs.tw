@@ -52,7 +52,7 @@ strong { font-weight: 700; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
   font-size: var(--text-base); font-weight: 700; line-height: 1.2;
-  padding: 0.85em 1.5em; border-radius: var(--radius-sm);
+  padding: 0.85em 1.5em; border-radius: 0;
   border: 2px solid transparent; cursor: pointer; text-decoration: none;
   transition: background-color 0.15s, border-color 0.15s, transform 0.05s;
 }
