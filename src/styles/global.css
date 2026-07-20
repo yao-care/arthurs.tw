@@ -100,12 +100,9 @@ strong { font-weight: 700; }
   display: grid; gap: 0.6rem; max-width: var(--maxw-prose);
 }
 .hero-acronym li { display: flex; align-items: baseline; gap: 0.75rem; font-size: var(--text-lg); }
-.hero-acronym b { flex: none; min-width: 1.1em; color: var(--color-accent); font-weight: 800; font-size: var(--text-xl); }
+.hero-acronym b { flex: none; min-width: 1.8em; color: var(--color-accent); font-weight: 800; font-size: var(--text-xl); letter-spacing: 0.05em; }
 .hero-acronym .ha-term { color: var(--color-white); font-weight: 700; }
 .hero-acronym .ha-cn { color: var(--color-text-on-dark); }
-.hero-acronym li.ha-tail { gap: 0; }
-.hero-acronym li.ha-tail b { color: var(--color-text-on-dark); opacity: 0.5; }
-.hero .hero-tail { font-size: var(--text-base); color: var(--color-text-on-dark); margin: 0.75rem 0 1.75rem; }
 
 /* ── 五大定位大字揭曉 ── */
 .brand-word {

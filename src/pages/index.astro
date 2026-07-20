@@ -25,13 +25,10 @@ const caseWall = CASES.slice(0, 8);
     <div class="container">
       <h1 class="hero-brand">Arthurs</h1>
       <ul class="hero-acronym">
-        {BRAND_ACRONYM.letters.map((l) => (
-          l.label
-            ? <li><b>{l.ch}</b><span class="ha-term">{l.label}</span><span class="ha-cn">{l.note}</span></li>
-            : <li class="ha-tail"><b>{l.ch}</b></li>
+        {BRAND_ACRONYM.parts.map((p) => (
+          <li><b>{p.chars}</b><span class="ha-term">{p.label}</span><span class="ha-cn">{p.note}</span></li>
         ))}
       </ul>
-      <p class="hero-tail">{BRAND_ACRONYM.tail}</p>
       <div class="btn-row">
         <a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a>
         <a href={CTA.secondary.href} class="btn btn-secondary btn-lg">{CTA.secondary.label}</a>
@@ -81,11 +78,9 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">為什麼叫 Arthurs</span>
       <h2 class="section-title">這個名字不是隨便取的，<br />是我們對每個網站的五個承諾。</h2>
       <p class="brand-word" aria-label="Arthurs">
-        {BRAND_ACRONYM.letters.map((l) => (
-          <span class={l.label ? "brand-word-live" : "brand-word-tail"}>{l.ch}</span>
-        ))}
+        {PILLARS.map((p) => <span class="brand-word-live">{p.letter}</span>)}<span class="brand-word-tail">s</span>
       </p>
-      <p class="lede" style="margin-top: 1rem;">{BRAND_ACRONYM.tail}</p>
+      <p class="lede" style="margin-top: 1rem;">A·R 來自 AI-Ready，最後的 R 是 Rankable，中間 T·H·U 各一個；結尾的 s 是複數。</p>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {PILLARS.map((p) => (
           <div class="card">

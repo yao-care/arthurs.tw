@@ -37,31 +37,28 @@ export const CTA = {
   secondary: { label: "看 AI 怎麼更新網站", href: "/how-it-works/" },
 };
 
-// 五大定位支柱 —— 品牌名 Arthurs 就是這五個承諾的字首（A·R·T·H·U），
-// 排列順序刻意對齊網域拼字 a-r-t-h-u-r-s（末尾 r·s 收成「你自己的那一個網站」）。
-// letter 供首頁揭曉區塊逐字點亮用。
+// 五大定位支柱 —— 品牌名 Arthurs 拆字：AI-Ready 一字給了 A＋R（AI + Ready），
+// Trackable→T、Human-Owned→H、Updatable→U，Rankable 給尾巴的 R，合起來拼成 ARTHUR；
+// 結尾 s 是複數，不列為承諾。順序即拼字順序；letter 供揭曉區塊點亮（AI-Ready 佔「AR」兩字母）。
 export const PILLARS = [
-  { key: "ai-ready", letter: "A", title: "AI-Ready 可交給 AI 維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。" },
-  { key: "rankable", letter: "R", title: "Rankable 持續被找到", desc: "為 Google 搜尋與 AI 問答（AEO、GEO）持續改善內容，讓客戶更容易找到你。" },
+  { key: "ai-ready", letter: "AR", title: "AI-Ready 可交給 AI 維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。" },
   { key: "trackable", letter: "T", title: "Trackable 資料看得到", desc: "串接 Google Search Console 與 Analytics，知道客戶怎麼找到你、看了什麼。" },
   { key: "human-owned", letter: "H", title: "Human-Owned 網站是你的", desc: "帳號、網址、網站資料全部屬於你，隨時可以自己管理或交給別人接手。" },
   { key: "updatable", letter: "U", title: "Updatable 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。" },
+  { key: "rankable", letter: "R", title: "Rankable 持續被找到", desc: "為 Google 搜尋與 AI 問答（AEO、GEO）持續改善內容，讓客戶更容易找到你。" },
 ];
 
-// 品牌名逐字對照（首頁揭曉區塊、about 頁共用）。
-// A·R·T·H·U 是五大承諾的字首；末段 R·S 不硬湊功能，收束成「你自己的那一個網站」。
+// 品牌名拆字對照（hero 與揭曉區塊共用）。chars = 該承諾在 Arthurs 拼字裡佔的字母：
+// AI-Ready 佔「AR」、Rankable 佔最後的「R」，串起來＝ARTHUR；結尾 s＝複數，不列為承諾。
 export const BRAND_ACRONYM = {
   word: "Arthurs",
-  letters: [
-    { ch: "A", label: "AI-Ready", note: "能交給 ChatGPT、Claude 等 AI 協助維護" },
-    { ch: "R", label: "Rankable", note: "為 Google 搜尋、AEO、GEO 持續改善" },
-    { ch: "T", label: "Trackable", note: "串接 Search Console、Google Analytics" },
-    { ch: "H", label: "Human-Owned", note: "帳號、網址、網站資料都屬於你" },
-    { ch: "U", label: "Updatable", note: "不必操作複雜後台，用聊天就能更新" },
-    { ch: "r", label: "", note: "" },
-    { ch: "s", label: "", note: "" },
+  parts: [
+    { chars: "AR", label: "AI-Ready", note: "能交給 ChatGPT、Claude 等 AI 協助維護" },
+    { chars: "T", label: "Trackable", note: "串接 Search Console、Google Analytics" },
+    { chars: "H", label: "Human-Owned", note: "帳號、網址、網站資料都屬於你" },
+    { chars: "U", label: "Updatable", note: "不必操作複雜後台，用聊天就能更新" },
+    { chars: "R", label: "Rankable", note: "為 Google 搜尋、AEO、GEO 持續改善" },
   ],
-  tail: "末尾的 r · s，收成「你自己的那一個網站」。",
 };
 
 // 網站六大痛點
