@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { SITE, SOLUTIONS, STEPS, CTA } from "../../lib/site";
+import { SITE, STEPS, CTA } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
   breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "服務方式", path: "/service/" }]),
@@ -33,17 +33,6 @@ const services = [
     </div>
   </section>
   <section class="section section-soft">
-    <div class="container">
-      <span class="eyebrow">網站能為你做的四件事</span>
-      <h2 class="section-title">不只做出來，還要持續改善。</h2>
-      <div class="grid grid-2" style="margin-top: 2rem;">
-        {SOLUTIONS.map((s, i) => (
-          <div class="card"><span class="num-badge">{i + 1}</span><h3>{s.title}</h3><p class="muted">{s.desc}</p></div>
-        ))}
-      </div>
-    </div>
-  </section>
-  <section class="section">
     <div class="container">
       <span class="eyebrow">三步驟</span>
       <h2 class="section-title">從提供資料到完整交接。</h2>

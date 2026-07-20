@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { CONTENT_FLOW, CTA } from "../../lib/site";
+import { CONTENT_FLOW, DEMOS, CTA } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
 const articles = (await getCollection("articles")).sort((a, b) => a.data.order - b.data.order);
@@ -65,11 +65,36 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI �
           </a>
         ))}
       </div>
+      {articles.length > 6 && (
+        <p style="margin-top: 1.5rem;"><a href="/articles/" class="btn btn-secondary">看全部文章</a></p>
+      )}
+    </div>
+  </section>
+
+  {/* 操作示範（原 /demo/ 併入） */}
+  <section id="demo" class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">操作示範</span>
+      <h2 class="section-title">聊天就能更新，錯了還能還原。</h2>
+      <p class="lede">下面用文字先把每個操作的情境與步驟講清楚。實際操作影片正在錄製中，會陸續放上來。</p>
+      <div class="stack" style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+        {DEMOS.map((d, i) => (
+          <div class="card">
+            <span class="num-badge">{i + 1}</span>
+            <h3>{d.title}</h3>
+            <p style="font-style: italic; color: var(--color-ink-soft);">情境：{d.scene}</p>
+            <ol class="flow" style="margin-top: 1rem;">
+              {d.steps.map((s) => <li>{s}</li>)}
+            </ol>
+            <p class="fs-xs muted" style="margin-top: 0.75rem;">操作影片：錄製中</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   {/* 最近更新的既有內容（真實） */}
-  <section class="section section-soft">
+  <section class="section">
     <div class="container">
       <span class="eyebrow">最近更新紀錄</span>
       <h2 class="section-title">網站上線後不會停止改善。</h2>
@@ -87,7 +112,7 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI �
   </section>
 
   {/* 成效展示（誠實：資料累積中） */}
-  <section class="section">
+  <section class="section section-soft">
     <div class="container prose">
       <span class="eyebrow">成效展示</span>
       <h2 class="section-title">用數據確認下一步，而不是喊口號。</h2>

@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import {
   SITE, PRICE_LABEL, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
-  FEATURED_QA, CONTENT_FLOW, PILLARS, CASES, POSITIONING,
+  FEATURED_QA, CONTENT_FLOW, DEMOS, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
 
@@ -139,12 +139,11 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">操作示範</span>
       <h2 class="section-title">聊天就能更新，錯了還能還原。</h2>
       <div class="grid grid-2" style="margin-top: 2rem;">
-        <div class="card"><h3>聊天更新網站</h3><p class="muted">「請幫我新增一項 CNC 五軸加工服務」——AI 讀資料、整理標題與圖片、修改網站，你確認差異後才正式更新。</p></div>
-        <div class="card"><h3>AI 發現搜尋機會</h3><p class="muted">AI 發現「小量金屬加工」已有搜尋曝光，但網站沒有專門介紹，於是建議並產生對應頁面。</p></div>
-        <div class="card"><h3>AI 自動寫文章</h3><p class="muted">多位客戶問同一個問題，AI 比對現有內容、找出缺口、產生初稿，人工確認後發布。</p></div>
-        <div class="card"><h3>版本恢復</h3><p class="muted">改壞了或版面不對，查看修改紀錄、比較前後差異、選回先前正確版本。</p></div>
+        {DEMOS.map((d) => (
+          <div class="card"><h3>{d.title}</h3><p class="muted">{d.desc}</p></div>
+        ))}
       </div>
-      <p style="margin-top: 1.5rem;"><a href="/demo/" class="btn btn-secondary">看完整操作示範</a></p>
+      <p style="margin-top: 1.5rem;"><a href="/content-lab/#demo" class="btn btn-secondary">看完整操作示範</a></p>
     </div>
   </section>
 

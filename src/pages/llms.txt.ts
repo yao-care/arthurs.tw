@@ -29,7 +29,7 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - AI 自動內容：${abs("/content-lab/")}
 - 最新文章：${abs("/articles/")}
 - 網站案例：${abs("/cases/")}
-- 操作示範：${abs("/demo/")}
+- 操作示範（併入 AI 自動內容）：${abs("/content-lab/")}#demo
 - 方案與價格：${abs("/pricing/")}
 - 常見問題：${abs("/qa/")}
 - 更新紀錄：${abs("/updates/")}
