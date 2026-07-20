@@ -8,8 +8,8 @@ export const SITE = {
   // 一句話定位
   tagline: "讓 AI 幫你更新、分析，持續改善的網站",
   // 對外聯絡（TODO：待用戶提供正式 Email / LINE 後補上）
-  email: "",       // e.g. hello@arthurs.tw
-  line: "",        // e.g. https://line.me/R/ti/p/@xxxx
+  email: "service@yao.care",
+  line: "https://line.me/ti/p/i0_EpxFQVc",
   price: 6000,     // 一次性顧問費（NT$）：含用 AI 建站＋交接＋帶你上手；沒有月費
   priceModel: "一次性顧問費",
   ownerNote: "帳號、網址、網站資料都屬於你自己。",

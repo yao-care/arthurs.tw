@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, CTA } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "自己動手做", path: "/diy/" }])];
+const need = [
+  "一台電腦，裝好 Claude Code 與 Node.js",
+  "一個 GitHub 帳號（免費）",
+  "一個你自己的網域（可選）",
+  "公司現有資料：簡介、產品、案例、圖片、聯絡方式",
+];
+const steps = [
+  "下載我們公開的 skill，放進 Claude Code 的 skills 目錄",
+  "在對話裡叫用它，說「幫我用這個 skill 建站」",
+  "把公司資料交給 AI，讓它整理成網站",
+  "建立 GitHub 公開 repo，用 GitHub Pages 免費上線",
+  "接上 Google Search Console 與 Analytics",
+  "日後用聊天更新，改錯了用版本還原",
+];
+---
+<BaseLayout title="自己動手做（DIY）" description="我們相信 AI 紅利大家都能享受。這套建站做法我們公開：會用 Claude 的人可以下載 skill 自己做，免費。不會、沒空的人，付一次 6,000 元顧問費我幫你搞定。" schemas={schemas}>
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 自己動手做</p>
+      <h1>會的人，自己來。</h1>
+      <p class="lede">我們相信 AI 紅利大家都能享受，所以把做法公開。你會用 Claude，就下載這份 skill 自己做，不用付我一毛錢。真的不會、沒空，再把 {SITE.price} 元顧問費交給我幫你搞定。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h2 style="font-size: var(--text-lg); margin-top: 0;">你需要準備</h2>
+          <ul class="check-list" style="margin-top: 0.75rem;">{need.map((n) => <li>{n}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h2 style="font-size: var(--text-lg); margin-top: 0;">大致流程</h2>
+          <ol class="flow" style="margin-top: 0.75rem;">{steps.map((s) => <li>{s}</li>)}</ol>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h2 style="font-size: var(--text-lg); margin-top: 0;">下載 skill</h2>
+        <p class="muted" style="margin-top: 0.5rem;">
+          這是公開、通用版，不含任何機密設定。下載後放到 Claude Code 的 skills 目錄（個人：<code>~/.claude/skills/ai-ready-website/</code>；或專案 <code>.claude/skills/ai-ready-website/</code>），在對話輸入 <code>/ai-ready-website</code> 即可叫用。
+        </p>
+        <p class="btn-row" style="margin-top: 1rem;">
+          <a href="/skills/ai-ready-website/SKILL.md" class="btn btn-primary" download>下載 SKILL.md</a>
+          <a href={`https://github.com/yao-care/${SITE.domain}`} class="btn btn-secondary" target="_blank" rel="noopener">看這個網站的原始檔</a>
+        </p>
+        <p class="fs-xs muted" style="margin-top: 0.75rem;">
+          你現在看的這個網站，本身就是用同一套做法建的，原始檔完全公開——這就是最好的示範。
+        </p>
+      </div>
+
+      <div class="prose" style="margin-top: 2rem;">
+        <h2 style="font-size: var(--text-lg);">誠實提醒</h2>
+        <p class="muted">
+          自己動手需要一點技術基礎（會用終端機、GitHub）。這套做法能提高被搜尋與被 AI 引用的機會，但不保證 Google 排名、不保證被 AI 推薦、不保證帶來訂單。真的中途卡住，隨時可以轉成 {SITE.price} 元顧問服務，我幫你把剩下的做完、帶你上手。
+        </p>
+        <p style="margin-top: 1.5rem;">
+          <a href={CTA.primary.href} class="btn btn-primary">不想自己弄？把網址傳給我</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
