@@ -4,7 +4,7 @@ category: "Google 搜尋、AEO 與 GEO"
 answer: "不能保證被 AI 推薦，這件事沒有人能打包票，因為要不要提到你，是 AI 自己決定的。但可以做的是：把你公司的資料做得完整、清楚、持續更新，讓 ChatGPT 這類 AI 在讀你的網站時容易看懂、容易正確引用。資料齊全又講得明白的公司，本來就比資料零散的公司更有機會被 AI 講到。"
 order: 2
 updated: "2026-07-20"
-related: ["can-google-ranking-be-guaranteed", "how-does-ai-choose-content"]
+related: ["can-google-ranking-be-guaranteed", "who-owns-the-website"]
 relatedArticles: ["chatgpt-doesnt-know-my-company"]
 ---
 

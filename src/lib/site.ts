@@ -49,7 +49,7 @@ export const PILLARS = [
   { key: "trackable", chars: "T", hi: [0], label: "Trackable", title: "Trackable 資料看得到", note: "串接 Search Console、Google Analytics", desc: "串接 Google Search Console 與 Analytics，知道客戶怎麼找到你、看了什麼。" },
   { key: "human-owned", chars: "H", hi: [0], label: "Human-Owned", title: "Human-Owned 網站是你的", note: "帳號、網址、網站資料都屬於你", desc: "帳號、網址、網站資料全部屬於你，隨時可以自己管理或交給別人接手。" },
   { key: "updatable", chars: "U", hi: [0], label: "Updatable", title: "Updatable 聊天就能更新", note: "不必操作複雜後台，用聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。" },
-  { key: "rankable", chars: "R", hi: [0], label: "Rankable", title: "Rankable 持續被找到", note: "為 Google 搜尋、AEO、GEO 持續改善", desc: "為 Google 搜尋與 AI 問答（AEO、GEO）持續改善內容，讓客戶更容易找到你。" },
+  { key: "rankable", chars: "R", hi: [0], label: "Rankable", title: "Rankable 容易被找到", note: "為 Google 搜尋、AEO、GEO 打好基礎", desc: "資料結構化、該有的頁面都齊，為 Google 搜尋與 AI 問答（AEO、GEO）打好基礎，讓客戶更容易找到你。" },
 ];
 
 // 網站六大痛點
@@ -57,7 +57,6 @@ export const PAINS = [
   { title: "網站多年沒有更新", desc: "新產品、新設備、成功案例和公司消息，還停留在幾年前。" },
   { title: "修改內容還得找廠商", desc: "改一段文字、增加一項產品，還要詢價、等待、來回確認。" },
   { title: "Google 搜尋找不到公司", desc: "網站內容太舊、太少，搜尋引擎不知道你真正提供哪些服務。" },
-  { title: "問 ChatGPT 也不會推薦", desc: "網路上找不到你夠新、夠完整的公司資料，AI 自然也搞不懂你在做什麼，更不會引用你。" },
   { title: "有人進網站也不知道在看什麼", desc: "不知道訪客從哪裡來、看了哪些內容，也不知道下一步該改善什麼。" },
   { title: "控制權不在自己手上", desc: "帳號、主機、程式或設定掌握在原廠商手中，想換人管理也很困難。" },
 ];
@@ -121,8 +120,6 @@ export const FEATURED_QA = [
   "what-does-the-service-include",
   "why-no-hosting-maintenance-fee",
   "can-beginners-use-ai",
-  "can-ai-write-articles",
-  "how-does-ai-choose-content",
   "what-if-ai-makes-a-mistake",
   "who-owns-the-website",
   "can-google-ranking-be-guaranteed",
@@ -134,7 +131,7 @@ export const FEATURED_QA = [
 // 真實參考案例（用戶提供的實際作品；可外連到實站。持續更新中）。
 // 誠實原則：這些是真的做出來、已上線的網站；不編造客戶見證或成效數字。
 export const CASES = [
-  { name: "本站 Arthurs", industry: "AI 網站服務", url: "https://arthurs.tw", self: true, desc: "你現在看到的這個網站，本身就是用同一套方式建置、由 AI 持續協助更新。" },
+  { name: "本站 Arthurs", industry: "AI 網站服務", url: "https://arthurs.tw", self: true, desc: "你現在看到的這個網站，本身就是用同一套方式建置、用聊天維護。" },
   { name: "台灣無人機足球（飛球）", industry: "運動賽事平台", url: "https://twdro.net", desc: "賽事、隊伍與規則資料平台。" },
   { name: "國際醫療減碳協會", industry: "醫療／非營利", url: "https://crinhealthcare.org/", desc: "協會理念、專案與衛教內容網站。" },
   { name: "鄭骨館體雕中心", industry: "在地健康服務", url: "https://www.olderkkk.com/", desc: "台中在地服務業官網，服務、案例與健康文章持續更新。" },
@@ -146,6 +143,6 @@ export const CASES = [
 
 // QA 分類（/qa/ 用）
 export const QA_CATEGORIES = [
-  "價格與服務範圍", "AI 更新網站", "AI 自動文章與內容",
+  "價格與服務範圍", "AI 更新網站",
   "Google 搜尋、AEO 與 GEO", "所有權、主機與安全", "顧問與後續服務",
 ];

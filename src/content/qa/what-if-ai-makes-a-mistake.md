@@ -4,8 +4,8 @@ category: "AI 更新網站"
 answer: "不用怕改壞。每一次修改，你都能先看到「改之前」和「改之後」的差別，確認沒問題才正式更新。萬一發布後才發現不對，也可以退回先前的版本，把網站還原成改動前的樣子。每一次改動都有紀錄，等於隨時有後悔的機會。"
 order: 2
 updated: "2026-07-20"
-related: ["can-ai-write-articles", "can-beginners-use-ai"]
-relatedArticles: ["does-ai-article-need-human-check"]
+related: ["can-beginners-use-ai", "who-owns-the-website"]
+relatedArticles: []
 ---
 
 ## 詳細說明

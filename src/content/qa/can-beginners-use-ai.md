@@ -4,7 +4,7 @@ category: "AI 更新網站"
 answer: "可以。更新網站就是用平常說話的方式告訴 AI 你要改什麼，例如「幫我把電話改成新的號碼」「加一款新產品，叫做這個名字，介紹是這樣」，AI 就會幫你改。不需要懂程式，也不需要學任何軟體。而且交接時我會手把手帶你上手——這本來就是這個顧問服務要替你做的事。"
 order: 1
 updated: "2026-07-20"
-related: ["can-ai-write-articles", "what-if-ai-makes-a-mistake", "is-consulting-required"]
+related: ["what-if-ai-makes-a-mistake", "is-consulting-required"]
 relatedArticles: ["no-marketing-staff-how-to-update"]
 ---
 
