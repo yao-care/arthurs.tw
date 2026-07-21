@@ -40,12 +40,7 @@ export function serviceSchema() {
     provider: { "@id": `${ORIGIN}/#organization` },
     areaServed: "TW",
     description:
-      "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。",
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "TWD",
-      description: "一次性顧問費，實際金額洽詢後報價；含用 AI 建站、交接與帶你上手；沒有月費，網域續約與 AI 訂閱另計。",
-    },
+      "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手；沒有月費、不綁約。",
   };
 }
 

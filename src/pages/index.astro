@@ -19,7 +19,7 @@ const caseWall = CASES.slice(0, 8);
 ---
 <BaseLayout
   title={SITE.name}
-  description="網站做完就放著？付一筆顧問費，我用 AI 幫你把舊網站換成自己擁有、能聊天更新的新網站，並帶你上手。一次付清、沒有月費，費用看需求評估後報價。看不懂沒關係——大家都能享受 AI 紅利。"
+  description="網站做完就放著？我用 AI 幫你把舊網站換成自己擁有、能聊天更新的新網站，交接、帶你上手。看不懂沒關係——大家都能享受 AI 紅利。"
   schemas={[serviceSchema(), faq]}
 >
   {/* 1. Hero */}
@@ -27,7 +27,7 @@ const caseWall = CASES.slice(0, 8);
     <div class="container">
       <h1>看不懂 AI、沒空管網站？<br />我用 AI 幫你把網站建好，帶你上手。</h1>
       <p class="sub">
-        大家都能享受 AI 紅利。把公司資料交給我，我用 AI 幫你把網站建好、交接，再教你之後用聊天更新。一次付清、沒有月費；費用看你的資料量和需求，我看過再報價。
+        把網站交給我，一次做好。之後你自己用聊天更新，不用再找廠商。
       </p>
       <p style="margin: 0 0 2.25rem;"><Cta size="lg" /></p>
       <p class="hero-pillars-lead">同一個網站，會替你做到這五件事：</p>
@@ -173,17 +173,17 @@ const caseWall = CASES.slice(0, 8);
   <section class="section">
     <div class="container">
       <span class="eyebrow">一次性顧問服務</span>
-      <h2 class="section-title">看不懂沒關係，一次付清、沒有月費，我幫你把 AI 網站搞定。</h2>
+      <h2 class="section-title">看不懂沒關係，交給我，一次幫你把 AI 網站做好。</h2>
       <p class="lede">{POSITIONING}</p>
       <div class="grid grid-2" style="margin-top: 2rem;">
         <div class="card">
-          <h3>這筆顧問費幫你搞定的事</h3>
+          <h3>這個顧問服務幫你搞定的事</h3>
           <ul class="check-list" style="margin-top: 0.75rem;">
             {PLAN.includes.map((x) => <li>{x}</li>)}
           </ul>
         </div>
         <div class="card">
-          <h3>費用另計</h3>
+          <h3>這些另外自備</h3>
           <ul class="x-list" style="margin-top: 0.75rem;">
             {PLAN.extra.map((x) => <li>{x}</li>)}
           </ul>

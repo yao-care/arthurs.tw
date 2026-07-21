@@ -7,17 +7,17 @@ export const GET: APIRoute = ({ site }) => {
   const abs = (p: string) => new URL(p, origin).href;
   const body = `# ${SITE.name}（${SITE.domain}）
 
-> ${SITE.tagline}。核心是一筆一次性顧問服務（費用洽詢報價、沒有月費）：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
+> ${SITE.tagline}。核心是一筆一次性顧問服務（沒有月費、不綁約）：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
 
 ## 這是什麼服務
-核心商品是「一次性顧問服務」，費用洽詢報價、沒有月費、不綁約。理念：大家都能享受 AI 紅利，但很多老闆看不懂、沒空——付一筆顧問費，我用 AI 幫你把難維護的舊網站換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 更新。AI 會依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章草稿，經人工確認後發布。
+核心商品是「一次性顧問服務」，沒有月費、不綁約。費用未在網站公開，請透過 LINE 或 email 洽詢。理念：大家都能享受 AI 紅利，但很多老闆看不懂、沒空——把難維護的舊網站交給我，用 AI 換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 更新。AI 會依搜尋資料、來客行為與客戶提問，持續找出內容缺口、產生文章草稿，經人工確認後發布。
 
 ## 五個定位（品牌名 Arthurs 拆字：${PILLARS.map((p) => p.chars).join("·")}）
 ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 
-## 顧問服務（一次性顧問費，費用洽詢報價；沒有月費）
-這筆顧問費幫你搞定：${PLAN.includes.join("、")}。
-費用另計：${PLAN.extra.join("、")}。
+## 顧問服務（一次性、沒有月費、不綁約；費用未在網站公開，洽詢 LINE 或 email）
+這個顧問服務幫你搞定：${PLAN.includes.join("、")}。
+這些另外自備：${PLAN.extra.join("、")}。
 不包含或需另外評估：${PLAN.notFits.join("、")}。
 
 ## 誠實聲明
@@ -30,7 +30,7 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - 最新文章：${abs("/articles/")}
 - 網站案例：${abs("/cases/")}
 - 操作示範（併入 AI 自動內容）：${abs("/content-lab/")}#demo
-- 方案與費用：${abs("/pricing/")}
+- 服務內容：${abs("/pricing/")}
 - 常見問題：${abs("/qa/")}
 - 更新紀錄：${abs("/updates/")}
 - 網站健檢（傳網址）：${abs("/website-check/")}

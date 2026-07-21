@@ -1,26 +1,26 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { FEE_NOTE, PLAN, OWNERSHIP } from "../../lib/site";
+import { PLAN, OWNERSHIP } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
-  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與費用", path: "/pricing/" }]),
+  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "服務內容", path: "/pricing/" }]),
   serviceSchema(),
 ];
 ---
-<BaseLayout title="方案與費用" description="一次性顧問服務：看不懂 AI 也沒關係，我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。費用洽詢報價，網域與 AI 訂閱另計。" schemas={schemas}>
+<BaseLayout title="服務內容" description="一次性顧問服務：我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。沒有月費、不綁約，網域與 AI 訂閱另計。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與費用</p>
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 服務內容</p>
       <h1>一次性顧問服務，一次帶你上手。</h1>
-      <p class="lede">付一筆顧問費，我用 AI 幫你把網站建好、交接、教你之後自己用，讓看不懂的你，也享受得到 AI 紅利。{FEE_NOTE}，先講好再開始，不亂喊價。網域費與你自己訂閱的 AI 另計，沒有其他隱藏費用。</p>
+      <p class="lede">我幫你把網站建好、交接、帶你上手，之後你自己用聊天更新。網站是你的，沒有月費、不綁約。</p>
     </div>
   </section>
   <section class="section">
     <div class="container">
       <div class="grid grid-2">
         <div class="card">
-          <h3>這筆顧問費幫你搞定的事</h3>
+          <h3>這個顧問服務幫你搞定的事</h3>
           <ul class="check-list" style="margin-top: 0.75rem;">{PLAN.includes.map((x) => <li>{x}</li>)}</ul>
         </div>
         <div class="stack" style="display: grid; gap: 1.5rem;">
@@ -29,7 +29,7 @@ const schemas = [
             <ul class="check-list" style="margin-top: 0.75rem;">{PLAN.provide.map((x) => <li>{x}</li>)}</ul>
           </div>
           <div class="card">
-            <h3>費用另計</h3>
+            <h3>這些另外自備</h3>
             <ul class="x-list" style="margin-top: 0.75rem;">{PLAN.extra.map((x) => <li>{x}</li>)}</ul>
           </div>
         </div>

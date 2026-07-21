@@ -10,18 +10,15 @@ export const SITE = {
   // 對外聯絡（用戶提供）
   email: "service@yao.care",
   line: "https://line.me/ti/p/i0_EpxFQVc",
-  priceModel: "一次性顧問費",  // 不公開固定金額：一次付清、沒有月費，金額看資料量與需求，評估後報價
+  priceModel: "一次性顧問費",  // 一次性委任、沒有月費、不綁約；網站不談價，金額走私下聯絡（LINE/email）
   ownerNote: "帳號、網址、網站資料都屬於你自己。",
   themeColor: "#10323f", // 供 <meta theme-color>；HTML 屬性不能用 var()，故置於 .ts（不受設計守門掃描）
   gaId: "G-86T9ZDJGYH", // GA4 評估 ID（公開值，全站輸出）；BaseLayout 亦支援 PUBLIC_GA_ID 覆寫
 };
 
-// 費用講法的單一來源：不公開固定金額（依資料量與需求而定），把「為什麼另估＋下一步」講清楚。面向讀者要提費用時一律用這個。
-export const FEE_NOTE = "費用一次付清、沒有月費。每個網站的資料量和需求不同，把現在的網址或資料給我，我看過再報價";
-
-// 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。
+// 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。網站上不談價（金額走私下聯絡）。
 export const POSITIONING =
-  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——付一筆顧問費，我用 AI 幫你把網站建好、帶你上手，一次付清、沒有月費，費用看你的需求評估後報價。";
+  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——把網站交給我，用 AI 幫你做好、帶你上手，之後你自己用聊天更新。";
 
 // 主選單（桌面）。href 指向 MVP 已建立的頁面。
 export const NAV = [
@@ -29,7 +26,7 @@ export const NAV = [
   { label: "AI 如何運作", href: "/how-it-works/" },
   { label: "AI 自動內容", href: "/content-lab/" },
   { label: "案例", href: "/cases/" },
-  { label: "方案與費用", href: "/pricing/" },
+  { label: "服務內容", href: "/pricing/" },
   { label: "常見問題", href: "/qa/" },
 ];
 
@@ -81,7 +78,7 @@ export const STEPS = [
   { title: "完整交接給你", desc: "你自己的帳號、你自己的網域、完整網站資料、AI 更新操作方式、搜尋與流量資料權限、完整交接表。完成後可以自己管理，需要協助時再找我們。" },
 ];
 
-// 一次性顧問服務內容（這筆顧問費幫你把整件事搞定；費用看需求評估後報價，沒有月費）
+// 一次性顧問服務內容（這筆顧問服務幫你把整件事搞定；網站不談價，金額走私下聯絡）
 export const PLAN = {
   includes: [
     "把你手上的文案與圖片整理成網站內容",
