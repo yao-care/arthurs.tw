@@ -4,7 +4,7 @@ import Cta from "../components/Cta.astro";
 import { getCollection } from "astro:content";
 import {
   SITE, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
-  FEATURED_QA, CONTENT_FLOW, DEMOS, PILLARS, CASES, POSITIONING,
+  FEATURED_QA, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
 
@@ -64,7 +64,7 @@ const caseWall = CASES.slice(0, 8);
       <span class="eyebrow">核心解法</span>
       <h2 class="section-title">你需要的，不是再做一個放著不動的網站。</h2>
       <p class="lede">
-        我們把你手上的公司資料，整理成一個 AI 能天天幫你顧的新網站。不需要學複雜後台，也不必每次修改都回頭找網站公司。
+        我們把你手上的公司資料，整理成一個好維護、你自己也顧得動的新網站。不需要學複雜後台，也不必每次修改都回頭找網站公司。
       </p>
       <div class="grid grid-2" style="margin-top: 2rem;">
         {SOLUTIONS.map((s, i) => (
@@ -96,59 +96,6 @@ const caseWall = CASES.slice(0, 8);
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  {/* 4. AI 自動內容展示 */}
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">現場示範</span>
-      <h2 class="section-title">你現在看到的網站，也正在使用 AI 持續更新。</h2>
-      <p class="lede">
-        這個網站不是想到什麼才寫什麼。客戶問了什麼、Google 上怎麼搜、訪客在看哪一頁，我們都盯著。看到缺口，就補文章、補答案、修頁面。
-      </p>
-      <div class="grid grid-3" style="margin-top: 2rem;">
-        <div class="card">
-          <span class="badge badge-plan">最近發現</span>
-          <p style="margin-top: 0.75rem;">AI 最近發現哪些客戶問題，網站還沒有完整回答？</p>
-        </div>
-        <div class="card">
-          <span class="badge badge-ok">最近新增</span>
-          <p style="margin-top: 0.75rem;">最近新增了哪些文章或 QA？為什麼需要新增？</p>
-        </div>
-        <div class="card">
-          <span class="badge badge-wip">最近更新</span>
-          <p style="margin-top: 0.75rem;">哪些舊頁面補了東西？是看了什麼資料才改的？</p>
-        </div>
-      </div>
-      <p style="margin-top: 1.5rem;">
-        <a href="/content-lab/" class="btn btn-secondary">看 AI 自動內容實驗室</a>
-      </p>
-    </div>
-  </section>
-
-  {/* 5. AI 自動內容運作流程 */}
-  <section class="section section-soft">
-    <div class="container">
-      <span class="eyebrow">運作流程</span>
-      <h2 class="section-title">不是讓 AI 亂寫文章，而是根據真實問題與數據補上答案。</h2>
-      <ol class="flow" style="margin-top: 2rem;">
-        {CONTENT_FLOW.map((step) => <li>{step}</li>)}
-      </ol>
-    </div>
-  </section>
-
-  {/* 6. 實際操作示範 */}
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">操作示範</span>
-      <h2 class="section-title">聊天就能更新，錯了還能還原。</h2>
-      <div class="grid grid-2" style="margin-top: 2rem;">
-        {DEMOS.map((d) => (
-          <div class="card"><h3>{d.title}</h3><p class="muted">{d.desc}</p></div>
-        ))}
-      </div>
-      <p style="margin-top: 1.5rem;"><a href="/content-lab/#demo" class="btn btn-secondary">看完整操作示範</a></p>
     </div>
   </section>
 

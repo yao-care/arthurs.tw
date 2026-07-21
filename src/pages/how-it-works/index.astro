@@ -1,23 +1,28 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { CONTENT_FLOW } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI 如何運作", path: "/how-it-works/" }])];
 const mechanisms = [
   { title: "跟 AI 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI。它整理標題、介紹與圖片，改好後你確認差異才正式更新。" },
-  { title: "查看搜尋資料", desc: "AI 會查看客戶用哪些關鍵字找到你（Google Search Console），找出你有曝光、但網站還沒講清楚的服務。" },
-  { title: "查看來客資料", desc: "AI 會查看訪客從哪裡來、正在讀哪些內容（Google Analytics），判斷哪些頁面值得補強。" },
-  { title: "自動產生內容", desc: "把發現的缺口轉成文章、產品介紹、案例或 QA 的草稿；不是產生一份沒人看的報表。" },
+  { title: "改錯了能還原", desc: "改壞了、或版面不對，查看修改紀錄、比較前後差異，選回先前正確的版本就好。" },
+  { title: "為 Google 與 AI 整理好", desc: "資料結構化、該有的頁面都齊，讓搜尋引擎和 AI 問答更容易正確認識你的公司。" },
   { title: "所有權與交接", desc: "帳號、網址、網站資料都建立在你自己持有的空間裡。完整交接後，你可以自己管理，也可以交給別人接手。" },
 ];
+const updateFlow = [
+  "用說話的方式告訴 AI 你要改什麼",
+  "AI 整理標題、介紹與圖片",
+  "你確認修改前後的差異",
+  "正式更新網站",
+  "改錯了，選回先前正確版本",
+];
 ---
-<BaseLayout title="AI 網站如何運作" description="客戶問一句、Google 出現新搜尋字，AI 就找出網站缺的內容、寫成草稿，人工確認後發布再持續觀察。這頁把整個流程講清楚。" schemas={schemas}>
+<BaseLayout title="AI 網站如何運作" description="不用學後台：想改什麼，用說話的方式告訴 AI，它整理好、你確認差異再更新，改錯還能還原。這頁把運作方式講清楚。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ AI 如何運作</p>
       <h1>AI 網站如何運作</h1>
-      <p class="lede">重點不是「AI 很厲害」，而是它根據真實資料做事：你的客戶問了什麼、Google 上有人怎麼搜、訪客在看哪一頁。</p>
+      <p class="lede">重點不是「AI 很厲害」，而是你不用學後台：想改什麼，用說話的方式告訴 AI 就好，改壞了還能還原。</p>
     </div>
   </section>
   <section class="section">
@@ -29,14 +34,12 @@ const mechanisms = [
   </section>
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow">完整流程</span>
-      <h2 class="section-title">從一個問題，到一篇上線的內容。</h2>
+      <span class="eyebrow">更新流程</span>
+      <h2 class="section-title">更新網站，長這樣。</h2>
       <ol class="flow" style="margin-top: 2rem;">
-        {CONTENT_FLOW.map((s) => <li>{s}</li>)}
-        <li>更新既有內容或產生下一篇內容</li>
+        {updateFlow.map((s) => <li>{s}</li>)}
       </ol>
-      <p class="muted" style="margin-top: 1.5rem;">所有 AI 產出都會經過人工確認正確性與服務承諾，才會正式發布。不是讓 AI 大量亂寫文章。</p>
-      <p class="muted" style="margin-top: 0.75rem;">會自己來的人：這套做法我們公開，可以到<a href="/diy/">自己動手做</a>下載 skill，自己建站。</p>
+      <p class="muted" style="margin-top: 1.5rem;">會自己來的人：這套做法我們公開，可以到<a href="/diy/">自己動手做</a>下載 skill，自己建站。</p>
       <p class="btn-row" style="margin-top: 1rem;">
         <Cta />
         <a href="/diy/" class="btn btn-secondary">自己動手做</a>
