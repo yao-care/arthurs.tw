@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { SITE, PRICE_LABEL, PLAN, OWNERSHIP, CTA } from "../../lib/site";
+import Cta from "../../components/Cta.astro";
+import { SITE, PRICE_LABEL, PLAN, OWNERSHIP } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
   breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與價格", path: "/pricing/" }]),
@@ -56,7 +57,7 @@ const schemas = [
       <ul class="pill-list" style="justify-content: center; margin-top: 1rem;">
         {OWNERSHIP.map((o) => <li style="background: var(--color-white-a12); border-color: var(--color-white-a20); color: var(--color-text-on-dark);">{o}</li>)}
       </ul>
-      <p style="margin-top: 1.75rem;"><a href={CTA.primary.href} class="btn btn-primary btn-lg">{CTA.primary.label}</a></p>
+      <p style="margin-top: 1.75rem;"><Cta size="lg" /></p>
     </div>
   </section>
 </BaseLayout>

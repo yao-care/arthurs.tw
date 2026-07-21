@@ -1,0 +1,15 @@
+---
+// 全站 CTA 按鈕的唯一元件。文案與落點來自 site.ts 的 CTA（單一來源）。
+// 用法：<Cta />（primary）、<Cta action="secondary" />、<Cta size="lg" />、<Cta class="header-cta" />
+import { CTA } from "../lib/site";
+
+interface Props {
+  action?: "primary" | "secondary";
+  size?: "lg";
+  class?: string;
+}
+const { action = "primary", size, class: cls } = Astro.props;
+const c = CTA[action];
+const variant = action === "primary" ? "btn-primary" : "btn-secondary";
+---
+<a href={c.href} class:list={["btn", variant, size === "lg" && "btn-lg", cls]}>{c.label}</a>

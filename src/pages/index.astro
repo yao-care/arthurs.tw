@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Cta from "../components/Cta.astro";
 import { getCollection } from "astro:content";
 import {
-  SITE, PRICE_LABEL, CTA, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
+  SITE, PRICE_LABEL, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
   FEATURED_QA, CONTENT_FLOW, DEMOS, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
 import { serviceSchema, faqSchema } from "../lib/seo";
@@ -254,7 +255,7 @@ const caseWall = CASES.slice(0, 8);
         把現在的網站網址傳給我。我先幫你看看：哪些內容已經過時、Google 是否容易理解、AI 是否能正確認識你的公司，以及是否適合改成 AI 網站。
       </p>
       <p style="margin-top: 1.75rem;">
-        <a href={CTA.primary.href} class="btn btn-primary btn-lg">傳網站網址給我</a>
+        <Cta size="lg" />
       </p>
     </div>
   </section>

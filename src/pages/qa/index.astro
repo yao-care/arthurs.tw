@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
 import { getCollection } from "astro:content";
-import { QA_CATEGORIES, CTA } from "../../lib/site";
+import { QA_CATEGORIES } from "../../lib/site";
 import { breadcrumbSchema, faqSchema } from "../../lib/seo";
 
 const qa = (await getCollection("qa")).sort((a, b) => a.data.order - b.data.order);
@@ -38,7 +39,7 @@ const schemas = [
           </div>
         </div>
       ))}
-      <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+      <p style="margin-top: 1rem;"><Cta /></p>
     </div>
   </section>
 </BaseLayout>

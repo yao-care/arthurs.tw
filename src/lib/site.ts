@@ -35,12 +35,12 @@ export const NAV = [
   { label: "常見問題", href: "/qa/" },
 ];
 
+// 全站兩個核心行動的唯一來源。所有 CTA 按鈕都經 <Cta/> 元件讀這裡，
+// 不再各頁硬編文字或 markup。要改文案/落點，只改這兩行。
+// （表單送出鈕「送出網站網址」、LINE 鈕屬情境專用，留在各自頁面。）
 export const CTA = {
-  primary: { label: "傳現在的網站網址", href: "/website-check/" },
-  header: { label: "傳網址給我看看", href: "/website-check/" },
-  mobile: { label: "我想升級網站", href: "/website-check/" },          // 手機浮動列主鈕（原「傳網站網址」）
-  mobileSecondary: { label: "看 AI 怎麼做", href: "/how-it-works/" },  // 手機浮動列次鈕
-  secondary: { label: "看 AI 怎麼更新網站", href: "/how-it-works/" },
+  primary: { label: "我想升級網站", href: "/website-check/" },
+  secondary: { label: "看 AI 怎麼做", href: "/how-it-works/" },
 };
 
 // 五大定位支柱（全站唯一來源）—— 品牌名 Arthurs 拆字：AI-Ready 一字給了 A＋R（AI + Ready），

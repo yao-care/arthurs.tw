@@ -1,5 +1,6 @@
 ---
 import { SITE, PRICE_LABEL } from "../lib/site";
+import Cta from "./Cta.astro";
 const cols = [
   {
     h: "服務",
@@ -41,7 +42,7 @@ const year = new Date().getFullYear();
           {SITE.tagline}。一次 {PRICE_LABEL} 元，把難以維護的舊網站，換成自己擁有、可以和 AI 聊天更新的新網站。
         </p>
         <p style="margin-top: 1rem;">
-          <a href="/website-check/" class="btn btn-primary">傳網站網址給我</a>
+          <Cta />
         </p>
       </div>
       {cols.map((c) => (

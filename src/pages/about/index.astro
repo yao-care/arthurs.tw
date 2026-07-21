@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { SITE, CTA } from "../../lib/site";
+import Cta from "../../components/Cta.astro";
+import { SITE } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "關於我們", path: "/about/" }])];
 const contactLines = [
@@ -39,7 +40,7 @@ const contactLines = [
         ) : (
           <p class="muted" style="margin-top: 0.75rem;">聯絡方式設定中。最快的方式是直接<a href="/website-check/">把現在的網站網址傳給我們</a>，我們會盡快回覆。</p>
         )}
-        <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+        <p style="margin-top: 1rem;"><Cta /></p>
       </div>
     </div>
   </section>

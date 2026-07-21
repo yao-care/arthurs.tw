@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { SITE, STEPS, CTA } from "../../lib/site";
+import Cta from "../../components/Cta.astro";
+import { SITE, STEPS } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
   breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "服務方式", path: "/service/" }]),
@@ -41,7 +42,7 @@ const services = [
           <div class="card"><span class="num-badge">{i + 1}</span><h3>{s.title}</h3><p class="muted">{s.desc}</p></div>
         ))}
       </div>
-      <p style="margin-top: 1.5rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+      <p style="margin-top: 1.5rem;"><Cta /></p>
     </div>
   </section>
 </BaseLayout>

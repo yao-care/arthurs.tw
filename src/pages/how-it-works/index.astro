@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { CONTENT_FLOW, CTA } from "../../lib/site";
+import Cta from "../../components/Cta.astro";
+import { CONTENT_FLOW } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI 如何運作", path: "/how-it-works/" }])];
 const mechanisms = [
@@ -37,7 +38,7 @@ const mechanisms = [
       <p class="muted" style="margin-top: 1.5rem;">所有 AI 產出都會經過人工確認正確性與服務承諾，才會正式發布。不是讓 AI 大量亂寫文章。</p>
       <p class="muted" style="margin-top: 0.75rem;">會自己來的人：這套做法我們公開，可以到<a href="/diy/">自己動手做</a>下載 skill，自己建站。</p>
       <p class="btn-row" style="margin-top: 1rem;">
-        <a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a>
+        <Cta />
         <a href="/diy/" class="btn btn-secondary">自己動手做</a>
       </p>
     </div>

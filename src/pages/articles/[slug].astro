@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
 import { getCollection, render } from "astro:content";
-import { CTA } from "../../lib/site";
 import { breadcrumbSchema, articleSchema } from "../../lib/seo";
 
 export async function getStaticPaths() {
@@ -63,7 +63,7 @@ const schemas = [
           </ul>
         </div>
       )}
-      <p style="margin-top: 2rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+      <p style="margin-top: 2rem;"><Cta /></p>
     </div>
   </section>
 </BaseLayout>

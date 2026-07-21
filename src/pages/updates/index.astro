@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
 import { getCollection } from "astro:content";
-import { CTA } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
 const updates = (await getCollection("updates")).sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
@@ -36,7 +36,7 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網�
           );
         })}
       </div>
-      <p style="margin-top: 1rem;"><a href={CTA.primary.href} class="btn btn-primary">{CTA.primary.label}</a></p>
+      <p style="margin-top: 1rem;"><Cta /></p>
     </div>
   </section>
 </BaseLayout>
