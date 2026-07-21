@@ -38,7 +38,8 @@ export const NAV = [
 export const CTA = {
   primary: { label: "傳現在的網站網址", href: "/website-check/" },
   header: { label: "傳網址給我看看", href: "/website-check/" },
-  mobile: { label: "傳網站網址", href: "/website-check/" },
+  mobile: { label: "我想升級網站", href: "/website-check/" },          // 手機浮動列主鈕（原「傳網站網址」）
+  mobileSecondary: { label: "看 AI 怎麼做", href: "/how-it-works/" },  // 手機浮動列次鈕
   secondary: { label: "看 AI 怎麼更新網站", href: "/how-it-works/" },
 };
 

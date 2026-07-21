@@ -173,8 +173,9 @@ strong { font-weight: 700; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
   padding: 0.6rem clamp(1rem, 4vw, 2rem); background: var(--color-white);
   border-top: 1px solid var(--color-line); box-shadow: var(--shadow-float);
+  display: flex; gap: 0.6rem;
 }
-.mobile-cta .btn { width: 100%; }
+.mobile-cta .btn { flex: 1; padding-inline: 0.5em; }
 @media (min-width: 1024px) { .mobile-cta { display: none; } }
 .has-mobile-cta { padding-bottom: 5rem; }
 @media (min-width: 1024px) { .has-mobile-cta { padding-bottom: 0; } }
