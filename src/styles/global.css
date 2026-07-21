@@ -163,9 +163,21 @@ strong { font-weight: 700; }
 .nav-main a { color: var(--color-text); font-size: var(--text-sm); font-weight: 600; }
 .nav-main a:hover { color: var(--color-primary); text-decoration: none; }
 .header-cta { display: none; }
+/* 手機漢堡選單：<1024px 顯示，展開的選單重用同一份 NAV 陣列 */
+.nav-burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 2.6rem; height: 2.6rem; cursor: pointer; }
+.nav-burger span { display: block; width: 24px; height: 2px; border-radius: 2px; background: var(--color-primary); transition: transform 0.2s, opacity 0.2s; }
+.nav-toggle:checked ~ .bar .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle:checked ~ .bar .nav-burger span:nth-child(2) { opacity: 0; }
+.nav-toggle:checked ~ .bar .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile { display: none; flex-direction: column; background: var(--color-white); border-top: 1px solid var(--color-line); }
+.nav-mobile a { padding: 0.9rem clamp(1rem, 4vw, 2rem); color: var(--color-text); font-size: var(--text-base); font-weight: 600; border-bottom: 1px solid var(--color-line); }
+.nav-mobile a:hover { background: var(--color-bg-soft); text-decoration: none; }
+.nav-toggle:checked ~ .nav-mobile { display: flex; }
 @media (min-width: 1024px) {
   .nav-main { display: flex; }
   .header-cta { display: inline-flex; }
+  .nav-burger { display: none; }
+  .nav-toggle:checked ~ .nav-mobile, .nav-mobile { display: none; }
 }
 
 /* ── 手機底部固定 CTA ── */

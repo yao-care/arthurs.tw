@@ -3,13 +3,18 @@ import { SITE, NAV } from "../lib/site";
 import Cta from "./Cta.astro";
 ---
 <header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
   <div class="container bar">
     <a href="/" class="brand" aria-label={`${SITE.name}.tw`}><span class="b-acr">Arthur</span><span class="b-plural">s</span><span class="b-tld">.tw</span></a>
     <nav class="nav-main" aria-label="主選單">
       {NAV.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
     <Cta class="header-cta" />
+    <label for="nav-toggle" class="nav-burger" aria-label="開關選單"><span></span><span></span><span></span></label>
   </div>
+  <nav class="nav-mobile" aria-label="行動選單">
+    {NAV.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
 </header>
 <div class="mobile-cta">
   <Cta />
