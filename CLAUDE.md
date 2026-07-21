@@ -28,6 +28,11 @@ pnpm check:design       # 只跑設計規範守門
 - **侷限（別誤會成萬能）**：語意層級的 AI 味（一句話硬塞太多、生硬名詞化）**無法用正則窮盡**，仍需人工把關；守門只保證上列固定樣式不會混進去。
 - **刻意不收的規則**：「的樣子」「長頓號串」——它們大量命中正常中文（還原成…的樣子／服務清單枚舉），當規則只會誤擋、逼人忽略守門。要加新規則前先 grep 全站確認不會誤傷正常文案。
 
+### 語感層：獨立 agent 審查（`.claude/settings.json` 的 PostToolUse hook）
+regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整」這種語感層 AI 味要**在寫的 session 當場、由獨立的另一雙眼睛審**。已設 PostToolUse agent hook（`if` 限 `src/content/**`、`src/lib/site.ts`、`src/pages/**` 的 Write/Edit）：改到文案就自動 spawn 一個獨立 Sonnet agent 讀該檔、挑 AI 味回報，作者當場修。
+- **啟用注意**：hook 檔若在 session 開始時不存在，設定監看不會生效，需開一次 `/hooks` 或重啟該 session 才會開始觸發（之後自動）。
+- 這是「很強的自動關卡」，非數學意義 100%（LLM 判斷有機率性）；仍以人最終定稿為準。
+
 ## 內容維護（最常見任務）
 內容與版型分離，內容在 `src/content/`（Content Collections，schema 在 `src/content.config.ts`）：
 

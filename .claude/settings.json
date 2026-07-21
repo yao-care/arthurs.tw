@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Edit(src/content/**)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          },
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Write(src/content/**)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          },
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Edit(src/lib/site.ts)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          },
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Write(src/lib/site.ts)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          },
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Edit(src/pages/**)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          },
+          {
+            "type": "agent",
+            "prompt": "你是「文案 AI 味」的獨立審查員。$ARGUMENTS 是工具呼叫 JSON，其中 tool_input.file_path 是剛改動的檔。用 Read 讀該檔，只看面向讀者的中文文案（frontmatter 的 answer/summary/reason、正文、lede、section-title、card 描述、meta description）。揪出 AI 味句子：一句硬塞太多該拆／名詞化繞路（把 X 弄成 Y 的樣子、對…進行…）／空洞排比對仗過工整／八股（首先、其次、綜上所述、不僅…而且）／公文動詞堆疊（透過、藉由、進行、實現、提供）／破折號夾註（——…——）／浮誇詞。不要挑正常枚舉清單、事實數字承諾（6,000／沒有月費／不保證排名）、已口語的句子。有問題逐條回 `原句：…`／`問題：…`／`改成：…`；沒問題只回「PASS」。簡潔，只回清單。",
+            "model": "claude-sonnet-5",
+            "timeout": 120,
+            "if": "Write(src/pages/**)",
+            "statusMessage": "獨立 agent 審 AI 味"
+          }
+        ]
+      }
+    ]
+  }
+}
