@@ -4,7 +4,7 @@ category: "所有權、主機與安全"
 answer: "因為整個網站是建在你自己持有的帳號和你自己的網站空間裡，不是租我的伺服器，所以沒有付給我的主機月費或維護費。你要自己負擔的只有網域每年的續約費，還有你如果想自己用 AI 改網站的訂閱費。網站也不會被綁死在某一個地方，需要時可以完整搬到別的平台。"
 order: 1
 updated: "2026-07-20"
-related: ["what-does-6000-include", "who-owns-the-website"]
+related: ["what-does-the-service-include", "who-owns-the-website"]
 relatedArticles: ["why-annual-hosting-fee"]
 ---
 

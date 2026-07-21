@@ -10,20 +10,18 @@ export const SITE = {
   // 對外聯絡（用戶提供）
   email: "service@yao.care",
   line: "https://line.me/ti/p/i0_EpxFQVc",
-  price: 6000,     // 一次性顧問費（NT$）：含用 AI 建站＋交接＋帶你上手；沒有月費
-  priceModel: "一次性顧問費",
+  priceModel: "一次性顧問費",  // 不公開固定金額：一次付清、沒有月費，多少錢直接問（加 LINE 或來信）
   ownerNote: "帳號、網址、網站資料都屬於你自己。",
   themeColor: "#10323f", // 供 <meta theme-color>；HTML 屬性不能用 var()，故置於 .ts（不受設計守門掃描）
   gaId: "G-86T9ZDJGYH", // GA4 評估 ID（公開值，全站輸出）；BaseLayout 亦支援 PUBLIC_GA_ID 覆寫
 };
 
-// 價格顯示用單一來源：面向讀者一律用這個（含千分位「6,000」）；
-// 結構化資料的 Offer.price 仍用 String(SITE.price) 的純數字「6000」。
-export const PRICE_LABEL = SITE.price.toLocaleString("en-US");
+// 費用講法的單一來源：不再公開固定金額，直接請客戶問。面向讀者要提費用時一律用這個。
+export const FEE_NOTE = "費用一次付清、沒有月費；想知道多少錢，直接加 LINE 或來信問我";
 
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。
 export const POSITIONING =
-  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——付一次 6,000 元顧問費，我用 AI 幫你把網站建好、帶你上手。";
+  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——付一筆顧問費，我用 AI 幫你把網站建好、帶你上手，一次付清、沒有月費，多少錢直接問我。";
 
 // 主選單（桌面）。href 指向 MVP 已建立的頁面。
 export const NAV = [
@@ -31,7 +29,7 @@ export const NAV = [
   { label: "AI 如何運作", href: "/how-it-works/" },
   { label: "AI 自動內容", href: "/content-lab/" },
   { label: "案例", href: "/cases/" },
-  { label: "方案與價格", href: "/pricing/" },
+  { label: "方案與費用", href: "/pricing/" },
   { label: "常見問題", href: "/qa/" },
 ];
 
@@ -83,7 +81,7 @@ export const STEPS = [
   { title: "完整交接給你", desc: "你自己的帳號、你自己的網域、完整網站資料、AI 更新操作方式、搜尋與流量資料權限、完整交接表。完成後可以自己管理，需要協助時再找我們。" },
 ];
 
-// 6,000 元顧問服務內容（一次性；這筆顧問費幫你把整件事搞定）
+// 一次性顧問服務內容（這筆顧問費幫你把整件事搞定；費用問了才報，沒有月費）
 export const PLAN = {
   includes: [
     "把你手上的文案與圖片整理成網站內容",
@@ -125,7 +123,7 @@ export const OWNERSHIP = ["帳號是你的", "網址是你的", "網站資料是
 // 首頁精選 QA：只存 slug，問句一律取自 QA 集合正本（避免第二份硬編漂移、
 // 也避免首頁 FAQ 結構化資料與 /qa/ 給出不同問句）。順序即首頁顯示順序。
 export const FEATURED_QA = [
-  "what-does-6000-include",
+  "what-does-the-service-include",
   "why-no-hosting-maintenance-fee",
   "can-beginners-use-ai",
   "can-ai-write-articles",
@@ -142,14 +140,14 @@ export const FEATURED_QA = [
 export const DEMOS = [
   {
     title: "聊天更新網站",
-    desc: "「請幫我新增一項 CNC 五軸加工服務」——AI 讀資料、整理標題與圖片、修改網站，你確認差異後才正式更新。",
-    scene: "「請幫我新增一項 CNC 五軸加工服務，以下是產品資料與照片。」",
+    desc: "「請幫我新增一項服務項目」——AI 讀資料、整理標題與圖片、修改網站，你確認差異後才正式更新。",
+    scene: "「請幫我新增一項服務項目，以下是說明與照片。」",
     steps: ["AI 讀取你提供的資料", "AI 整理產品標題、介紹及圖片", "AI 修改網站內容", "你確認修改差異", "正式更新網站", "發現錯誤時恢復先前版本"],
   },
   {
     title: "AI 發現搜尋機會",
-    desc: "AI 發現「小量金屬加工」已有搜尋曝光，但網站沒有專門介紹，於是建議並產生對應頁面。",
-    scene: "AI 發現「小量金屬加工」已有搜尋曝光，但網站沒有專門介紹這項服務。",
+    desc: "AI 發現有個和你相關的關鍵字已有搜尋曝光，但網站沒有專門介紹，於是建議並產生對應頁面。",
+    scene: "AI 發現有個和你服務相關的關鍵字已有搜尋曝光，但網站沒有專門介紹這項服務。",
     steps: ["顯示搜尋資料", "顯示 AI 的分析", "顯示建議新增的內容", "顯示產生的頁面或文章", "顯示發布後的觀察結果"],
   },
   {

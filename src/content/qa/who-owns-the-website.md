@@ -4,7 +4,7 @@ category: "所有權、主機與安全"
 answer: "完全是你的。登入帳號是你的、網址是你的、網站的所有資料也是你的，我還會給你一份完整的交接文件。以後就算不再跟我合作，網站照樣能繼續運作，你也可以直接交給別的工程師接手，不會被卡住。你不是在租一個網站，你是真的擁有它。"
 order: 2
 updated: "2026-07-20"
-related: ["why-no-hosting-maintenance-fee", "what-does-6000-include", "is-consulting-required"]
+related: ["why-no-hosting-maintenance-fee", "what-does-the-service-include", "is-consulting-required"]
 relatedArticles: ["who-owns-the-website-data"]
 ---
 

@@ -1,6 +1,6 @@
 // JSON-LD 結構化資料產生器（GEO/AEO：讓搜尋引擎與 AI 更容易理解本站）。
 // 只描述真實事實，不杜撰。
-import { SITE, PRICE_LABEL } from "./site";
+import { SITE } from "./site";
 
 const ORIGIN = SITE.url;
 export const abs = (p: string) => new URL(p, ORIGIN).href;
@@ -13,7 +13,7 @@ export function organizationSchema() {
     "@id": `${ORIGIN}/#organization`,
     name: SITE.name,
     url: ORIGIN,
-    description: `${SITE.tagline}。不分行業，提供一次 ${PRICE_LABEL} 元、客戶自有、可用 AI 聊天更新的網站建置服務。`,
+    description: `${SITE.tagline}。不分行業，提供一次性顧問服務：客戶自有、可用 AI 聊天更新的網站建置與帶你上手。`,
     ...(SITE.email ? { email: SITE.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   };
@@ -43,9 +43,8 @@ export function serviceSchema() {
       "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。",
     offers: {
       "@type": "Offer",
-      price: String(SITE.price),
       priceCurrency: "TWD",
-      description: "一次性顧問費，含用 AI 建站、交接與帶你上手；沒有月費，網域續約與 AI 訂閱另計。",
+      description: "一次性顧問費，實際金額洽詢後報價；含用 AI 建站、交接與帶你上手；沒有月費，網域續約與 AI 訂閱另計。",
     },
   };
 }

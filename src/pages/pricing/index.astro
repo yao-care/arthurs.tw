@@ -1,19 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { SITE, PRICE_LABEL, PLAN, OWNERSHIP } from "../../lib/site";
+import { FEE_NOTE, PLAN, OWNERSHIP } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
-  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與價格", path: "/pricing/" }]),
+  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與費用", path: "/pricing/" }]),
   serviceSchema(),
 ];
 ---
-<BaseLayout title="方案與價格" description="6,000 元一次性顧問服務：看不懂 AI 也沒關係，我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。網域與 AI 訂閱另計。" schemas={schemas}>
+<BaseLayout title="方案與費用" description="一次性顧問服務：看不懂 AI 也沒關係，我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。費用洽詢報價，網域與 AI 訂閱另計。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與價格</p>
-      <h1>6,000 元顧問服務，一次帶你上手。</h1>
-      <p class="lede">付一次 {PRICE_LABEL} 元顧問費，我用 AI 幫你把網站建好、交接、教你之後自己用——讓看不懂的你，也享受得到 AI 紅利。這是一次性的，沒有月費；網域費與你自己訂閱的 AI 另計，沒有其他隱藏費用。</p>
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與費用</p>
+      <h1>一次性顧問服務，一次帶你上手。</h1>
+      <p class="lede">付一筆顧問費，我用 AI 幫你把網站建好、交接、教你之後自己用，讓看不懂的你，也享受得到 AI 紅利。{FEE_NOTE}——實際金額看你的資料量與需求而定，不亂喊價。網域費與你自己訂閱的 AI 另計，沒有其他隱藏費用。</p>
     </div>
   </section>
   <section class="section">
@@ -46,7 +46,7 @@ const schemas = [
         <div class="card">
           <h3>不包含或需另外評估</h3>
           <ul class="x-list" style="margin-top: 0.75rem;">{PLAN.notFits.map((x) => <li>{x}</li>)}</ul>
-          <p class="fs-xs muted" style="margin-top: 0.75rem;">這類功能通常需要額外系統與維護，會另外評估，不在 {PRICE_LABEL} 元方案內。</p>
+          <p class="fs-xs muted" style="margin-top: 0.75rem;">這類功能通常需要額外系統與維護，會另外評估，不在這個顧問服務範圍內。</p>
         </div>
       </div>
     </div>
