@@ -15,7 +15,7 @@ const featured = [...new Set(FEATURED_QA)].filter((slug) => qa.some((q) => q.id 
 const faq = faqSchema(
   featured.slice(0, 10).map((slug) => ({ question: questionOf(slug), answer: answerOf(slug) })).filter((x) => x.answer)
 );
-const caseWall = CASES.slice(0, 8);
+const caseWall = CASES.slice(0, 9);
 ---
 <BaseLayout
   title={SITE.name}

@@ -139,6 +139,7 @@ export const CASES = [
   { name: "神酷 folk", industry: "文化／內容", url: "https://folk.tw/", desc: "內容型知識網站。" },
   { name: "尊茂", industry: "企業官網", url: "https://www.dreamer868.com/", desc: "公司形象與內容網站。" },
   { name: "好棋寶寶協會", industry: "兒童教育／協會", url: "https://www.weiqi.kids/", desc: "圍棋教育協會網站。" },
+  { name: "本日有據", industry: "健康科普／內容", url: "https://evidencetoday.news/", desc: "整理健康研究與新聞、破除迷思的健康科普網站，來源透明、白話解讀。" },
 ];
 
 // QA 分類（/qa/ 用）
