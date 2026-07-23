@@ -17,7 +17,7 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網�
     <div class="container">
       <div class="grid grid-3">
         {CASES.map((c) => (
-          <a href={c.url} class="card card-link" target="_blank" rel="noopener">
+          <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
             <p style="margin: 0 0 0.5rem;">
               <span class="badge">{c.industry}</span>
               {c.self && <span class="badge badge-plan" style="margin-left: 0.4rem;">本站</span>}

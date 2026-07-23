@@ -15,7 +15,7 @@ const featured = [...new Set(FEATURED_QA)].filter((slug) => qa.some((q) => q.id 
 const faq = faqSchema(
   featured.slice(0, 10).map((slug) => ({ question: questionOf(slug), answer: answerOf(slug) })).filter((x) => x.answer)
 );
-const caseWall = CASES.slice(0, 9);
+const caseWall = CASES;
 ---
 <BaseLayout
   title={SITE.name}
@@ -171,7 +171,7 @@ const caseWall = CASES.slice(0, 9);
       <h2 class="section-title">我們替不同產業，把資料整理成能上線使用的網站。</h2>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {caseWall.map((c) => (
-          <a href={c.url} class="card card-link" target="_blank" rel="noopener">
+          <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
             <span class="badge">{c.industry}</span>
             <h3 style="margin-top: 0.6rem;">{c.name}</h3>
             <p class="muted">{c.desc}</p>

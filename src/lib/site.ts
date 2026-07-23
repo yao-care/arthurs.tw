@@ -130,16 +130,21 @@ export const FEATURED_QA = [
 
 // 真實參考案例（用戶提供的實際作品；可外連到實站。持續更新中）。
 // 誠實原則：這些是真的做出來、已上線的網站；不編造客戶見證或成效數字。
+// desc＝該站真正拿得出手的亮點（非空泛描述）；deep＝最能代表亮點的內頁（卡片深連過去，無則連首頁）。
+// 順序刻意讓題材交錯，秀出服務面向多元。
 export const CASES = [
   { name: "本站 Arthurs", industry: "AI 網站服務", url: "https://arthurs.tw", self: true, desc: "你現在看到的這個網站，本身就是用同一套方式建置、用聊天維護。" },
-  { name: "台灣無人機足球（飛球）", industry: "運動賽事平台", url: "https://twdro.net", desc: "賽事、隊伍與規則資料平台。" },
-  { name: "國際醫療減碳協會", industry: "醫療／非營利", url: "https://crinhealthcare.org/", desc: "協會理念、專案與衛教內容網站。" },
-  { name: "鄭骨館體雕中心", industry: "在地健康服務", url: "https://www.olderkkk.com/", desc: "台中在地服務業官網，服務、案例與健康文章持續更新。" },
-  { name: "Vuko 呼吸練習", industry: "健康工具", url: "https://vuko.life/", desc: "呼吸練習內容與工具網站。" },
-  { name: "神酷 folk", industry: "文化／內容", url: "https://folk.tw/", desc: "內容型知識網站。" },
-  { name: "尊茂", industry: "企業官網", url: "https://www.dreamer868.com/", desc: "公司形象與內容網站。" },
-  { name: "好棋寶寶協會", industry: "兒童教育／協會", url: "https://www.weiqi.kids/", desc: "圍棋教育協會網站。" },
-  { name: "本日有據", industry: "健康科普／內容", url: "https://evidencetoday.news/", desc: "整理健康研究與新聞、破除迷思的健康科普網站，來源透明、白話解讀。" },
+  { name: "本日有據", industry: "健康科普", url: "https://evidencetoday.news/", deep: "https://evidencetoday.news/articles/autonomic-nervous-dysfunction-anxiety-guide/", desc: "健康研究白話解釋，單篇引用具體研究數據與官方來源核對，近一個月更新逾 90 篇。" },
+  { name: "yao.care", industry: "醫療 AI", url: "https://www.yao.care/", deep: "https://www.yao.care/medical/txgnn/methodology", desc: "醫療 AI 公司官網，老藥新用平台 TxGNN 覆蓋 30 國，方法論公開、證據分級、主動列限制。" },
+  { name: "國際醫療減碳協會", industry: "醫療／非營利", url: "https://crinhealthcare.org/", deep: "https://crinhealthcare.org/case-studies/ndmc-kaohsiung/", desc: "為 13 家國軍與榮總體系醫院做碳盤查與節能改造，最高單案節能 42.99%、補助逾 2400 萬。" },
+  { name: "尊茂財務規劃", industry: "財務規劃", url: "https://www.dreamer868.com/", deep: "https://www.dreamer868.com/articles/family-story-42/", desc: "改編自司法院真實判決的家庭與企業理財案例，逐日更新且全部化名處理。" },
+  { name: "APPI News", industry: "新聞媒體", url: "https://appi.news/", deep: "https://appi.news/articles/taiwan-health-data-why-now/", desc: "亞太專業觀點媒體，多作者深度報導，每篇附可逐條查證的外部來源，逐日更新。" },
+  { name: "好棋寶寶協會", industry: "兒童教育／協會", url: "https://www.weiqi.kids/", desc: "圍棋公益活動、AI 工具箱、學術論文三線並陳，各有可點入的實體紀錄佐證。" },
+  { name: "神酷 folk", industry: "文化／民俗", url: "https://folk.tw/", deep: "https://folk.tw/deities/mazu", desc: "台灣民俗信仰公開資料庫，神明、籤詩、廟宇皆標來源，缺來源不對外發佈。" },
+  { name: "sutta.io 原典研經", industry: "佛學／知識工具", url: "https://sutta.io/", deep: "https://sutta.io/topics/marana/", desc: "把喪親與恐懼等人生苦對應巴利原典佛陀原話，附出處可點回原典核對。" },
+  { name: "鄭骨館體雕中心", industry: "在地健康服務", url: "https://www.olderkkk.com/", deep: "https://www.olderkkk.com/method/", desc: "台中運動矯正體雕，矯正加肌力雙步驟方法講得具體，衛教文章持續更新。" },
+  { name: "Vuko 呼吸練習", industry: "健康工具", url: "https://www.vuko.life/", deep: "https://www.vuko.life/guides/binaural-beats-for-sleep.html", desc: "即時偵測呼吸自動調整雙耳拍頻，全程在瀏覽器本機運算，不上傳麥克風音訊。" },
+  { name: "台灣無人機足球（飛球）", industry: "運動賽事平台", url: "https://twdro.net", deep: "https://twdro.net/rules/compare/", desc: "整理 FAI、FIDA、教育部等四套無人機足球規則逐條查證比對，做成規則比較器與合規檢查器。" },
 ];
 
 // QA 分類（/qa/ 用）
