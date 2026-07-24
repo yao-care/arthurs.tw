@@ -46,6 +46,22 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2  # 需要 HEAD^ 才能 diff 出這次變動的檔案
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Submit changed URLs to IndexNow
+        run: |
+          # 只推「這次 push 真的動到的頁面」；首次提交或無前一版時退回只推首頁。
+          CHANGED=$(git diff --name-only HEAD^ HEAD 2>/dev/null || echo "")
+          node scripts/indexnow.mjs $CHANGED
+
   verify:
     needs: deploy
     runs-on: ubuntu-latest

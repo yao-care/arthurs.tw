@@ -20,6 +20,10 @@ const meta = [
   ["人工確認", d.humanReview],
 ].filter(([, v]) => v);
 
+const allArticles = await getCollection("articles");
+const related = (d.related ?? [])
+  .map((slug) => allArticles.find((a) => a.id === slug))
+  .filter(Boolean);
 const allQa = await getCollection("qa");
 const relatedQa = (d.relatedQa ?? [])
   .map((slug) => allQa.find((q) => q.id === slug))
@@ -53,6 +57,14 @@ const schemas = [
           <dl class="deflist" style="margin-top: 0.75rem;">
             {meta.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
           </dl>
+        </div>
+      )}
+      {related.length > 0 && (
+        <div style="margin-top: 2rem;">
+          <h2 style="font-size: var(--text-lg);">延伸閱讀</h2>
+          <ul class="footer-links" style="margin-top: 0.75rem;">
+            {related.map((a) => <li><a href={`/articles/${a!.id}/`}>{a!.data.title}</a></li>)}
+          </ul>
         </div>
       )}
       {relatedQa.length > 0 && (

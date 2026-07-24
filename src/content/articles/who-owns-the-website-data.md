@@ -9,7 +9,7 @@ reason: "客戶被過去的廠商綁過，擔心資料不是自己的、想換�
 sources: "客戶提問、網站 QA 缺口"
 aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容、價格範圍及服務承諾"
-related: []
+related: ["why-annual-hosting-fee"]
 relatedQa: ["who-owns-the-website"]
 ---
 
