@@ -4,7 +4,7 @@ category: "價格與服務範圍"
 answer: "這是一次性的顧問費，付一次就好、沒有月費。它幫你把整件事搞定：把你手上的文案、圖片整理好，用 AI 做出一個完整的公司形象與服務網站，整理產品和成功案例，做好手機、平板、電腦三種版面，綁定你自己的網域，設定好 Google 搜尋與流量分析工具，手把手教你用 AI 更新網站，最後正式上線並附上一份完整交接表。這是一次性顧問服務，沒有月費。"
 order: 1
 updated: "2026-07-21"
-related: ["why-no-hosting-maintenance-fee", "who-owns-the-website", "is-consulting-required"]
+related: ["why-no-hosting-maintenance-fee", "who-owns-the-website", "is-consulting-required", "how-much-does-it-cost"]
 ---
 
 ## 詳細說明
