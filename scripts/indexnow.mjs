@@ -20,6 +20,8 @@ function toUrl(file) {
   if (file.startsWith("src/content/updates/") && file.endsWith(".md")) return `${ORIGIN}/updates/`;
   // 首頁區塊/事實骨幹/schema 變動 → 影響面大，推首頁
   if (file === "src/pages/index.astro" || file === "src/lib/site.ts" || file === "src/lib/seo.ts") return `${ORIGIN}/`;
+  // 動態路由模板（含 [slug] 等）不對應單一 URL，其實際內容頁由上面 content/* 分支處理 → 跳過
+  if (file.includes("[")) return null;
   // src/pages/<name>/index.astro 或 src/pages/<name>.astro → /<name>/
   const m = file.match(/^src\/pages\/(.+?)(?:\/index)?\.astro$/);
   if (m && m[1] !== "index") return `${ORIGIN}/${m[1].replace(/\/index$/, "")}/`;
