@@ -132,6 +132,7 @@ export const OWNERSHIP = ["帳號是你的", "網址是你的", "網站資料是
 // 也避免首頁 FAQ 結構化資料與 /qa/ 給出不同問句）。順序即首頁顯示順序。
 export const FEATURED_QA = [
   "what-does-the-service-include",
+  "how-much-does-it-cost",
   "why-no-hosting-maintenance-fee",
   "can-beginners-use-ai",
   "what-if-ai-makes-a-mistake",
