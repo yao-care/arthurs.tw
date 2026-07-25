@@ -222,13 +222,14 @@ strong { font-weight: 700; }
 .legal-nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; list-style: none; padding: 0; margin: 0.75rem 0 0; }
 .legal-nav li { margin: 0; font-size: var(--text-sm); }
 
-/* ── 文字型按鈕（行內備援動作，例如「複製問題」；不搶主 CTA 的視覺） ── */
-.btn-inline {
-  font: inherit; font-size: var(--text-sm); font-weight: 700; color: var(--color-primary);
-  background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline;
+/* ── 問題卡（/ai-check/：問題原文直接印在頁面上，剪貼簿或深連結任一環失效都還選得到） ── */
+.ask-item {
+  background: var(--color-bg-soft); border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm); padding: 1.1rem 1.25rem;
 }
-.btn-inline:hover { color: var(--color-accent-dark); }
-.section-deep .btn-inline { color: var(--color-white); }
+.ask-item + .ask-item { margin-top: 1rem; }
+.ask-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.04em; color: var(--color-ink-soft); margin: 0 0 0.35rem; }
+.ask-q { margin: 0 0 1.1rem; }
 
 /* ── 表單 ── */
 .field { display: grid; gap: 0.35rem; margin-bottom: 1.1rem; }

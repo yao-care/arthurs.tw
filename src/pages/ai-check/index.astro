@@ -9,10 +9,12 @@ const schemas = [breadcrumbSchema([
 ])];
 
 // 讓訪客在「自己的」ChatGPT 上問，我們不代答、也沒有作假空間。
-// 2026-07-25 實測：q= 只保證把問題帶進輸入框，送出要訪客自己按，所以文案照實寫「按 Enter 送出」，
-// 每組問題旁邊都留一顆複製鈕。OpenAI 哪天改掉參數行為，這頁也不會變成死路。
-// hints=search 是要它查網路再答（示範的重點就在這）；若日後查出它會讓送出失敗，拿掉這段即可。
-const ask = (q: string) => `https://chatgpt.com/?hints=search&q=${encodeURIComponent(q)}`;
+//
+// 2026-07-25 定案（別再改回去）：這頁不靠 OpenAI 的未公開參數。按鈕按下去同時做兩件事，
+// 問題進剪貼簿、ChatGPT 開新分頁；q= 有效就順便幫他填好，失效就貼上。問題原文也直接
+// 印在頁面上（.ask-q），剪貼簿被瀏覽器擋掉還選得到。三條路任一條活著，這頁就不會變死路。
+// hints=search 已拿掉：老闆實測「送出後有問題」時它有嫌疑，而且我們本來就不需要強制搜尋模式。
+const ask = (q: string) => `https://chatgpt.com/?q=${encodeURIComponent(q)}`;
 
 // 示範標的＝鄭骨館體雕中心：實測（2026-07-24）唯一「指名問講得出、
 // 買家問法也被列第一名」的案例站。換標的前務必重新實測，別憑印象。
@@ -22,6 +24,8 @@ const DEMO = {
   buyerAsk: "推薦幾間台中西屯區的整骨、運動矯正體雕工作室，並說明它們的特色。",
   nameAsk: "介紹一下「鄭骨館體雕中心」這家店，它做什麼、有什麼特色？",
 };
+
+const HOWTO = "按下去，問題會複製到你的剪貼簿，ChatGPT 開在新分頁。問題已經填好就直接按 Enter，沒填就貼上再按 Enter。";
 ---
 <BaseLayout
   title="AI 認得你的公司嗎"
@@ -33,7 +37,7 @@ const DEMO = {
       <p class="breadcrumb"><a href="/">首頁</a> ／ AI 認得你嗎</p>
       <h1>現在的人問 AI 找廠商。<br />它推薦得出你嗎？</h1>
       <p class="lede">
-        別聽我說，自己問。下面的按鈕會打開你自己的 ChatGPT，問題幫你填好，你按 Enter 送出，答案是它當場給你的。
+        別聽我說，自己問。下面的問題都幫你寫好了，按一下就複製並開啟你自己的 ChatGPT，答案是它當場給你的。
       </p>
     </div>
   </section>
@@ -47,24 +51,24 @@ const DEMO = {
           <a href={DEMO.url} rel="noopener">{DEMO.name}</a> 是一家在台中西屯的小店，不是什麼大品牌。
           但當有人請 AI 推薦這一類服務，它會被主動點名，還附得出地址、時段與特色。
         </p>
-        <p style="margin-top: 1rem;">
-          按下去，ChatGPT 會開起來、問題已經填好，你按 Enter 送出：
-        </p>
-        <p class="btn-row" style="margin-top: 1.5rem;">
-          <a href={ask(DEMO.buyerAsk)} class="btn btn-primary" target="_blank" rel="noopener">
-            問 AI：推薦台中的整骨體雕工作室
+        <p class="fs-xs muted" style="margin-top: 1rem;">{HOWTO}</p>
+
+        <div class="ask-item" style="margin-top: 1.5rem;">
+          <p class="ask-label">客戶會這樣問</p>
+          <p class="ask-q">{DEMO.buyerAsk}</p>
+          <a href={ask(DEMO.buyerAsk)} data-copy={DEMO.buyerAsk} class="btn btn-primary" target="_blank" rel="noopener">
+            複製問題並打開 ChatGPT
           </a>
-          <a href={ask(DEMO.nameAsk)} class="btn btn-secondary" target="_blank" rel="noopener">
-            問 AI：這家店是做什麼的
+        </div>
+        <div class="ask-item">
+          <p class="ask-label">指名問這家店</p>
+          <p class="ask-q">{DEMO.nameAsk}</p>
+          <a href={ask(DEMO.nameAsk)} data-copy={DEMO.nameAsk} class="btn btn-secondary" target="_blank" rel="noopener">
+            複製問題並打開 ChatGPT
           </a>
-        </p>
-        <p class="fs-xs muted" style="margin-top: 1rem;">
-          連結打不開，或問題沒被帶進去，就複製問題自己貼：
-          <button type="button" class="btn-inline" data-copy={DEMO.buyerAsk}>複製推薦那題</button>
-          、
-          <button type="button" class="btn-inline" data-copy={DEMO.nameAsk}>複製指名那題</button>
-        </p>
-        <p class="fs-xs muted" style="margin-top: 1rem;">
+        </div>
+
+        <p class="fs-xs muted" style="margin-top: 1.5rem;">
           AI 的回答每次不完全一樣，也可能隨時改變，這是它的本質。這裡不是保證誰一定被推薦，是讓你看見「被 AI 講得出來」長什麼樣子。
         </p>
       </div>
@@ -76,7 +80,7 @@ const DEMO = {
       <span class="eyebrow">換你了</span>
       <h2 class="section-title">輸入你的公司名，去問問看它認不認得你。</h2>
       <p class="prose" style="margin-top: 1rem;">
-        打上你的公司全名（有地區、行業更準）。按下去會打開你自己的 ChatGPT，問題填好，你按 Enter 送出。我們看不到你打了什麼，也不會留下紀錄。
+        打上你的公司全名（有地區、行業更準），下面兩個問題會跟著改。我們看不到你打了什麼，也不會留下紀錄。
       </p>
       <div class="card" style="margin-top: 2rem;">
         <div class="field">
@@ -84,22 +88,25 @@ const DEMO = {
           <input id="company" name="company" type="text" autocomplete="organization"
                  placeholder="例如：某某企業有限公司（台中，金屬加工）" />
         </div>
-        <p class="btn-row" style="margin-top: 1.5rem;">
-          <a id="ask-name" class="btn btn-primary" href={ask("介紹一下這家公司")} target="_blank" rel="noopener">
-            問 AI：認得我這家公司嗎
+        <p class="fs-xs muted">{HOWTO}</p>
+
+        <div class="ask-item" style="margin-top: 1.5rem;">
+          <p class="ask-label">它認得你嗎</p>
+          <p class="ask-q" id="q-name">介紹一下這家公司</p>
+          <a id="ask-name" href={ask("介紹一下這家公司")} data-copy="介紹一下這家公司" class="btn btn-primary" target="_blank" rel="noopener">
+            複製問題並打開 ChatGPT
           </a>
-          <a id="ask-buyer" class="btn btn-secondary" href={ask("推薦幾家廠商")} target="_blank" rel="noopener">
-            問 AI：會推薦我嗎
+        </div>
+        <div class="ask-item">
+          <p class="ask-label">客戶沒指名時，它推薦誰</p>
+          <p class="ask-q" id="q-buyer">推薦幾家廠商</p>
+          <a id="ask-buyer" href={ask("推薦幾家廠商")} data-copy="推薦幾家廠商" class="btn btn-secondary" target="_blank" rel="noopener">
+            複製問題並打開 ChatGPT
           </a>
-        </p>
-        <p class="fs-xs muted" style="margin-top: 1rem;">
-          一樣可以複製問題自己貼：
-          <button type="button" class="btn-inline" id="copy-name" data-copy="">複製指名那題</button>
-          、
-          <button type="button" class="btn-inline" id="copy-buyer" data-copy="">複製推薦那題</button>
-        </p>
-        <p class="fs-xs muted" style="margin-top: 1rem;">
-          沒填也能按，只是問得不準。第二顆是重點：客戶不會指名找你，他們是問「推薦一家做這行的」。
+        </div>
+
+        <p class="fs-xs muted" style="margin-top: 1.5rem;">
+          沒填也能按，只是問得不準。第二題是重點：客戶不會指名找你，他們是問「推薦一家做這行的」。
         </p>
       </div>
     </div>
@@ -127,16 +134,16 @@ const DEMO = {
 </BaseLayout>
 
 <script>
-  // 純前端組 ChatGPT 深連結：使用者輸入不離開這台瀏覽器，我們不收、不存。
+  // 純前端：訪客打的公司名不離開這台瀏覽器，我們不收、不存。
   const input = document.getElementById("company") as HTMLInputElement | null;
   const askName = document.getElementById("ask-name") as HTMLAnchorElement | null;
   const askBuyer = document.getElementById("ask-buyer") as HTMLAnchorElement | null;
-  const copyName = document.getElementById("copy-name") as HTMLButtonElement | null;
-  const copyBuyer = document.getElementById("copy-buyer") as HTMLButtonElement | null;
+  const qName = document.getElementById("q-name");
+  const qBuyer = document.getElementById("q-buyer");
 
-  const link = (q: string) => `https://chatgpt.com/?hints=search&q=${encodeURIComponent(q)}`;
+  const link = (q: string) => `https://chatgpt.com/?q=${encodeURIComponent(q)}`;
 
-  if (input && askName && askBuyer) {
+  if (input && askName && askBuyer && qName && qBuyer) {
     const sync = () => {
       const name = input.value.trim();
       const nameQ = name
@@ -145,28 +152,30 @@ const DEMO = {
       const buyerQ = name
         ? `我想找廠商。請推薦幾家同「${name}」做同一類服務、同一個地區的公司，並說明推薦理由。`
         : "推薦幾家廠商";
+      qName.textContent = nameQ;
+      qBuyer.textContent = buyerQ;
       askName.href = link(nameQ);
       askBuyer.href = link(buyerQ);
-      if (copyName) copyName.dataset.copy = nameQ;
-      if (copyBuyer) copyBuyer.dataset.copy = buyerQ;
+      askName.dataset.copy = nameQ;
+      askBuyer.dataset.copy = buyerQ;
     };
     input.addEventListener("input", sync);
     sync();
   }
 
-  // 備援：ChatGPT 沒把問題帶進去時，讓訪客自己複製貼上，這頁不會變成死路。
+  // 按鈕同時複製問題並開 ChatGPT。不攔截導向：就算複製失敗，分頁照開，問題原文也還印在頁面上。
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement | null;
-    const btn = target?.closest("[data-copy]") as HTMLButtonElement | null;
+    const btn = target?.closest("[data-copy]") as HTMLAnchorElement | null;
     const text = btn?.dataset.copy;
-    if (!btn || !text) return;
-    const label = btn.textContent;
+    if (!btn || !text || !navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(
       () => {
-        btn.textContent = "已複製";
-        setTimeout(() => { btn.textContent = label; }, 2000);
+        const label = btn.textContent;
+        btn.textContent = "問題已複製，貼上按 Enter";
+        setTimeout(() => { btn.textContent = label; }, 4000);
       },
-      () => { btn.textContent = "複製失敗，請自行選取"; }
+      () => {}
     );
   });
 </script>
