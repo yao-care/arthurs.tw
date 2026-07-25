@@ -11,6 +11,11 @@ aiHelp: "整理常見情境、建立文章架構、產生初稿"
 humanReview: "已檢查技術內容、價格範圍及服務承諾"
 related: ["chatgpt-doesnt-know-my-company", "how-to-get-chatgpt-to-mention-you"]
 relatedQa: ["can-google-ranking-be-guaranteed"]
+citations:
+  - name: "Google 搜尋中心：建立實用、可靠、以人為本的內容"
+    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  - name: "Google 搜尋中心：Google 檢索器與使用者觸發擷取工具總覽"
+    url: "https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers"
 ---
 
 ## 直接答案

@@ -11,6 +11,11 @@ aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容與服務承諾，確認沒有做出保證推薦的說法"
 related: ["chatgpt-doesnt-know-my-company"]
 relatedQa: ["can-chatgpt-recommendation-be-guaranteed"]
+citations:
+  - name: "GEO: Generative Engine Optimization（生成式引擎優化，KDD 2024）"
+    url: "https://arxiv.org/abs/2311.09735"
+  - name: "Google 搜尋中心：建立實用、可靠、以人為本的內容"
+    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
 ---
 
 ## 直接答案

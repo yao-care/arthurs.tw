@@ -82,7 +82,9 @@ export function faqSchema(items: { question: string; answer: string }[]) {
   };
 }
 
-export function articleSchema(a: { title: string; description: string; path: string; created?: string; updated?: string }) {
+export function articleSchema(a: { title: string; description: string; path: string; created?: string; updated?: string; citations?: { name: string; url: string }[] }) {
+  // citation：文章論點實際依據的外部權威來源（GEO：讓 AI 有可佐證的引用來源）。只放真實公開文獻，勿杜撰。
+  const cites = (a.citations ?? []).filter((c) => c.url);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -95,5 +97,6 @@ export function articleSchema(a: { title: string; description: string; path: str
     ...(a.updated ? { dateModified: a.updated } : {}),
     author: { "@id": `${ORIGIN}/#organization` },
     publisher: { "@id": `${ORIGIN}/#organization` },
+    ...(cites.length ? { citation: cites.map((c) => ({ "@type": "CreativeWork", name: c.name, url: c.url })) } : {}),
   };
 }

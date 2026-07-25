@@ -31,6 +31,8 @@ const articles = defineCollection({
     humanReview: z.string().optional(),
     related: z.array(z.string()).default([]),      // 同集合（文章↔文章）
     relatedQa: z.array(z.string()).default([]),    // 跨集合：相關常見問題 slug
+    // 外部權威來源（GEO：讓 AI 有可佐證的引用）。只放文章論點實際依據的公開文獻，勿杜撰。
+    citations: z.array(z.object({ name: z.string(), url: z.string().url() })).default([]),
   }),
 });
 

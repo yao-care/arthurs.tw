@@ -35,7 +35,7 @@ const schemas = [
     { name: "最新文章", path: "/articles/" },
     { name: d.title, path },
   ]),
-  articleSchema({ title: d.title, description: d.summary, path, created: d.created, updated: d.updated }),
+  articleSchema({ title: d.title, description: d.summary, path, created: d.created, updated: d.updated, citations: d.citations }),
 ];
 ---
 <BaseLayout title={d.title} description={d.summary} schemas={schemas} ogType="article">
