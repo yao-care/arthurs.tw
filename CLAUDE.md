@@ -62,11 +62,13 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 - **SEO/AEO/GEO**：`robots.txt.ts`（開放 AI 爬蟲＋sitemap）、`llms.txt.ts`（純文字**目錄**：站台簡介＋分區連結）、`llms-full.txt.ts`（純文字**全文**：服務說明＋全部 QA 與文章正文＋真實案例，讓 AI 一次讀完直接引用，不必逐頁爬；內容一律取自 `src/content/` 正本與 `site.ts`，勿手寫成第二份會漂移的副本）、sitemap priority 差異化（astro.config.mjs）。
 
 ## 數據串接現況（2026-07-24 校正，原「待補」多已完成）
-- **聯絡管道**：✅ 已填。`SITE.email` = `service@yao.care`、`SITE.line` = LINE 加好友連結；`/website-check/` 表單走 mailto、聯絡方式已顯示。
+- **聯絡管道**：✅ 已填。`SITE.email` = `service@yao.care`、`SITE.line` = LINE 加好友連結。`/website-check/` 表單**實際走 formsubmit.co 的 ajax 端點轉寄到 `SITE.email`**（2026-07-25 讀碼校正；原本寫「走 mailto」是錯的，mailto 只是表單旁的備援按鈕）。這是唯一會把訪客資料交給第三方的地方，隱私權政策已據此列出。
 - **GA4**：✅ 已接。`site.ts` `gaId: "G-86T9ZDJGYH"` 全站輸出（`BaseLayout.astro` 亦支援 `PUBLIC_GA_ID` 覆寫）。實測有數據流入。
 - **GSC**：✅ 已接。`sc-domain:arthurs.tw` 驗證完成、sitemap 已提交；納入 seo-ops 每日收集（`/root/seo-ops/sites/arthurs.tw.json`，服務帳號 `/root/.config/arthurs/ga4-sa.json` 唯讀拉 GA4+GSC）。cron：collect 22:00／反思 00:40／大腦 01:15／週報週一。
 - **催收錄 indexPing**：2026-07-24 起**已打開**（原 `false`）。每日 collect 後對 10 個重點頁走 Google Indexing API 推送，加速『已發現未收錄』進索引；SA 已驗證有 `indexing` scope 權限。清單見 seo-ops 站台設定 `indexPing.urls`。
 - **曝光現況（2026-07-24）**：站新、自然搜尋足跡極薄（GSC 近一週曝光個位數、流量幾乎全直接進站）。增曝光靠內容量×收錄速度×站外連結，非設定問題。
 - **品牌色**：目前為深藍青＋暖琥珀佔位，用戶確認後可調 `variables.css`。
 - **收費模型（2026-07-21 更新）**：一次性顧問費、無月費、不綁約；**不公開固定金額**，改「多少錢直接問我（加 LINE 或來信）」，詳見檔案頂端「價格政策」。若日後要恢復標價或加「後續協助/月費」層級，需回頭調 `site.ts`（`FEE_NOTE`）、pricing、service、diy 與 is-consulting-required / what-does-the-service-include / can-beginners-use-ai QA（目前這些都寫「不強制、日後再另談、金額直接問、不報月費數字」）。
-- 第二階段內容：真實案例內頁、操作示範影片、法律頁（/privacy、/terms、/disclaimer）。
+- **法律頁（2026-07-25 完成）**：`/privacy/`、`/terms/`、`/disclaimer/` 三頁上線，頁尾 `footer-bottom` 有連結、`llms.txt` 有分區。**署名與生效日期的單一真實來源＝`site.ts` 的 `LEGAL`**（`operator`＝「Arthurs 是品牌名，實際提供服務的是 yao.care」、`updated`、`pages[]`）；老闆確認暫不公開公司登記全名、統編與地址，要補改 `LEGAL.operator` 一處三頁同步。隱私權政策照實列出會經手資料的第三方（formsubmit.co／Google Analytics 4＋Search Console／託管平台／LINE、Email／OpenAI），改動資料流時**必須同步改這頁**。版型共用 global.css 的 `.legal` 區塊。
+- **`/ai-check/` 的 ChatGPT 深連結（2026-07-25 校正）**：連結格式 `https://chatgpt.com/?hints=search&q=<encodeURIComponent(問題)>`。**`q=` 只保證把問題帶進輸入框，不保證自動送出**（老闆實測：字有帶入、要自己按 Enter），所以頁面文案一律寫「問題已填好，按 Enter 送出」，且每組問題旁邊都有一顆「複製問題」備援鈕（`.btn-inline` ＋ `data-copy`，純前端 clipboard）。這是未公開參數，OpenAI 隨時可能改，**別再把成敗押在它自動送出**。老闆實測時看到的 `[Statsig] .../ces/v1/rgstr 503 biscuit_baker_service_me_circuit_open` 是 OpenAI 的遙測端點斷路器，與送訊息的 `/backend-api/conversation` 無關，屬雜訊。`hints=search` 目前保留（示範要它查網路再答）；若日後查出它導致送出失敗，拿掉 `ask()` 與 script 內 `link()` 兩處即可。
+- 第二階段內容：真實案例內頁（目前 `/cases/` 只有案例牆，卡片外連客戶站，站內沒有個別案例頁）、操作示範影片。

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, LEGAL } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "隱私權政策", path: "/privacy/" }])];
+const others = LEGAL.pages.filter((p) => p.href !== "/privacy/");
+---
+<BaseLayout
+  title="隱私權政策"
+  description="arthurs.tw 收哪些資料、用在哪裡、哪些外部服務會看到，以及你想查詢、更正或刪除時該找誰。白話寫，不繞法律術語。"
+  schemas={schemas}
+>
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 隱私權政策</p>
+      <h1>隱私權政策</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose legal">
+      <p>這頁說明 {SITE.domain} 收哪些資料、用在哪裡。哪些外部服務會看到，也一起列出來。你想查詢、更正或刪除，方法寫在後面。</p>
+
+      <h2>我們是誰</h2>
+      <p>{LEGAL.operator}這個網站由我們自己營運、自己維護。個資的問題，寫信到 <a href={`mailto:${SITE.email}`}>{SITE.email}</a> 或用 <a href={SITE.line} target="_blank" rel="noopener">LINE</a> 說一聲，我們會回。</p>
+
+      <h2>我們會收到哪些資料</h2>
+      <h3>你主動給的</h3>
+      <ul>
+        <li>網站健檢表單（<a href="/website-check/">/website-check/</a>）填的內容：公司名稱、聯絡人、聯絡方式（電話或 Email）、現有網站網址、公司產業、最想解決的問題、是否已有 AI 訂閱、其他補充。</li>
+        <li>你寫信或加 LINE 時的訊息，以及該平台顯示的名稱。</li>
+        <li>合作開始後，為了做網站而由你給的公司資料、文字與圖片。</li>
+      </ul>
+      <h3>系統自動記下的</h3>
+      <ul>
+        <li>Google Analytics 4：你看了哪些頁、停留多久、從哪裡連過來、用什麼裝置和瀏覽器、大概在哪個地區。這些數字靠 cookie 和一組匿名編號累加，我們看到的是總數，認不出是誰。</li>
+        <li>Google Search Console：哪些搜尋字詞讓這個網站出現在結果裡、有沒有被點。Google 給的是彙總數字，看不到是誰搜的。</li>
+        <li>網站託管平台會留下連線紀錄（含 IP 與時間）。那份紀錄存在平台那邊，我們看不到單筆。</li>
+      </ul>
+      <h3>我們不會收的</h3>
+      <ul>
+        <li>本站沒有會員註冊、沒有登入，也不在站上收款，所以不會有帳號密碼或信用卡資料。</li>
+        <li><a href="/ai-check/">/ai-check/</a> 你打的公司名稱只留在你自己的瀏覽器，用來組出要問 ChatGPT 的問題，不會傳回我們這裡，也不會被存起來。</li>
+      </ul>
+
+      <h2>這些資料用在哪裡</h2>
+      <ul>
+        <li>回覆你的詢問、看懂你的網站現況、給建議跟報價。</li>
+        <li>合作期間做網站、改網站。</li>
+        <li>看哪些頁面有人讀、哪些內容還缺，用來把這個網站改得更好。</li>
+      </ul>
+      <p>不會拿去做的事：不賣、不交換你的個人資料；不拿來投放個人化廣告；沒問過你，不會把你的公司名稱或網站放上<a href="/cases/">案例</a>。</p>
+
+      <h2>哪些外部服務會看到</h2>
+      <ul>
+        <li><strong>formsubmit.co：</strong>健檢表單的送信服務。你按下送出，表單內容經過它轉寄到我們信箱。</li>
+        <li><strong>Google（Analytics 4、Search Console）：</strong>流量與搜尋成效的統計。</li>
+        <li><strong>網站託管平台：</strong>放這個網站的檔案，讓人連得進來。</li>
+        <li><strong>LINE 與電子郵件服務：</strong>你用哪個管道找我們，訊息就留在那個平台。</li>
+        <li><strong>OpenAI：</strong>你在 /ai-check/ 按下按鈕會前往 ChatGPT，之後的對話屬於 OpenAI，不經過我們。</li>
+      </ul>
+      <p>這些服務各自有隱私權政策，想細看可以直接翻該公司的說明。</p>
+
+      <h2>資料留多久</h2>
+      <ul>
+        <li>詢問與往來紀錄留到聯絡目的結束為止，你隨時可以來信要求刪掉。</li>
+        <li>合作客戶的資料在合作期間保存，結束後依雙方約定保留或刪除。</li>
+        <li>Google Analytics 的資料，依 Google 後台設定的保存期限自動刪除。</li>
+      </ul>
+
+      <h2>Cookie</h2>
+      <p>本站只用 Google Analytics 的統計 cookie，沒有廣告追蹤 cookie。你可以在瀏覽器設定裡擋掉 cookie，或裝 Google 的 Analytics 停用外掛。擋掉之後，看文章跟填表都照常。</p>
+
+      <h2>你的權利</h2>
+      <p>依個人資料保護法，你可以要求查詢、閱覽、複製、補充或更正你的個人資料，也可以要求停止蒐集、處理、利用或刪除。寫信到 <a href={`mailto:${SITE.email}`}>{SITE.email}</a> 說你要什麼，我們核對身分後照辦。</p>
+
+      <h2>未成年人</h2>
+      <p>這個服務是做給想建網站、想把舊網站改好的人。未滿 18 歲的話，請在法定代理人同意後再留個人資料。</p>
+
+      <h2>政策更新</h2>
+      <p>收資料的方式或用的工具變了，我們會改這頁，比較大的變動會記在<a href="/updates/">更新紀錄</a>。</p>
+
+      <div class="legal-updated">
+        <p>本版生效日期：{LEGAL.updated}。</p>
+        <ul class="legal-nav">
+          {others.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

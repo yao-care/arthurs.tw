@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, LEGAL } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "免責聲明", path: "/disclaimer/" }])];
+const others = LEGAL.pages.filter((p) => p.href !== "/disclaimer/");
+---
+<BaseLayout
+  title="免責聲明"
+  description="站上文章與問答是一般性的資訊分享，不是專業建議。這頁說明內容怎麼寫出來的、為什麼會過時、案例與外部連結怎麼看，以及 AI 給的答案不歸我們管。"
+  schemas={schemas}
+>
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 免責聲明</p>
+      <h1>免責聲明</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose legal">
+      <p>這頁說明 {SITE.domain} 上的內容該怎麼看待，以及哪些事我們管不到。</p>
+
+      <h2>文章與問答只是一般資訊</h2>
+      <p>站上的<a href="/articles/">文章</a>與<a href="/qa/">常見問題</a>，寫的是我們的做法與經驗，不是法律、稅務、醫療或投資建議。你的情況跟文章裡的未必一樣，要下重要決定前，請找該領域的專業人士確認。</p>
+
+      <h2>內容是怎麼寫出來的</h2>
+      <p>本站有部分內容由 AI 協助撰寫，發佈前經過人工複核。每次改動都會記下 AI 幫了什麼、人看了什麼，公開在<a href="/updates/">更新紀錄</a>。就算這樣還是可能寫錯。看到錯誤請寫信到 <a href={`mailto:${SITE.email}`}>{SITE.email}</a> 告訴我們，我們會更正，也會把更正記在更新紀錄裡。</p>
+
+      <h2>內容會過時</h2>
+      <p>AI 工具、搜尋引擎與各平台的規則變得很快，去年的做法今年可能就不管用。文章與問答都標了更新日期，請照那個日期判斷內容新舊。</p>
+
+      <h2>不保證成效</h2>
+      <p>我們不保證 Google 排名、不保證被 AI 推薦、不保證訂單，也不保證多久看得到效果。站上出現的數字取自公開資料或實際紀錄，是那個案子當時的狀況，不代表你會得到一樣的結果。</p>
+
+      <h2>案例與站外連結</h2>
+      <p><a href="/cases/">案例</a>列的都是實際已經上線的網站。各站內容由該站自己更新，你點過去看到的樣子以當下為準，我們不對那些內容負責。文章裡的站外連結是方便你自己查證，不代表我們替對方的所有服務背書。</p>
+
+      <h2>AI 給的答案不歸我們管</h2>
+      <p>你在 <a href="/ai-check/">/ai-check/</a> 按下按鈕後，問題會帶到 ChatGPT。答案由 OpenAI 的模型生成，說得對不對我們無法控制，也不代表我們的立場。AI 把你的公司講錯，正是那頁想讓你親眼看到的事。</p>
+
+      <h2>網站可能連不上</h2>
+      <p>這是一個靜態網站，檔案放在外部平台上。平台維護或網路出狀況時，可能暫時連不進來。我們會盡快處理，但不對連不上造成的損失負責。</p>
+
+      <div class="legal-updated">
+        <p>本版生效日期：{LEGAL.updated}。</p>
+        <ul class="legal-nav">
+          {others.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

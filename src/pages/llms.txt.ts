@@ -33,6 +33,11 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - 更新紀錄：${abs("/updates/")}
 - 網站健檢（傳網址）：${abs("/website-check/")}
 - 關於我們：${abs("/about/")}
+
+## 法律頁
+- 隱私權政策：${abs("/privacy/")}
+- 服務條款：${abs("/terms/")}
+- 免責聲明：${abs("/disclaimer/")}
 `;
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 };

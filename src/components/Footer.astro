@@ -1,5 +1,5 @@
 ---
-import { SITE } from "../lib/site";
+import { SITE, LEGAL } from "../lib/site";
 import Cta from "./Cta.astro";
 const cols = [
   {
@@ -54,7 +54,10 @@ const year = new Date().getFullYear();
       ))}
     </div>
     <div class="footer-bottom">
-      © {year} {SITE.name}．{SITE.ownerNote}
+      <ul class="legal-nav">
+        {LEGAL.pages.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+      </ul>
+      <p style="margin: 0.75rem 0 0;">© {year} {SITE.name}．{SITE.ownerNote}</p>
     </div>
   </div>
 </footer>

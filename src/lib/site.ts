@@ -16,6 +16,19 @@ export const SITE = {
   gaId: "G-86T9ZDJGYH", // GA4 評估 ID（公開值，全站輸出）；BaseLayout 亦支援 PUBLIC_GA_ID 覆寫
 };
 
+// 法律頁（/privacy、/terms、/disclaimer）共用事實。三頁的署名與生效日期只在這裡改。
+// operator：Arthurs 是品牌名，營運與收款主體是 yao.care（2026-07-25 老闆確認）。
+// 目前不公開公司登記全名、統一編號與地址；日後要補，改這裡即可，三頁一起變。
+export const LEGAL = {
+  operator: "Arthurs 是品牌名，實際提供服務的是 yao.care。",
+  updated: "2026-07-25",
+  pages: [
+    { label: "隱私權政策", href: "/privacy/" },
+    { label: "服務條款", href: "/terms/" },
+    { label: "免責聲明", href: "/disclaimer/" },
+  ],
+};
+
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。網站上不談價（金額走私下聯絡）。
 export const POSITIONING =
   "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——把網站交給我，用 AI 幫你做好、帶你上手，之後你自己用聊天更新。";

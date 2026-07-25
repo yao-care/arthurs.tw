@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, LEGAL } from "../../lib/site";
+import { breadcrumbSchema } from "../../lib/seo";
+const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "服務條款", path: "/terms/" }])];
+const others = LEGAL.pages.filter((p) => p.href !== "/terms/");
+---
+<BaseLayout
+  title="服務條款"
+  description="這頁寫清楚合作前後的權責：網站與帳號歸你、哪些事要你自己負責、我們不保證什麼、出事賠到哪裡為止，以及爭議怎麼處理。"
+  schemas={schemas}
+>
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 服務條款</p>
+      <h1>服務條款</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose legal">
+      <p>你瀏覽 {SITE.domain}、送出健檢表單，或用 LINE 與 Email 跟我們洽談，就適用這份條款。實際要做什麼、做多久、多少錢，以我們跟你談定並確認過的為準。這頁跟談定的內容有出入時，以談定的為準。</p>
+
+      <h2>服務內容</h2>
+      <p>用 AI 幫你把網站建好，交接給你，再帶你上手。收一次顧問費，沒有月費，也不綁約。網站上不寫固定金額，因為每個案子的現況與範圍差很多，談過再報才準。哪些包含、哪些不包含，寫在<a href="/pricing/">方案與費用</a>。</p>
+
+      <h2>網站與帳號是你的</h2>
+      <p>{SITE.ownerNote}交接之後，帳號與密碼由你自己保管；外流或被別人拿去用，我們沒辦法代你承擔後果。你隨時可以自己維護，或找別人接手，不必經過我們同意。</p>
+
+      <h2>你要負責的事</h2>
+      <ul>
+        <li>你給的文字、圖片、影片、商標，必須是你有權使用的。若因此發生侵權或糾紛，由你負責。</li>
+        <li>網站內容合不合你這行的法規（例如廣告用語、標示規定、專業執業規範），要你自己確認。我們看到不對勁會提醒你，但不會替你把法規看過一遍。</li>
+        <li>交接之後，你自己或 AI 對網站做的修改，結果由你負責。</li>
+      </ul>
+
+      <h2>我們不保證的事</h2>
+      <ul>
+        <li>不保證 Google 排名，不保證被 ChatGPT 或其他 AI 推薦，不保證帶來訂單，也不保證多久看得到成效。排序規則是搜尋引擎和 AI 公司訂的，而且一直在變。</li>
+        <li>不保證外部平台不出事。網站託管、網域、AI 服務、統計工具都是別家公司的，它們中斷、改規則或調價，不在我們控制範圍。</li>
+      </ul>
+      <p>我們負責把網站做好、把帳號完整交到你手上。數據你自己看得到，之後要調整什麼，我們照數據給你建議。</p>
+
+      <h2>著作權</h2>
+      <p>本站的文章、問答與版面設計屬於我們。歡迎引用，請註明出處並連回原頁，但不要整篇搬走。為客戶做的網站內容，著作權依雙方約定，通常屬於客戶。</p>
+
+      <h2>責任範圍</h2>
+      <p>賠償有上限。法律允許的範圍內，我們最多賠到你這個案子付過的顧問費。營業損失、少賺的錢這類間接損失不算在內。故意或重大過失該負的責任，不在此限。</p>
+
+      <h2>條款修改</h2>
+      <p>服務方式或用的工具變了，我們會改這頁，也會在<a href="/updates/">更新紀錄</a>留一筆。改完你還繼續用這個網站或服務，就當你同意新版。</p>
+
+      <h2>準據法與爭議</h2>
+      <p>這份條款以中華民國法律為準據法。有爭議時先協商；談不攏，依民事訴訟法決定管轄法院。</p>
+
+      <h2>聯絡我們</h2>
+      <p>條款有不清楚的地方，寫信到 <a href={`mailto:${SITE.email}`}>{SITE.email}</a> 或用 <a href={SITE.line} target="_blank" rel="noopener">LINE</a> 問。</p>
+
+      <div class="legal-updated">
+        <p>本版生效日期：{LEGAL.updated}。</p>
+        <ul class="legal-nav">
+          {others.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
