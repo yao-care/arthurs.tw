@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import { breadcrumbSchema } from "../../lib/seo";
+
+const schemas = [breadcrumbSchema([
+  { name: "首頁", path: "/" },
+  { name: "AI 認得你嗎", path: "/ai-check/" },
+])];
+
+// 讓訪客在「自己的」ChatGPT 上問，我們不代答、也沒有作假空間。
+const ask = (q: string) => `https://chatgpt.com/?hints=search&q=${encodeURIComponent(q)}`;
+
+// 示範標的＝鄭骨館體雕中心：實測（2026-07-24）唯一「指名問講得出、
+// 買家問法也被列第一名」的案例站。換標的前務必重新實測，別憑印象。
+const DEMO = {
+  name: "鄭骨館體雕中心",
+  url: "https://www.olderkkk.com/",
+  buyerAsk: "推薦幾間台中西屯區的整骨、運動矯正體雕工作室，並說明它們的特色。",
+  nameAsk: "介紹一下「鄭骨館體雕中心」這家店，它做什麼、有什麼特色？",
+};
+---
+<BaseLayout
+  title="AI 認得你的公司嗎"
+  description="現在的人直接問 ChatGPT 找廠商。這頁讓你自己動手問：先看 AI 怎麼主動推薦一家台中的整骨工作室，再輸入你的公司名，看它怎麼講你。"
+  schemas={schemas}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ AI 認得你嗎</p>
+      <h1>現在的人問 AI 找廠商。<br />它推薦得出你嗎？</h1>
+      <p class="lede">
+        別聽我說，自己問。下面每個按鈕都會打開你自己的 ChatGPT，把問題帶進去，答案是它當場給你的。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">先看做對的樣子</span>
+      <h2 class="section-title">一家台中的整骨工作室，AI 主動把它排第一。</h2>
+      <div class="card" style="margin-top: 2rem;">
+        <p>
+          <a href={DEMO.url} rel="noopener">{DEMO.name}</a> 是一家在台中西屯的小店，不是什麼大品牌。
+          但當有人請 AI 推薦這一類服務，它會被主動點名，還附得出地址、時段與特色。
+        </p>
+        <p style="margin-top: 1rem;">
+          按下去，看 AI 在你自己的畫面上怎麼回答：
+        </p>
+        <p class="btn-row" style="margin-top: 1.5rem;">
+          <a href={ask(DEMO.buyerAsk)} class="btn btn-primary" target="_blank" rel="noopener">
+            問 AI：推薦台中的整骨體雕工作室
+          </a>
+          <a href={ask(DEMO.nameAsk)} class="btn btn-secondary" target="_blank" rel="noopener">
+            問 AI：這家店是做什麼的
+          </a>
+        </p>
+        <p class="fs-xs muted" style="margin-top: 1rem;">
+          AI 的回答每次不完全一樣，也可能隨時改變，這是它的本質。這裡不是保證誰一定被推薦，是讓你看見「被 AI 講得出來」長什麼樣子。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">換你了</span>
+      <h2 class="section-title">輸入你的公司名，去問問看它認不認得你。</h2>
+      <p class="prose" style="margin-top: 1rem;">
+        打上你的公司全名（有地區、行業更準）。按下去會打開你自己的 ChatGPT，我們看不到你打了什麼，也不會留下紀錄。
+      </p>
+      <div class="card" style="margin-top: 2rem;">
+        <div class="field">
+          <label for="company">你的公司名稱</label>
+          <input id="company" name="company" type="text" autocomplete="organization"
+                 placeholder="例如：某某企業有限公司（台中，金屬加工）" />
+        </div>
+        <p class="btn-row" style="margin-top: 1.5rem;">
+          <a id="ask-name" class="btn btn-primary" href={ask("介紹一下這家公司")} target="_blank" rel="noopener">
+            問 AI：認得我這家公司嗎
+          </a>
+          <a id="ask-buyer" class="btn btn-secondary" href={ask("推薦幾家廠商")} target="_blank" rel="noopener">
+            問 AI：會推薦我嗎
+          </a>
+        </p>
+        <p class="fs-xs muted" style="margin-top: 1rem;">
+          沒填也能按，只是問得不準。第二顆是重點：客戶不會指名找你，他們是問「推薦一家做這行的」。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-deep">
+    <div class="container prose mx-auto">
+      <span class="eyebrow">看到結果之後</span>
+      <h2 class="section-title">如果它講不出你，或推薦了別人。</h2>
+      <p style="margin-top: 1.5rem;">
+        那不是你的錯，也不是無解。AI 講得出一家公司，靠的是網路上關於它的資料夠完整、夠新、講得夠清楚；被推薦給不認識你的人，還要看有沒有別人談過你。這兩件事都能一步一步補。
+      </p>
+      <p style="margin-top: 1rem;">
+        我不會跟你保證做完就一定被 AI 推薦，沒有人能保證那件事。我能做的是把你該有的資料做齊、做對，讓你不會因為「網路上根本沒有你」而被漏掉。
+      </p>
+      <p style="margin-top: 1rem;">
+        把你現在的網站網址傳給我，我先看看問題在哪。
+      </p>
+      <p class="btn-row" style="margin-top: 2rem;">
+        <Cta />
+        <a href="/how-it-works/" class="btn btn-secondary">看 AI 怎麼做</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // 純前端組 ChatGPT 深連結：使用者輸入不離開這台瀏覽器，我們不收、不存。
+  const input = document.getElementById("company") as HTMLInputElement | null;
+  const askName = document.getElementById("ask-name") as HTMLAnchorElement | null;
+  const askBuyer = document.getElementById("ask-buyer") as HTMLAnchorElement | null;
+
+  if (input && askName && askBuyer) {
+    const link = (q: string) => `https://chatgpt.com/?hints=search&q=${encodeURIComponent(q)}`;
+    const sync = () => {
+      const name = input.value.trim();
+      askName.href = link(
+        name
+          ? `介紹一下「${name}」這家公司，它做什麼、有什麼特色？如果你不確定或找不到資料，請直接說不知道，不要猜。`
+          : "介紹一下這家公司"
+      );
+      askBuyer.href = link(
+        name
+          ? `我想找廠商。請推薦幾家同「${name}」做同一類服務、同一個地區的公司，並說明推薦理由。`
+          : "推薦幾家廠商"
+      );
+    };
+    input.addEventListener("input", sync);
+    sync();
+  }
+</script>

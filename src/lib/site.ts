@@ -22,6 +22,7 @@ export const POSITIONING =
 
 // 主選單（桌面）。href 指向 MVP 已建立的頁面。
 export const NAV = [
+  { label: "AI 認得你嗎", href: "/ai-check/" },
   { label: "服務方式", href: "/service/" },
   { label: "AI 如何運作", href: "/how-it-works/" },
   { label: "案例", href: "/cases/" },
