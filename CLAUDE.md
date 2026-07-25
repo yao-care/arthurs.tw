@@ -59,7 +59,7 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 ## 單一真實來源
 - **事實與文案骨幹**：`src/lib/site.ts`（品牌、聯絡、導覽、五大定位、痛點、解法、方案、精選 QA、真實案例 CASES）。
 - **結構化資料**：`src/lib/seo.ts`（Organization / WebSite / Service / FAQPage / Breadcrumb / Article），由 `BaseLayout.astro` 與各頁輸出 JSON-LD。
-- **SEO/AEO/GEO**：`robots.txt.ts`（開放 AI 爬蟲＋sitemap）、`llms.txt.ts`（純文字摘要）、sitemap priority 差異化（astro.config.mjs）。
+- **SEO/AEO/GEO**：`robots.txt.ts`（開放 AI 爬蟲＋sitemap）、`llms.txt.ts`（純文字**目錄**：站台簡介＋分區連結）、`llms-full.txt.ts`（純文字**全文**：服務說明＋全部 QA 與文章正文＋真實案例，讓 AI 一次讀完直接引用，不必逐頁爬；內容一律取自 `src/content/` 正本與 `site.ts`，勿手寫成第二份會漂移的副本）、sitemap priority 差異化（astro.config.mjs）。
 
 ## 數據串接現況（2026-07-24 校正，原「待補」多已完成）
 - **聯絡管道**：✅ 已填。`SITE.email` = `service@yao.care`、`SITE.line` = LINE 加好友連結；`/website-check/` 表單走 mailto、聯絡方式已顯示。
