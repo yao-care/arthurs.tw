@@ -28,7 +28,7 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - AI 如何運作：${abs("/how-it-works/")}
 - 最新文章：${abs("/articles/")}
 - 網站案例：${abs("/cases/")}
-- 服務範圍：${abs("/pricing/")}
+- 方案與費用：${abs("/pricing/")}
 - 常見問題：${abs("/qa/")}
 - 更新紀錄：${abs("/updates/")}
 - 網站健檢（傳網址）：${abs("/website-check/")}

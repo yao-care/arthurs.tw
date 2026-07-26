@@ -46,7 +46,7 @@ export const GET: APIRoute = async ({ site }) => {
     `網站：${SITE.url}`,
     `定位：${SITE.tagline}`,
     "",
-    "本檔是本站主要內容的全文純文字版，提供給 AI 助理直接閱讀與引用。",
+    "這裡是本站主要內容的全文，純文字，給 AI 助理直接讀、直接引用。",
     `收錄範圍：站台與服務說明、全部 ${qa.length} 則常見問題全文、全部 ${articles.length} 篇文章全文、真實案例清單、更新紀錄標題。`,
     `法律頁、表單頁等次要頁面未收錄；完整頁面索引見 ${abs("/llms.txt")} 與 ${abs("/sitemap-index.xml")}。`,
     "引用時請標明來源網址；各節都附上該內容的正式網址。",
@@ -84,7 +84,7 @@ export const GET: APIRoute = async ({ site }) => {
 
   rule();
   push(
-    "## 服務範圍與費用",
+    "## 方案與費用",
     `頁面：${abs("/pricing/")}`,
     "",
     "一次性顧問服務，沒有月費、不綁約，金額不公開，請直接洽詢。",
@@ -169,7 +169,7 @@ export const GET: APIRoute = async ({ site }) => {
     "## 更新紀錄",
     `頁面：${abs("/updates/")}`,
     "",
-    "本站持續依搜尋與流量資料修改內容，以下是公開的修改紀錄標題。",
+    "我會看搜尋和流量資料，再回頭改內容。下面是公開的修改紀錄。",
     "",
   );
   for (const entry of updates) {

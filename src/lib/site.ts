@@ -31,7 +31,7 @@ export const LEGAL = {
 
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。網站上不談價（金額走私下聯絡）。
 export const POSITIONING =
-  "大家都能享受 AI 紅利。看不懂、沒空管網站也沒關係——把網站交給我，用 AI 幫你做好、帶你上手，之後你自己用聊天更新。";
+  "AI 這波，人人都用得上。你看不懂、沒空管網站也沒關係，把網站交給我。我用 AI 幫你做好、帶你上手，之後你自己用聊天更新。";
 
 // 主選單（桌面）。href 指向 MVP 已建立的頁面。
 export const NAV = [
@@ -39,7 +39,7 @@ export const NAV = [
   { label: "服務方式", href: "/service/" },
   { label: "AI 如何運作", href: "/how-it-works/" },
   { label: "案例", href: "/cases/" },
-  { label: "服務範圍", href: "/pricing/" },
+  { label: "方案與費用", href: "/pricing/" },
   { label: "常見問題", href: "/qa/" },
 ];
 

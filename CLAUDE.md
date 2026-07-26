@@ -1,8 +1,10 @@
 # arthurs.tw — 維運手冊
 
-AI 網站銷售漏斗站。**核心商品＝一次性顧問服務**（含用 AI 建站＋交接＋帶你上手；**沒有月費**）。定位：「大家都能享受 AI 紅利；你看不懂、沒空管網站沒關係，付一筆顧問費我幫你搞定」——**不是**便宜的按頁建站/網頁外包，別把它寫成「建站費/按頁數計費」。**網站本身即服務的活體示範**（用同一套方式建置、由 AI 持續協助更新內容）。
+AI 網站銷售漏斗站。**核心商品＝一次性顧問服務**（含用 AI 建站＋交接＋帶你上手；**沒有月費**）。定位（2026-07-26 老闆改口徑，`site.ts` 的 `POSITIONING`）：「AI 這波，人人都用得上。你看不懂、沒空管網站也沒關係，把網站交給我。」原本的「大家都能享受 AI 紅利」被文案守門判為浮誇口號而換掉；**注意 about/service/index/llms.txt/can-i-diy-myself 等處仍留著舊說法，尚未決定是否一併掃**——**不是**便宜的按頁建站/網頁外包，別把它寫成「建站費/按頁數計費」。**網站本身即服務的活體示範**（用同一套方式建置、由 AI 持續協助更新內容）。
 
-> 💰 **價格政策（2026-07-21 老闆定案，取代先前的固定定價）**：**全站不公開固定金額**，改為「多少錢直接問我」——讀者可見處用直接口語（首頁 Hero／§8、service、diy、QA：「多少錢直接問我，加 LINE 或來信」）；meta description 與 `llms.txt` 用「費用洽詢報價」；`seo.ts` 的 `Service.Offer` 只留描述、**不放 price 數字**。單一真實來源＝`site.ts` 的 `FEE_NOTE`（含千分位金額的 `PRICE_LABEL` 已移除，`SITE.price` 已刪；`priceModel="一次性顧問費"` 保留但未被頁面引用）。**別再把任何金額寫回站上**；要恢復標價，改 `FEE_NOTE`＋各處口語＋`seo.ts` Offer 一起改。原含舊定價字樣的 QA slug 已改名為 `what-does-the-service-include`；選單/麵包屑改為「方案與費用」。
+> 💰 **價格政策（2026-07-21 老闆定案，取代先前的固定定價）**：**全站不公開固定金額**，改為「多少錢直接問我」——讀者可見處用直接口語（首頁 Hero／§8、service、diy、QA：「多少錢直接問我，加 LINE 或來信」）；meta description 與 `llms.txt` 用「費用洽詢報價」；`seo.ts` 的 `Service.Offer` 只留描述、**不放 price 數字**。**沒有集中的價格常數**（2026-07-26 校正：舊文寫的 `FEE_NOTE` 已隨 `PRICE_LABEL`、`SITE.price` 一起移除，全 repo 只剩本檔提過它；`priceModel="一次性顧問費"` 仍在 `site.ts` 但無頁面引用）。**口徑的正本＝QA `how-much-does-it-cost`**（「為什麼不寫價格、怎麼問、費用性質」都在那題講完整），其餘頁面只寫一句口語並連向該題。**別再把任何金額寫回站上**；要恢復標價，得同時改該題 QA＋各頁口語＋`seo.ts` 的 `Service.Offer`。原含舊定價字樣的 QA slug 已改名為 `what-does-the-service-include`。
+>
+> 📛 **`/pricing/` 的顯示名稱＝「方案與費用」**（2026-07-26 全站統一）：NAV、Footer、麵包屑、`<title>`、breadcrumb JSON-LD、`llms.txt`、`llms-full.txt` 都已改成這個名字，原本混用的「服務範圍」「方案與價格」已清掉。要改名得七處一起改。**例外不要動**：`site.ts` 的 QA 分類名「價格與服務範圍」是分類、不是頁名（改它要連動各 QA frontmatter 的 `category`）；seo-ops `sites/arthurs.tw.json` 的 `flagship` 標籤同步改過。
 
 - 正式站：https://arthurs.tw （GitHub Pages + 自訂根網域，`public/CNAME`）
 - Repo：`yao-care/arthurs.tw`（公開）
@@ -68,7 +70,7 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 - **催收錄 indexPing**：2026-07-24 起**已打開**（原 `false`）。每日 collect 後對 10 個重點頁走 Google Indexing API 推送，加速『已發現未收錄』進索引；SA 已驗證有 `indexing` scope 權限。清單見 seo-ops 站台設定 `indexPing.urls`。
 - **曝光現況（2026-07-24）**：站新、自然搜尋足跡極薄（GSC 近一週曝光個位數、流量幾乎全直接進站）。增曝光靠內容量×收錄速度×站外連結，非設定問題。
 - **品牌色**：目前為深藍青＋暖琥珀佔位，用戶確認後可調 `variables.css`。
-- **收費模型（2026-07-21 更新）**：一次性顧問費、無月費、不綁約；**不公開固定金額**，改「多少錢直接問我（加 LINE 或來信）」，詳見檔案頂端「價格政策」。若日後要恢復標價或加「後續協助/月費」層級，需回頭調 `site.ts`（`FEE_NOTE`）、pricing、service、diy 與 is-consulting-required / what-does-the-service-include / can-beginners-use-ai QA（目前這些都寫「不強制、日後再另談、金額直接問、不報月費數字」）。
+- **收費模型（2026-07-21 更新）**：一次性顧問費、無月費、不綁約；**不公開固定金額**，改「多少錢直接問我（加 LINE 或來信）」，詳見檔案頂端「價格政策」。若日後要恢復標價或加「後續協助/月費」層級，需回頭調 how-much-does-it-cost QA（口徑正本）、pricing、service、diy 與 is-consulting-required / what-does-the-service-include / can-beginners-use-ai QA（目前這些都寫「不強制、日後再另談、金額直接問、不報月費數字」）。
 - **法律頁（2026-07-25 完成）**：`/privacy/`、`/terms/`、`/disclaimer/` 三頁上線，頁尾 `footer-bottom` 有連結、`llms.txt` 有分區。**署名與生效日期的單一真實來源＝`site.ts` 的 `LEGAL`**（`operator`＝「Arthurs 是品牌名，實際提供服務的是 yao.care」、`updated`、`pages[]`）；老闆確認暫不公開公司登記全名、統編與地址，要補改 `LEGAL.operator` 一處三頁同步。隱私權政策照實列出會經手資料的第三方（formsubmit.co／Google Analytics 4＋Search Console／託管平台／LINE、Email／OpenAI），改動資料流時**必須同步改這頁**。版型共用 global.css 的 `.legal` 區塊。
 - **`/ai-check/` 不靠 OpenAI 的未公開參數（2026-07-25 定案，別改回去）**：按鈕按一下同時做兩件事——問題寫進剪貼簿、開新分頁到 `https://chatgpt.com/?q=<encodeURIComponent(問題)>`；**問題原文另外直接印在頁面上**（`.ask-item`／`.ask-q`）。三條路（剪貼簿／`q=` 帶入／頁面上的原文）任一條活著這頁就能用，OpenAI 改參數也不會變死路。文案照實寫「問題已經填好就直接按 Enter，沒填就貼上再按 Enter」，**不得回到暗示會自動送出的寫法**。`hints=search` 已拿掉（老闆回報送出後有問題時它有嫌疑，且示範不需要強制搜尋模式）。老闆實測看到的 `[Statsig] .../ces/v1/rgstr 503 biscuit_baker_service_me_circuit_open` 是 OpenAI 遙測端點的斷路器，與送訊息的 `/backend-api/conversation` 無關，屬雜訊。
 - 第二階段內容：真實案例內頁（目前 `/cases/` 只有案例牆，卡片外連客戶站，站內沒有個別案例頁）、操作示範影片。

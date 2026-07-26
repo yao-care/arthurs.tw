@@ -3,7 +3,7 @@ question: "你們能保證我的網站排到 Google 第一頁嗎？"
 category: "Google 搜尋、AEO 與 GEO"
 answer: "不能保證排名，任何誠實的廠商都不該對你保證這件事，因為排名是 Google 自己決定的，沒有人能操控。我能做的是實在的事：把你的服務、產品、常見問題寫得完整清楚，讓 Google 容易看懂你在做什麼。內容越完整，被看重的機會越大，但這是慢慢累積的，不是一次付錢就買得到。"
 order: 1
-updated: "2026-07-21"
+updated: "2026-07-26"
 related: ["can-chatgpt-recommendation-be-guaranteed"]
 relatedArticles: ["why-google-cant-find-my-company"]
 ---
@@ -15,6 +15,8 @@ relatedArticles: ["why-google-cant-find-my-company"]
 那我能做什麼？我做的是實在、可以檢查的事：把你的服務、產品、地區、常見問題寫得完整清楚，該有的頁面都補齊，讓 Google 容易看懂你在做什麼。同時幫你接上 Google Search Console 和 Analytics，別人用什麼字找你、訪客進來看了什麼，你自己都看得到。
 
 內容越完整、越符合客人在找的東西，被 Google 看重的機會就越大，但這是慢慢累積的，不是開關一按就到位。
+
+排名沒辦法當場驗給你看，不過「你的資料夠不夠讓 AI 看懂」可以。到「[AI 認得你嗎](/ai-check/)」那頁問 ChatGPT 你自己的公司，答得零零落落，多半就是網站上的資料不夠完整。同一件事，Google 也是這樣讀你的。
 
 ## 實際情境
 
