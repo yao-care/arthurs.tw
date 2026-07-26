@@ -93,6 +93,7 @@ const caseWall = CASES;
             <span class="num-badge">{p.chars}</span>
             <h3>{p.title}</h3>
             <p class="muted">{p.desc}</p>
+            {p.href && <p style="margin-top: 0.5rem;"><a href={p.href}>了解更多</a></p>}
           </div>
         ))}
       </div>
