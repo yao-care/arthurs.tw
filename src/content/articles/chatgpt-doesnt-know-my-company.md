@@ -2,7 +2,7 @@
 title: "問 ChatGPT，為什麼不知道我們公司？"
 category: "客戶為什麼找不到公司"
 summary: "AI 要講得出你公司，網路上得先有一份夠完整、夠新的公司資料讓它讀。資料太少太舊，AI 就答不出你。"
-order: 2
+order: 3
 created: "2026-07-20"
 updated: "2026-07-20"
 reason: "越來越多客戶會直接問 ChatGPT 找廠商，老闆試著問自己公司卻發現 AI 不認識，來詢問原因。"

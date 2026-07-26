@@ -8,12 +8,13 @@ const updates = (await getCollection("updates")).sort((a, b) => (a.data.date < b
 const badge = { published: ["badge-ok", "已發布"], wip: ["badge-wip", "進行中"], planned: ["badge-plan", "規劃中"] };
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網站更新紀錄", path: "/updates/" }])];
 ---
-<BaseLayout title="網站更新紀錄" description="公開展示這個網站確實持續被改善，而不是上線後就停止更新。每筆紀錄包含更新原因、發現來源、AI 協助內容與人工確認。" schemas={schemas}>
+<BaseLayout title="網站更新紀錄" description="這個網站每一次改動的公開帳本：發現什麼問題、根據哪來的資料、改了什麼、AI 幫了什麼、人工確認了什麼。你要看我怎麼做事，看這頁比看我怎麼講更準。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 網站更新紀錄</p>
       <h1>網站更新紀錄</h1>
-      <p class="lede">這個網站不是上線後就停住。每一次改動都公開記在這裡：為什麼改、根據什麼、AI 做了什麼、人工確認了什麼。</p>
+      <p class="lede">這頁是我做事的帳本。每一次改動都記在這裡：發現什麼問題、根據哪來的資料、改了什麼、AI 做了什麼、人工確認了什麼。</p>
+      <p>要判斷一個人會不會把你的網站顧好，聽他怎麼講不太準，看他自己的網站怎麼被顧的比較準。數字沒起色的時候我會怎麼查、怎麼處理，寫在<a href="/qa/can-google-ranking-be-guaranteed/">這一題</a>和<a href="/articles/what-i-do-when-numbers-dont-move/">這篇文章</a>裡。下面這些紀錄，就是我實際這樣做的過程。</p>
     </div>
   </section>
   <section class="section">
