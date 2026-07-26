@@ -10,7 +10,7 @@ export const GET: APIRoute = ({ site }) => {
 > ${SITE.tagline}。核心是一筆一次性顧問服務（沒有月費、不綁約）：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把網站建好、交接、帶你上手，並串接 Google Search Console 與 Analytics。
 
 ## 這是什麼服務
-核心商品是「一次性顧問服務」，沒有月費、不綁約。費用未在網站公開，請透過 LINE 或 email 洽詢。理念：大家都能享受 AI 紅利，但很多老闆看不懂、沒空——把難維護的舊網站交給我，用 AI 換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 聊天更新。
+核心商品是「一次性顧問服務」，沒有月費、不綁約。費用未在網站公開，請透過 LINE 或 email 洽詢。理念：AI 這波人人都用得上，但很多老闆看不懂、沒空。把難維護的舊網站交給我，用 AI 換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 聊天更新。
 
 ## 五個定位（品牌名 Arthurs 拆字：${PILLARS.map((p) => p.chars).join("·")}）
 ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
