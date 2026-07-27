@@ -68,11 +68,11 @@ export const PILLARS = [
 
 // 網站六大痛點
 export const PAINS = [
-  { title: "網站多年沒有更新", desc: "新產品、新設備、成功案例和公司消息，還停留在幾年前。" },
-  { title: "修改內容還得找廠商", desc: "改一段文字、增加一項產品，還要詢價、等待、來回確認。" },
-  { title: "Google 搜尋找不到公司", desc: "網站內容太舊、太少，搜尋引擎不知道你真正提供哪些服務。" },
-  { title: "有人進網站也不知道在看什麼", desc: "不知道訪客從哪裡來、看了哪些內容，也不知道下一步該改善什麼。" },
-  { title: "控制權不在自己手上", desc: "帳號、主機、程式或設定掌握在原廠商手中，想換人管理也很困難。" },
+  { title: "網站多年沒有更新", desc: "新產品、新設備、成功案例和公司消息，還停留在幾年前。", href: "/articles/website-not-updated-for-years/" },
+  { title: "修改內容還得找廠商", desc: "改一段文字、增加一項產品，還要詢價、等待、來回確認。", href: "/articles/no-marketing-staff-how-to-update/" },
+  { title: "Google 搜尋找不到公司", desc: "網站內容太舊、太少，搜尋引擎不知道你真正提供哪些服務。", href: "/articles/why-google-cant-find-my-company/" },
+  { title: "有人進網站也不知道在看什麼", desc: "不知道訪客從哪裡來、看了哪些內容，也不知道下一步該改善什麼。", href: "/qa/what-can-i-see-with-search-console-analytics/" },
+  { title: "控制權不在自己手上", desc: "帳號、主機、程式或設定掌握在原廠商手中，想換人管理也很困難。", href: "/qa/who-owns-the-website/" },
 ];
 
 // 核心解法（三項）
