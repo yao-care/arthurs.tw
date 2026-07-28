@@ -5,7 +5,7 @@ import { CASES } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網站案例", path: "/cases/" }])];
 ---
-<BaseLayout title="網站案例" description="我們替不同產業把既有資料整理成真正可以上線使用的網站。這裡是已上線的實際作品，包含運動賽事、醫療協會、在地服務、健康工具、教育協會等。" schemas={schemas}>
+<BaseLayout title="網站案例" description="這裡放的都是已經上線的網站，點進去就是實站，不是示意圖。做過運動賽事、醫療協會、台中在地服務、健康工具、教育協會。你現在看的這個網站也算一個。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 網站案例</p>
@@ -28,8 +28,41 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網�
           </a>
         ))}
       </div>
-      <p class="muted" style="margin-top: 1.5rem;">其他案例持續整理中。每個案例日後會補上：原本的網站問題、我們如何整理架構、如何交接，以及 AI 如何更新。</p>
-      <p style="margin-top: 1rem;"><Cta /></p>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="section-title">這些網站有什麼共同點</h2>
+      <div class="grid grid-3" style="margin-top: 1.5rem;">
+        <div class="card">
+          <h3 style="font-size: var(--text-lg);">不寫口號</h3>
+          <p class="muted">「品質第一、專業可靠」這種句子，客戶看完還是不知道你會什麼。這些網站寫的是做哪些項目、範圍到哪、有什麼限制。</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: var(--text-lg);">數字點得回出處</h3>
+          <p class="muted">講到成效、引到研究，後面就附得出來源。查不到出處的，我們寧可不寫。</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: var(--text-lg);">上線之後還在長</h3>
+          <p class="muted">有的每天更新，有的一個月幾篇。差別不大，重點是它沒有停在交件那天。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose stack">
+      <h2>你可以自己點進去驗證</h2>
+      <p>上面每張卡片點下去都是實站。我自己看別人的網站，會先看這幾個地方：</p>
+      <ul>
+        <li>翻到最舊的那篇內容，看更新日期。停在幾年前的網站，客戶和 Google 都看得出來。</li>
+        <li>挑一項服務，看它有沒有寫清楚做什麼、限制在哪。只有口號的網站，<a href="/articles/chatgpt-doesnt-know-my-company/">AI 讀完也講不出這家在幹嘛</a>。</li>
+        <li>拿站上的說法去 Google 搜一次，看查不查得到出處。</li>
+      </ul>
+      <p>
+        其中<a href="https://www.olderkkk.com/" target="_blank" rel="noopener">鄭骨館體雕中心</a>是台中西屯的小店，不是什麼大品牌。你可以到<a href="/ai-check/">AI 認得你嗎</a>那頁，看有人請 AI 推薦這一類服務時，它怎麼主動把這家點出來。
+      </p>
+      <p class="muted">其他案例還在整理。之後每個案例會補上一頁，寫這家原本卡在哪裡、後來怎麼做的。</p>
+      <p><Cta /></p>
     </div>
   </section>
 </BaseLayout>

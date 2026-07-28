@@ -10,7 +10,7 @@ sources: "客戶提問、網站 QA 缺口"
 aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容與服務承諾；2026-07-28 重寫後再核對一次，事實與承諾範圍未變"
 related: ["who-owns-the-website-data"]
-relatedQa: ["why-no-hosting-maintenance-fee"]
+relatedQa: ["why-no-hosting-maintenance-fee", "who-owns-the-website", "how-much-does-it-cost"]
 ---
 
 ## 直接答案

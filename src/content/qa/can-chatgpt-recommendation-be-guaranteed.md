@@ -5,7 +5,7 @@ answer: "不能保證被 AI 推薦，這件事沒有人能打包票，因為要�
 order: 2
 updated: "2026-07-26"
 related: ["can-google-ranking-be-guaranteed", "who-owns-the-website"]
-relatedArticles: ["chatgpt-doesnt-know-my-company"]
+relatedArticles: ["chatgpt-doesnt-know-my-company", "what-i-do-when-numbers-dont-move"]
 ---
 
 ## 詳細說明

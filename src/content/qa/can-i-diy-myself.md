@@ -4,7 +4,8 @@ category: "顧問與後續服務"
 answer: "可以，而且我們鼓勵。這套建站做法我們完全公開，還附一份可以下載的 skill，你會用 Claude 就能自己照著做，不用付我一毛錢。會的人自己來就好，真的不會、沒空，再把顧問費交給我幫你搞定。"
 order: 2
 updated: "2026-07-26"
-related: ["can-beginners-use-ai", "is-consulting-required", "what-does-the-service-include"]
+related: ["can-beginners-use-ai", "is-consulting-required", "what-does-the-service-include", "why-no-hosting-maintenance-fee"]
+relatedArticles: ["no-marketing-staff-how-to-update", "what-i-do-when-numbers-dont-move"]
 ---
 
 ## 詳細說明

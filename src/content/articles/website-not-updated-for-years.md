@@ -9,7 +9,8 @@ reason: "許多網站做完就沒再動，老闆想知道放著不管到底有�
 sources: "客戶提問、網站 QA 缺口"
 aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容、價格範圍及服務承諾"
-related: []
+related: ["why-google-cant-find-my-company", "no-marketing-staff-how-to-update", "chatgpt-doesnt-know-my-company"]
+relatedQa: ["can-google-ranking-be-guaranteed", "what-can-i-see-with-search-console-analytics"]
 ---
 
 ## 直接答案

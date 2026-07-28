@@ -9,7 +9,7 @@ const contactLines = [
   SITE.line ? { label: "LINE", value: SITE.line, href: SITE.line } : null,
 ].filter(Boolean);
 ---
-<BaseLayout title="關於我們" description="AI 這波，人人都用得上。我們把難以維護的舊網站，換成你自己擁有、能用 AI 聊天更新的新網站。看不懂也沒關係，我們幫你搞定。" schemas={schemas}>
+<BaseLayout title="關於我們" description="AI 這波，人人都用得上。舊網站沒人管、改一個字都要找廠商，我們幫你換掉。新網站是你的，跟 AI 講一句就能改。人在台中，中部可以約見面。" schemas={schemas}>
   <section class="page-head">
     <div class="container prose">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 關於我們</p>
@@ -19,17 +19,33 @@ const contactLines = [
   <section class="section">
     <div class="container prose stack">
       <p>
-        AI 讓網站好做很多，但最需要幫忙的那些人，常常卡在工具和後台前面，根本進不去。我們想做的很簡單：不管你懂不懂 AI，網站都要一直有人在更新。
+        AI 讓網站好做很多。可是最需要幫忙的那些人，卡在工具跟後台外面，進都進不去。我們想做的事很簡單：你懂不懂 AI 都沒關係，網站要一直有人在更新。
       </p>
       <p>
-        所以我們把網站做成這樣：想改什麼，直接跟 AI 講就好。你自己來也行，不想弄就跟我們說一聲。網站要一直有在動，不能做完就擺著。
+        所以我們把網站做成這樣：想改什麼，直接跟 AI 講。你自己來也行，不想弄就跟我們說一聲。網站要一直有在動，不能做完就擺著。
       </p>
       <p>
-        還有一件我們很在意的事：<strong>網站是你的。</strong>{SITE.ownerNote}未來就算不再和我們合作，網站仍然可以繼續使用，也可以交給別人接手。我們不把你留在系統裡。
+        還有一件我們很在意的事：<strong>網站是你的。</strong>{SITE.ownerNote}哪天不合作了，網站你照樣用，也可以交給別人接手。我們不把你留在系統裡。
       </p>
       <p>
-        這個網站本身，就是這套做法的示範：用同一種方式建置，之後用聊天維護。你可以到<a href="/updates/">更新紀錄</a>看它的變化。
+        你現在看的這個網站就是我們自己做的，也是自己用聊天在維護。改了什麼都寫在<a href="/updates/">更新紀錄</a>裡，你可以直接翻。
       </p>
+
+      <h2>我人在台中，中部可以約見面</h2>
+      <p>
+        台中、彰化、南投、苗栗這一帶，想當面談就約時間。其他縣市走線上，用 LINE、email 或視訊都行，做出來的東西一樣。細節寫在<a href="/qa/which-areas-do-you-serve/">你只做台中嗎</a>這一題。
+      </p>
+      <p>
+        中部有很多做了幾十年的工廠和店家。東西做得好，網路上卻幾乎查不到。客戶拿手機搜「台中 某某加工」，找不到人，問 AI 也問不出來。這種案子我很願意接。要補的東西很明確，就是把你實際在做的服務，用客戶會講的話寫出來。
+      </p>
+
+      <h2>我做事的三條規矩</h2>
+      <p>這三條先寫在這裡，合作的時候你可以拿來對我。</p>
+      <ul>
+        <li><strong>不保證排名。</strong>沒有人保證得了。我承諾的是看資料、持續改，沒起色的時候會查、會跟你講實話。<a href="/qa/can-google-ranking-be-guaranteed/">為什麼不能保證</a>。</li>
+        <li><strong>交接是真的交接。</strong>帳號、網域、網站資料、交接表都給你。你想自己接手，或換別人接手，都不用問我。<a href="/qa/who-owns-the-website/">網站到底屬於誰</a>。</li>
+        <li><strong>不編數字。</strong><a href="/cases/">案例</a>放的都是已經上線的實站，點進去就是。還沒有的證據就寫還沒有。</li>
+      </ul>
 
       <div id="contact" class="card" style="margin-top: 2rem;">
         <h2 style="font-size: var(--text-lg); margin-top: 0;">聯絡我們</h2>

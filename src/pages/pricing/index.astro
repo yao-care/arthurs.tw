@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { PLAN, OWNERSHIP } from "../../lib/site";
+import { PLAN, OWNERSHIP, STEPS } from "../../lib/site";
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
   breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與費用", path: "/pricing/" }]),
   serviceSchema(),
 ];
 ---
-<BaseLayout title="方案與費用" description="一次性顧問服務：我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。沒有月費、不綁約，網域與 AI 訂閱另計。" schemas={schemas}>
+<BaseLayout title="方案與費用" description="一次性顧問服務：我用 AI 幫你把網站建好、交接、帶你上手。含文案圖片整理、自有網域綁定、Google Search Console 與 Analytics 設定與完整交接表。沒有月費、不綁約，網域與 AI 訂閱另計。人在台中，中部可以約見面。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 方案與費用</p>
@@ -48,6 +48,43 @@ const schemas = [
           <h3>不包含或需另外評估</h3>
           <ul class="x-list" style="margin-top: 0.75rem;">{PLAN.notFits.map((x) => <li>{x}</li>)}</ul>
           <p class="fs-xs muted" style="margin-top: 0.75rem;">這些要另外接系統，之後也要有人顧，我會單獨跟你估。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">從你傳訊息給我，到網站上線</h2>
+      <div class="grid grid-3" style="margin-top: 1.5rem;">
+        {STEPS.map((s, i) => (
+          <div class="card">
+            <p style="margin: 0;"><span class="badge">第 {i + 1} 步</span></p>
+            <h3 style="font-size: var(--text-lg); margin-top: 0.5rem;">{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="fs-sm muted" style="margin-top: 1.25rem;">
+        要跑多久，看你手上的資料齊不齊、回訊息快不快。這兩件事最影響進度。我不在這頁掛一個固定天數，那種數字寫了也幫不到你。談的時候我會照你的狀況給一個範圍。
+      </p>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>中部可以約見面</h3>
+          <p class="muted" style="margin-top: 0.5rem;">我人在台中。台中、彰化、南投、苗栗想當面談就約時間，其他縣市走線上。見不見面不影響做出來的東西，也不影響費用。細節在<a href="/qa/which-areas-do-you-serve/">你只做台中嗎</a>這一題。</p>
+        </div>
+        <div class="card">
+          <h3>關於費用，最常被問的幾題</h3>
+          <ul class="footer-links" style="margin-top: 0.75rem;">
+            <li><a href="/qa/how-much-does-it-cost/">為什麼這頁不寫金額？</a></li>
+            <li><a href="/qa/what-does-the-service-include/">這筆費用到底包含什麼？</a></li>
+            <li><a href="/qa/why-no-hosting-maintenance-fee/">為什麼不收主機維護費？</a></li>
+            <li><a href="/qa/what-functions-are-not-included/">哪些功能不包含？</a></li>
+            <li><a href="/qa/is-consulting-required/">之後一定要繼續付顧問費嗎？</a></li>
+          </ul>
         </div>
       </div>
     </div>

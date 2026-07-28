@@ -4,7 +4,7 @@ category: "價格與服務範圍"
 answer: "這個顧問服務適合公司形象、產品服務介紹、製造能力與設備、成功案例、最新消息、聯絡詢價這類內容型網站。如果你要的是購物車線上刷卡、會員登入、即時庫存、複雜線上預約、大型資料庫，或要接 ERP、CRM、高度客製的互動功能，那超出這個服務範圍，要另外評估。先講清楚，才不會做到一半才發現不合。"
 order: 2
 updated: "2026-07-21"
-related: ["what-does-the-service-include", "why-no-hosting-maintenance-fee"]
+related: ["what-does-the-service-include", "why-no-hosting-maintenance-fee", "what-can-i-see-with-search-console-analytics"]
 ---
 
 ## 詳細說明

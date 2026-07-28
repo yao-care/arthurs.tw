@@ -9,8 +9,8 @@ reason: "有人直接搜『怎麼讓 ChatGPT 推薦我的公司』找過來，�
 sources: "搜尋字詞、既有文章與 QA 缺口"
 aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容與服務承諾，確認沒有做出保證推薦的說法"
-related: ["chatgpt-doesnt-know-my-company"]
-relatedQa: ["can-chatgpt-recommendation-be-guaranteed"]
+related: ["chatgpt-doesnt-know-my-company", "website-not-updated-for-years"]
+relatedQa: ["can-chatgpt-recommendation-be-guaranteed", "what-can-i-see-with-search-console-analytics"]
 citations:
   - name: "GEO: Generative Engine Optimization（生成式引擎優化，KDD 2024）"
     url: "https://arxiv.org/abs/2311.09735"
