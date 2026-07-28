@@ -1,6 +1,6 @@
 // JSON-LD 結構化資料產生器（GEO/AEO：讓搜尋引擎與 AI 更容易理解本站）。
 // 只描述真實事實，不杜撰。
-import { SITE } from "./site";
+import { SITE, LEGAL } from "./site";
 
 const ORIGIN = SITE.url;
 export const abs = (p: string) => new URL(p, ORIGIN).href;
@@ -9,11 +9,36 @@ export function organizationSchema() {
   // sameAs：只放能相互佐證的真實外部識別（LINE 官方帳號、公開的 GitHub org）。
   // 待補（有了再加，勿杜撰）：Wikidata、FB 粉專、LinkedIn 公司頁。
   const sameAs = [SITE.line, "https://github.com/yao-care"].filter(Boolean);
+  // 型別同時宣告 Organization 與 ProfessionalService（LocalBusiness 子型），讓同一個實體
+  // 既是品牌也是可被地域理解的在地服務業者。地址與統編來自公開商業登記（LEGAL），
+  // 必須與 Google 商家檔案寫法一致，否則 Google 無法把本網域對上那個商家檔案。
+  // 沒有實體門市可供上門，故不放 openingHours；沒有經緯度就不放 geo（勿杜撰）。
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": `${ORIGIN}/#organization`,
     name: SITE.name,
+    ...(LEGAL.company ? { legalName: LEGAL.company } : {}),
+    ...(LEGAL.taxId ? { taxID: LEGAL.taxId } : {}),
+    ...(LEGAL.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: LEGAL.address.replace(/^臺中市西區/, ""),
+            addressLocality: "西區",
+            addressRegion: "臺中市",
+            addressCountry: "TW",
+          },
+        }
+      : {}),
+    ...(LEGAL.phone ? { telephone: LEGAL.phone } : {}),
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "臺中市" },
+      { "@type": "AdministrativeArea", name: "彰化縣" },
+      { "@type": "AdministrativeArea", name: "南投縣" },
+      { "@type": "AdministrativeArea", name: "苗栗縣" },
+      { "@type": "Country", name: "臺灣" },
+    ],
     url: ORIGIN,
     logo: abs("/og.png"),
     image: abs("/og.png"),

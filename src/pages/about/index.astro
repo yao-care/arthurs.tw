@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { SITE } from "../../lib/site";
+import { SITE, LEGAL } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "關於我們", path: "/about/" }])];
 const contactLines = [
@@ -57,6 +57,13 @@ const contactLines = [
           <p class="muted" style="margin-top: 0.75rem;">聯絡方式設定中。最快的方式是直接<a href="/website-check/">把現在的網站網址傳給我們</a>，我們會盡快回覆。</p>
         )}
         <p style="margin-top: 1rem;"><Cta /></p>
+        <div style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1rem;">
+          <p class="fs-sm" style="margin: 0;"><strong>{LEGAL.company}</strong></p>
+          <p class="fs-sm muted" style="margin: 0.35rem 0 0;">統一編號 {LEGAL.taxId}</p>
+          <p class="fs-sm muted" style="margin: 0.35rem 0 0;">{LEGAL.address}</p>
+          {LEGAL.phone && <p class="fs-sm muted" style="margin: 0.35rem 0 0;">電話 <a href={`tel:${LEGAL.phone.replace(/[^0-9+]/g, "")}`}>{LEGAL.phone}</a></p>}
+          <p class="fs-xs muted" style="margin: 0.75rem 0 0;">Arthurs 是這家公司的服務品牌。這裡是辦公室，不是門市，來之前先約時間。</p>
+        </div>
       </div>
     </div>
   </section>

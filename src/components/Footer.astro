@@ -57,7 +57,8 @@ const year = new Date().getFullYear();
       <ul class="legal-nav">
         {LEGAL.pages.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
       </ul>
-      <p style="margin: 0.75rem 0 0;">© {year} {SITE.name}．{SITE.ownerNote}</p>
+      <p style="margin: 0.75rem 0 0;">{LEGAL.company}（統一編號 {LEGAL.taxId}）．{LEGAL.address}{LEGAL.phone && `．${LEGAL.phone}`}</p>
+      <p style="margin: 0.35rem 0 0;">© {year} {SITE.name}．{SITE.ownerNote}</p>
     </div>
   </div>
 </footer>

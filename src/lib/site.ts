@@ -17,11 +17,19 @@ export const SITE = {
 };
 
 // 法律頁（/privacy、/terms、/disclaimer）共用事實。三頁的署名與生效日期只在這裡改。
-// operator：Arthurs 是品牌名，營運與收款主體是 yao.care（2026-07-25 老闆確認）。
-// 目前不公開公司登記全名、統一編號與地址；日後要補，改這裡即可，三頁一起變。
+// operator：Arthurs 是品牌名，營運與收款主體是藥提醒科技有限公司（yao.care 是它的另一個品牌）。
+// 2026-07-28 老闆決定公開登記全名、統編與地址：這些本來就是公開的商業登記資料，
+// 站上不寫並不會少揭露什麼，只是讓 Google 少一個能跟商家檔案對得起來的訊號（NAP）。
+// 重要，NAP 一致性：company/address/phone 三個欄位必須與 Google 商家檔案「一字不差」，
+// 否則 Google 無法把本網域和商家檔案綁在一起，local pack 不會認。要改先確認商家檔案怎麼寫。
+// phone 待補：老闆已同意公開，但號碼要由老闆提供（不可從公開黃頁抄，未必與商家檔案一致）。
 export const LEGAL = {
-  operator: "Arthurs 是品牌名，實際提供服務的是 yao.care。",
-  updated: "2026-07-25",
+  operator: "Arthurs 是品牌名，實際提供服務的是藥提醒科技有限公司。",
+  company: "藥提醒科技有限公司",
+  taxId: "83620786",
+  address: "臺中市西區臺灣大道二段 239 號 13 樓",
+  phone: "",
+  updated: "2026-07-28",
   pages: [
     { label: "隱私權政策", href: "/privacy/" },
     { label: "服務條款", href: "/terms/" },
@@ -73,6 +81,7 @@ export const PAINS = [
   { title: "Google 搜尋找不到公司", desc: "網站內容太舊、太少，搜尋引擎不知道你真正提供哪些服務。", href: "/articles/why-google-cant-find-my-company/" },
   { title: "有人進網站也不知道在看什麼", desc: "不知道訪客從哪裡來、看了哪些內容，也不知道下一步該改善什麼。", href: "/qa/what-can-i-see-with-search-console-analytics/" },
   { title: "控制權不在自己手上", desc: "帳號、主機、程式或設定掌握在原廠商手中，想換人管理也很困難。", href: "/qa/who-owns-the-website/" },
+  { title: "在地做很久了，網路上卻查不到", desc: "老客戶都知道你在哪、做得多好，新客戶拿手機搜卻找不到人，問 AI 也問不出來。", href: "/articles/why-google-cant-find-my-company/" },
 ];
 
 // 核心解法（三項）
