@@ -22,14 +22,18 @@ export const SITE = {
 // 站上不寫並不會少揭露什麼，只是讓 Google 少一個能跟商家檔案對得起來的訊號（NAP）。
 // 重要，NAP 一致性：company/address/phone 三個欄位必須與 Google 商家檔案「一字不差」，
 // 否則 Google 無法把本網域和商家檔案綁在一起，local pack 不會認。要改先確認商家檔案怎麼寫。
-// phone：2026-07-29 老闆提供。寫法照他給的原樣，不自行改成 04-2310-0969 之類的格式，
-// 因為 NAP 的價值在於與商家檔案一字不差，格式化反而可能對不上。
+// phone：2026-07-29 老闆核對商家檔案後給的正式寫法＝空白分隔「04 2310 0969」（原先寫成
+// 連字號 04-23100969，與商家檔案不一致，同日改正）。NAP 的價值在於與商家檔案一字不差，
+// 不要自行改成 04-2310-0969 或去掉空白；tel: 連結會自動去掉非數字，不受寫法影響。
+// gbpUrl：Google 商家檔案的官方分享連結，餵給 seo.ts 的 Organization sameAs，等於在站上
+// 指認「這個商家檔案就是我」，比讓 Google 自己靠地址比對快。
 export const LEGAL = {
   operator: "Arthurs 是品牌名，實際提供服務的是藥提醒科技有限公司。",
   company: "藥提醒科技有限公司",
   taxId: "83620786",
   address: "臺中市西區臺灣大道二段 239 號 13 樓",
-  phone: "04-23100969",
+  phone: "04 2310 0969",
+  gbpUrl: "https://share.google/Gk5RfoqJNYGK8V5dy",
   updated: "2026-07-28",
   pages: [
     { label: "隱私權政策", href: "/privacy/" },

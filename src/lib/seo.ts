@@ -8,7 +8,7 @@ export const abs = (p: string) => new URL(p, ORIGIN).href;
 export function organizationSchema() {
   // sameAs：只放能相互佐證的真實外部識別（LINE 官方帳號、公開的 GitHub org）。
   // 待補（有了再加，勿杜撰）：Wikidata、FB 粉專、LinkedIn 公司頁。
-  const sameAs = [SITE.line, "https://github.com/yao-care"].filter(Boolean);
+  const sameAs = [SITE.line, LEGAL.gbpUrl, "https://github.com/yao-care"].filter(Boolean);
   // 型別同時宣告 Organization 與 ProfessionalService（LocalBusiness 子型），讓同一個實體
   // 既是品牌也是可被地域理解的在地服務業者。地址與統編來自公開商業登記（LEGAL），
   // 必須與 Google 商家檔案寫法一致，否則 Google 無法把本網域對上那個商家檔案。
