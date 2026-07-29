@@ -22,13 +22,14 @@ export const SITE = {
 // 站上不寫並不會少揭露什麼，只是讓 Google 少一個能跟商家檔案對得起來的訊號（NAP）。
 // 重要，NAP 一致性：company/address/phone 三個欄位必須與 Google 商家檔案「一字不差」，
 // 否則 Google 無法把本網域和商家檔案綁在一起，local pack 不會認。要改先確認商家檔案怎麼寫。
-// phone 待補：老闆已同意公開，但號碼要由老闆提供（不可從公開黃頁抄，未必與商家檔案一致）。
+// phone：2026-07-29 老闆提供。寫法照他給的原樣，不自行改成 04-2310-0969 之類的格式，
+// 因為 NAP 的價值在於與商家檔案一字不差，格式化反而可能對不上。
 export const LEGAL = {
   operator: "Arthurs 是品牌名，實際提供服務的是藥提醒科技有限公司。",
   company: "藥提醒科技有限公司",
   taxId: "83620786",
   address: "臺中市西區臺灣大道二段 239 號 13 樓",
-  phone: "",
+  phone: "04-23100969",
   updated: "2026-07-28",
   pages: [
     { label: "隱私權政策", href: "/privacy/" },
