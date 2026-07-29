@@ -4,7 +4,7 @@ category: "Google 搜尋、AEO 與 GEO"
 answer: "不能保證被 AI 推薦，這件事沒有人能打包票，因為要不要提到你，是 AI 自己決定的。但可以做的是：把你公司的資料做得完整、清楚、持續更新，讓 ChatGPT 這類 AI 在讀你的網站時容易看懂、容易正確引用。資料寫得齊、講得白的公司，當然比資料東缺西缺的更容易被 AI 講到。"
 order: 2
 updated: "2026-07-26"
-related: ["can-google-ranking-be-guaranteed", "who-owns-the-website"]
+related: ["can-google-ranking-be-guaranteed", "who-owns-the-website", "what-is-llms-txt"]
 relatedArticles: ["chatgpt-doesnt-know-my-company", "what-i-do-when-numbers-dont-move"]
 ---
 
@@ -14,7 +14,7 @@ relatedArticles: ["chatgpt-doesnt-know-my-company", "what-i-do-when-numbers-dont
 
 但這不代表沒得做。AI 是靠讀網路上的資料來回答問題的。資料寫得完整、講得清楚、又常更新，AI 讀的時候就看得懂你在做什麼、服務哪裡、擅長什麼。它要引用你的時候，也比較不會講錯。
 
-這件事有個名字叫 GEO 和 AEO，講白了就是：把公司的資訊寫成 AI 讀得懂、也答得出來的內容。你的服務項目、專長、地區、常見問題都寫得明明白白，勝過資料東缺一塊、西缺一塊的同行。
+這件事有個名字叫 GEO 和 AEO，講白了就是把公司資訊寫得讓 AI 讀得懂、也答得出來。你的服務項目、專長、地區、常見問題都寫得明明白白，勝過資料東缺一塊、西缺一塊的同行。
 
 這件事不用聽我講，你可以自己驗。到「[AI 認得你嗎](/ai-check/)」那頁，照上面的問題去問 ChatGPT 你自己的公司。很多人問完才發現，AI 講的跟實際狀況差很多。AI 講不出來的那些，就是你網站上還缺的資料。
 
