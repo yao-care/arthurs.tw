@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import {
-  SITE, POSITIONING, PILLARS, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP, CASES, QA_CATEGORIES,
+  SITE, LEGAL, POSITIONING, PILLARS, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP, CASES, QA_CATEGORIES,
+  SERVICE_AREAS,
 } from "../lib/site";
 
 // /llms-full.txt：本站主要內容的「全文」純文字版，讓 AI 助理一次讀到內容本身，不必逐頁爬。
@@ -66,6 +67,16 @@ export const GET: APIRoute = async ({ site }) => {
     `所有權：${SITE.ownerNote}`,
     "",
     "誠實聲明：不保證 Google 排名、不保證被 AI 推薦、不保證訂單或固定時間成效。承諾的是把網站建好、交接、帶你上手，資料看得到，需要時再協助。",
+  );
+
+  rule();
+  push(
+    "## 服務區域",
+    `頁面：${abs("/taichung/")}`,
+    "",
+    `營業登記在${SERVICE_AREAS.base}（${LEGAL.company}，統一編號 ${LEGAL.taxId}，${LEGAL.address}）。`,
+    `可以約當面談的縣市：${SERVICE_AREAS.meetup.join("、")}。${SERVICE_AREAS.remoteNote}`,
+    "不分行業。想見面就約時間，不想跑一趟也一樣做。",
   );
 
   rule();

@@ -1,7 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
-import { PLAN, OWNERSHIP, STEPS } from "../../lib/site";
+import { PLAN, OWNERSHIP } from "../../lib/site";
+// 這頁刻意不再重述三步驟流程（首頁與 /service/ 已有，重複會讓 Google 把這頁當近似重複頁
+// 而遲遲不收錄；2026-07-30 實測本頁卡在 Discovered - currently not indexed）。
+// 改放這頁獨有的三件事：金額怎麼決定、你最後拿到什麼、什麼情況我建議你先別做。
+const factors = [
+  { title: "你手上的資料齊不齊", desc: "型錄、案例、圖片都在，整理起來快。什麼都沒有的話，要先幫你把內容問出來、寫出來，這段最花時間。" },
+  { title: "網站要多大", desc: "一頁把公司講清楚，和有產品分類、案例、文章的網站，不是同一件事。" },
+  { title: "舊網站要不要搬", desc: "網域在別人手上、內容要從舊站搬過來、信箱綁在舊主機，這些都會多一段工。" },
+];
+const deliverables = [
+  "一個上線中的網站，綁你自己的網域",
+  "網站空間與網域的帳號密碼，都在你名下",
+  "Google Search Console 與 Analytics 的權限，用你自己的 Google 帳號",
+  "一份交接表，寫清楚東西放在哪、要改去哪裡改",
+  "一次當面或視訊的操作教學，教到你自己改得動",
+];
+const notNow = [
+  { title: "你要的是購物車、會員或即時庫存", desc: "這些要另外接系統，之後也要有人顧。我會單獨跟你估，不會混在這筆裡。" },
+  { title: "你的客人不靠搜尋找你", desc: "純轉介、純現場的生意，錢花在網站上不一定划算。我會直接跟你說，不會為了接這筆叫你做。" },
+  { title: "你完全不想自己碰", desc: "可以，網站我照樣做完交給你。但這個服務最值錢的是帶你上手那段，你不想學，那段就浪費了。先講清楚。" },
+];
 import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
 const schemas = [
   breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "方案與費用", path: "/pricing/" }]),
@@ -54,27 +74,47 @@ const schemas = [
   </section>
   <section class="section">
     <div class="container">
-      <h2 class="section-title">從你傳訊息給我，到網站上線</h2>
+      <span class="eyebrow">金額怎麼來的</span>
+      <h2 class="section-title">同樣一筆顧問服務，三件事會讓金額不一樣。</h2>
       <div class="grid grid-3" style="margin-top: 1.5rem;">
-        {STEPS.map((s, i) => (
-          <div class="card">
-            <p style="margin: 0;"><span class="badge">第 {i + 1} 步</span></p>
-            <h3 style="font-size: var(--text-lg); margin-top: 0.5rem;">{s.title}</h3>
-            <p class="muted">{s.desc}</p>
-          </div>
+        {factors.map((f) => (
+          <div class="card"><h3>{f.title}</h3><p class="muted">{f.desc}</p></div>
         ))}
       </div>
       <p class="fs-sm muted" style="margin-top: 1.25rem;">
-        要跑多久，看你手上的資料齊不齊、回訊息快不快。這兩件事最影響進度。我不在這頁掛一個固定天數，那種數字寫了也幫不到你。談的時候我會照你的狀況給一個範圍。
+        這就是這頁不掛一個固定數字的原因。你講一下現在的狀況，我聽完當場給你金額，那個金額就是最後的金額，不會做到一半再加。時間也一樣，看資料齊不齊、回訊息快不快，談的時候我照你的狀況給一個範圍。整個流程怎麼走，寫在<a href="/service/">服務方式</a>。
       </p>
     </div>
   </section>
+
   <section class="section section-soft">
     <div class="container">
       <div class="grid grid-2">
         <div class="card">
+          <h3>結束的時候，你手上會有這些</h3>
+          <ul class="check-list" style="margin-top: 0.75rem;">{deliverables.map((x) => <li>{x}</li>)}</ul>
+          <p class="fs-sm muted" style="margin-top: 0.75rem;">這些是你的資產，不是借你用的。想換人接手，把交接表給對方就好。</p>
+        </div>
+        <div class="card">
+          <h3>這幾種情況，我會建議你先不要做</h3>
+          <div class="stack" style="display: grid; gap: 1rem; margin-top: 0.75rem;">
+            {notNow.map((n) => (
+              <div>
+                <p style="margin: 0;"><strong>{n.title}</strong></p>
+                <p class="fs-sm muted" style="margin: 0.25rem 0 0;">{n.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
           <h3>中部可以約見面</h3>
-          <p class="muted" style="margin-top: 0.5rem;">我人在台中。台中、彰化、南投、苗栗想當面談就約時間，其他縣市走線上。見不見面不影響做出來的東西，也不影響費用。細節在<a href="/qa/which-areas-do-you-serve/">你只做台中嗎</a>這一題。</p>
+          <p class="muted" style="margin-top: 0.5rem;">我人在台中。台中、彰化、南投、苗栗想當面談就約時間，其他縣市走線上。見不見面不影響做出來的東西，也不影響費用。服務範圍和在地案例在<a href="/taichung/">台中與中部</a>這一頁，其他縣市怎麼配合在<a href="/qa/which-areas-do-you-serve/">你只做台中嗎</a>這一題。</p>
         </div>
         <div class="card">
           <h3>關於費用，最常被問的幾題</h3>

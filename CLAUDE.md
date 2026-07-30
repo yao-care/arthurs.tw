@@ -62,6 +62,9 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 ## 單一真實來源
 - **事實與文案骨幹**：`src/lib/site.ts`（品牌、聯絡、導覽、五大定位、痛點、解法、方案、精選 QA、真實案例 CASES）。
 - **結構化資料**：`src/lib/seo.ts`（Organization / WebSite / Service / FAQPage / Breadcrumb / Article），由 `BaseLayout.astro` 與各頁輸出 JSON-LD。
+- **服務區域**：`site.ts` 的 `SERVICE_AREAS`（`base` 登記地行政區／`meetup` 可約當面談的縣市，行政區全名，餵 `seo.ts` 的 `areaServed`／`meetupLabel` 同一批縣市的口語寫法，給頁面正文／`remoteNote`）。**正文一律「台中」、schema 一律「臺中市」，兩種寫法刻意分開，別統一**。改一處會同步 `/taichung/`、Organization 與 local Service 的 `areaServed`、`llms.txt`、`llms-full.txt`。
+- **`/taichung/`＝地域字落地頁（2026-07-30 新增）**：站上唯一為「台中 網站架設／台中 ai 建站／台中 公司網站」這類地域意圖寫的頁（在此之前這批目標字全數零曝光，因為沒有頁在打）。NAV 刻意不放（NAV 是購買動線，已 6 項），入口＝Footer「服務」欄＋`/about/`＋`/service/`＋`/pricing/` 的正文連結。sitemap priority 0.9（與 website-check／pricing／service 同級，在 `astro.config.mjs`）。在地案例只從 `CASES` 篩真的在台中的（目前只有鄭骨館體雕中心），**不得為了湊數把非台中案例寫成在地案例**。
+- **`/pricing/` 不要再放首頁已有的區塊（2026-07-30）**：該頁曾長期卡 `Discovered - currently not indexed`，可控原因是一半篇幅（`PLAN.includes`／`STEPS`／`OWNERSHIP`）與首頁下半重複。已把三步驟流程區換成該頁獨有的三段（金額由哪三件事決定／結束時你手上會有什麼／哪幾種情況建議先不要做，皆為該頁區域變數，非 `site.ts` 事實）。**流程要講就連去 `/service/`，別再複製回來。**（7-28 那批已試過「補厚內容＋補內鏈」，兩天後狀態未變，故這次改的是重複度。）
 - **SEO/AEO/GEO**：`robots.txt.ts`（開放 AI 爬蟲＋sitemap）、`llms.txt.ts`（純文字**目錄**：站台簡介＋分區連結）、`llms-full.txt.ts`（純文字**全文**：服務說明＋全部 QA 與文章正文＋真實案例，讓 AI 一次讀完直接引用，不必逐頁爬；內容一律取自 `src/content/` 正本與 `site.ts`，勿手寫成第二份會漂移的副本）、sitemap priority 差異化（astro.config.mjs）。
 
 ## 數據串接現況（2026-07-24 校正，原「待補」多已完成）

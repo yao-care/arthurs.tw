@@ -1,6 +1,6 @@
 // JSON-LD 結構化資料產生器（GEO/AEO：讓搜尋引擎與 AI 更容易理解本站）。
 // 只描述真實事實，不杜撰。
-import { SITE, LEGAL } from "./site";
+import { SITE, LEGAL, SERVICE_AREAS } from "./site";
 
 const ORIGIN = SITE.url;
 export const abs = (p: string) => new URL(p, ORIGIN).href;
@@ -33,10 +33,7 @@ export function organizationSchema() {
       : {}),
     ...(LEGAL.phone ? { telephone: LEGAL.phone } : {}),
     areaServed: [
-      { "@type": "AdministrativeArea", name: "臺中市" },
-      { "@type": "AdministrativeArea", name: "彰化縣" },
-      { "@type": "AdministrativeArea", name: "南投縣" },
-      { "@type": "AdministrativeArea", name: "苗栗縣" },
+      ...SERVICE_AREAS.meetup.map((name) => ({ "@type": "AdministrativeArea", name })),
       { "@type": "Country", name: "臺灣" },
     ],
     url: ORIGIN,
@@ -61,16 +58,21 @@ export function websiteSchema() {
   };
 }
 
-export function serviceSchema() {
+// opts.local：在地頁（/taichung/）用。把 areaServed 從整個台灣收斂到可當面談的那幾個縣市，
+// 讓這一頁講的服務範圍和頁面正文一致；其餘頁面照舊宣告全台。
+export function serviceSchema(opts: { local?: boolean } = {}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "AI 網站顧問服務",
+    name: opts.local ? "台中與中部 AI 網站顧問服務" : "AI 網站顧問服務",
     serviceType: "顧問服務",
     provider: { "@id": `${ORIGIN}/#organization` },
-    areaServed: "TW",
-    description:
-      "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手；沒有月費、不綁約。",
+    areaServed: opts.local
+      ? SERVICE_AREAS.meetup.map((name) => ({ "@type": "AdministrativeArea", name }))
+      : "TW",
+    description: opts.local
+      ? `一次性顧問服務，服務提供者位於${SERVICE_AREAS.base}：用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手。${SERVICE_AREAS.meetupLabel}可約當面談，${SERVICE_AREAS.remoteNote}沒有月費、不綁約。`
+      : "一次性顧問服務：替看不懂 AI、沒空管網站的人（不分行業），用 AI 把既有資料建成一個客戶自有、可聊天更新、並串接 Google Search Console 與 Analytics 的網站，並手把手帶你上手；沒有月費、不綁約。",
     // Offer 只描述委任形式，不放金額（依價格政策：全站不公開固定金額，費用洽詢報價）。
     offers: {
       "@type": "Offer",

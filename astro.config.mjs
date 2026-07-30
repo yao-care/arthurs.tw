@@ -13,7 +13,7 @@ export default defineConfig({
       serialize(item) {
         const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
         if (path === '/') { item.priority = 1.0; item.changefreq = 'weekly'; }
-        else if (['/website-check', '/pricing', '/service'].includes(path)) { item.priority = 0.9; item.changefreq = 'monthly'; }
+        else if (['/website-check', '/pricing', '/service', '/taichung'].includes(path)) { item.priority = 0.9; item.changefreq = 'monthly'; }
         else if (path === '/qa' || path === '/articles' || path === '/updates') { item.priority = 0.8; item.changefreq = 'weekly'; }
         // 個別文章/QA 頁：承接長尾搜尋的主力，優先於 /about、/404 等一般頁
         else if (path.startsWith('/articles/') || path.startsWith('/qa/')) { item.priority = 0.7; item.changefreq = 'monthly'; }

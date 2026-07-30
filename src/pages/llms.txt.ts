@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { SITE, PLAN, PILLARS } from "../lib/site";
+import { SITE, PLAN, PILLARS, SERVICE_AREAS } from "../lib/site";
 
 // /llms.txt：供大型語言模型快速取用的純文字摘要。內容取自 site.ts 既有事實，不杜撰。
 export const GET: APIRoute = ({ site }) => {
@@ -11,6 +11,9 @@ export const GET: APIRoute = ({ site }) => {
 
 ## 這是什麼服務
 核心商品是「一次性顧問服務」，沒有月費、不綁約。費用未在網站公開，請透過 LINE 或 email 洽詢。理念：AI 這波人人都用得上，但很多老闆看不懂、沒空。把難維護的舊網站交給我，用 AI 換成客戶自有、可用 AI（ChatGPT、Claude 等）聊天更新的新網站，並手把手帶你上手。之後網站是你的，你自己用 AI 聊天更新。
+
+## 服務區域
+營業登記在${SERVICE_AREAS.base}。${SERVICE_AREAS.meetupLabel}可以約當面談，${SERVICE_AREAS.remoteNote}在地說明頁：${abs("/taichung/")}
 
 ## 五個定位（品牌名 Arthurs 拆字：${PILLARS.map((p) => p.chars).join("·")}）
 ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
@@ -29,6 +32,7 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - 最新文章：${abs("/articles/")}
 - 網站案例：${abs("/cases/")}
 - 方案與費用：${abs("/pricing/")}
+- 台中與中部（服務區域、可約當面談的縣市、在地案例）：${abs("/taichung/")}
 - 常見問題：${abs("/qa/")}
 - 更新紀錄：${abs("/updates/")}
 - 網站健檢（傳網址）：${abs("/website-check/")}

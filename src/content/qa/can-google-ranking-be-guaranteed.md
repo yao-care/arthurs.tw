@@ -3,7 +3,7 @@ question: "有人跟我保證 SEO 一定排到 Google 第一頁，可信嗎？"
 category: "Google 搜尋、AEO 與 GEO"
 answer: "不可信。排名是 Google 的系統在決定，沒有人保證得了。你可以反問對方一句：三個月後沒動靜，你要做什麼？答不出來的就是話術。我的做法是先查卡在哪一關，Google 還沒收、排太後面、沒人點、沒人打電話，這四關差很遠。"
 order: 1
-updated: "2026-07-28"
+updated: "2026-07-30"
 related: ["can-chatgpt-recommendation-be-guaranteed", "what-if-ai-makes-a-mistake", "what-can-i-see-with-search-console-analytics"]
 relatedArticles: ["what-i-do-when-numbers-dont-move", "why-google-cant-find-my-company", "website-not-updated-for-years"]
 ---
@@ -26,6 +26,16 @@ relatedArticles: ["what-i-do-when-numbers-dont-move", "why-google-cant-find-my-c
 - **人進來了，沒人打電話**：那就不是搜尋的問題，是網站本身沒讓他看懂你能幫上什麼忙。
 
 我會分開查，然後直接告訴你卡第幾關、我要做什麼、多久看得出反應。
+
+### 正在比廠商的話，這三題問下去
+
+問完多半就知道對方手上有沒有方法。
+
+1. **你怎麼知道我卡在哪一關？** 講得出「先看 Google 收了沒、排第幾、有沒有人點」的人，是在看資料。只回你「我們會幫你優化」的，沒有。這些資料實際長什麼樣子，[我另外一題有寫](/qa/what-can-i-see-with-search-console-analytics/)。
+2. **三個月後沒動靜，你要做什麼？** 講得出下一步的人手上有方法。只會重複跟你保證的，就是話術。
+3. **網站和帳號最後在誰名下？** 這題跟排名無關，但你更該問。東西在對方手上，做不好你也換不了人。
+
+我自己做到哪裡、怎麼收費，寫在[方案與費用](/pricing/)。想先知道你現在卡在哪，[把網址傳給我](/website-check/)，我查完直接跟你講。
 
 ### 我自己的網站也是這樣顧的
 

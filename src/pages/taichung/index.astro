@@ -1,0 +1,161 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import { LEGAL, SERVICE_AREAS, CASES } from "../../lib/site";
+import { breadcrumbSchema, serviceSchema } from "../../lib/seo";
+const schemas = [
+  breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "台中與中部", path: "/taichung/" }]),
+  serviceSchema({ local: true }),
+];
+// 在地案例只從 CASES 正本挑「真的在台中」的那幾個，不另外寫一份會漂移的描述。
+// 目前只有一個，寧可少也不硬湊（站規鐵則 4：不得新增未上線或虛構案例）。
+const localCaseNames = ["鄭骨館體雕中心"];
+const localCases = CASES.filter((c) => localCaseNames.includes(c.name));
+// 中部老闆最常帶著來問的三種狀況。每一條都連到站上已經寫完整的那一頁。
+const situations = [
+  {
+    title: "做了幾十年，新客戶卻搜不到你",
+    desc: "老客戶都知道你在哪、做得多好。可是新客戶拿手機搜同一個服務，出來的是別人。問 AI 也問不出你的名字。",
+    href: "/articles/why-google-cant-find-my-company/",
+    linkLabel: "為什麼 Google 找不到我的公司",
+  },
+  {
+    title: "網站是好幾年前做的，現在沒人管",
+    desc: "新設備、新產品、這幾年接的案子，網站上一個字都沒有。當年做網站的人早就聯絡不上了。",
+    href: "/articles/website-not-updated-for-years/",
+    linkLabel: "網站多年沒更新會怎樣",
+  },
+  {
+    title: "公司沒有人負責網站這件事",
+    desc: "沒有行銷人員，你自己也沒空。改一段字要找廠商、要等回覆，久了乾脆不改。",
+    href: "/articles/no-marketing-staff-how-to-update/",
+    linkLabel: "沒有行銷人員，網站怎麼更新",
+  },
+];
+const desc = `我人在${SERVICE_AREAS.base}，做的是一次性的 AI 網站顧問服務：幫你把公司網站建好、交接到你名下，再帶你用 AI 聊天自己更新。${SERVICE_AREAS.meetupLabel}可以約當面談，其他縣市線上進行。費用洽詢報價。`;
+---
+<BaseLayout title="台中 AI 網站顧問" description={desc} schemas={schemas}>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ 台中與中部</p>
+      <h1>在台中找人做公司網站，我做的是這一種。</h1>
+      <p class="lede">
+        我人在{SERVICE_AREAS.base}。{SERVICE_AREAS.meetupLabel}想坐下來當面講，約個時間就可以。{SERVICE_AREAS.remoteNote}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">先講清楚我做什麼</span>
+      <h2 class="section-title">不是接單做完就走，是建好、交給你、教會你。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        <div class="card">
+          <h3>建好</h3>
+          <p class="muted">你把手上的資料給我，公司簡介、產品、案例、圖片都行，不用先整理。我用 AI 幫你做成網站，綁你自己的網域，把 Google 的搜尋和流量工具都接上。</p>
+        </div>
+        <div class="card">
+          <h3>交給你</h3>
+          <p class="muted">帳號、網域、網站資料全部在你名下，附一份交接表。哪天你想自己接手，或換別人接手，都不用問我。</p>
+        </div>
+        <div class="card">
+          <h3>教會你</h3>
+          <p class="muted">交接的時候我坐下來教你，用一般說話的方式請 AI 改網站。教到你自己也改得動為止，這段是重點。</p>
+        </div>
+      </div>
+      <p class="fs-sm muted" style="margin-top: 1.5rem;">
+        費用是一次性的，沒有月費、不綁約。多少錢直接問我，加 LINE 或來信講一下你的狀況，我聽完當場跟你講。這頁不掛數字的原因寫在<a href="/qa/how-much-does-it-cost/">這一題</a>，服務包含哪些寫在<a href="/pricing/">方案與費用</a>。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">中部最常見的狀況</span>
+      <h2 class="section-title">你大概是為了其中一件事點進來的。</h2>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        {situations.map((s) => (
+          <div class="card">
+            <h3>{s.title}</h3>
+            <p class="muted">{s.desc}</p>
+            <p class="fs-sm" style="margin-top: 0.75rem;"><a href={s.href}>{s.linkLabel}</a></p>
+          </div>
+        ))}
+      </div>
+      <p class="fs-sm muted" style="margin-top: 1.5rem;">
+        這三件事要補的東西其實很明確：把你實際在做的服務，用客戶會講的話寫在網站上，然後讓它一直有在更新。不確定自己卡在哪，<a href="/website-check/">把現在的網址傳給我</a>，我先看。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>可以約當面談的縣市</h3>
+          <ul class="pill-list" style="margin-top: 0.75rem;">
+            {SERVICE_AREAS.meetup.map((a) => <li>{a}</li>)}
+          </ul>
+          <p class="muted" style="margin-top: 1rem;">這幾個縣市車程之內，你想先看看人再決定要不要合作，這很正常，約時間就好。公司要好幾個人一起決定的話，湊在一起講一次也比較快。</p>
+        </div>
+        <div class="card">
+          <h3>見不見面，不影響做出來的東西</h3>
+          <p class="muted" style="margin-top: 0.5rem;">要給我的是公司資料，傳檔案比當面拿方便，也不容易漏。我要給你的是網站、帳號和帶你操作一次，那段用視訊共享畫面，你看著我做一遍，還可以錄起來之後重看。</p>
+          <p class="fs-sm" style="margin-top: 0.75rem;">其他縣市怎麼配合，寫在<a href="/qa/which-areas-do-you-serve/">你只做台中嗎</a>這一題。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {localCases.length > 0 && (
+    <section class="section section-soft">
+      <div class="container">
+        <span class="eyebrow">在地作品</span>
+        <h2 class="section-title">台中的實際案例，點進去就是。</h2>
+        <div class="grid grid-2" style="margin-top: 2rem;">
+          {localCases.map((c) => (
+            <a href={c.deep ?? c.url} class="card card-link">
+              <h3>{c.name}</h3>
+              <p class="fs-sm muted" style="margin-top: 0.35rem;">{c.industry}</p>
+              <p class="muted" style="margin-top: 0.75rem;">{c.desc}</p>
+            </a>
+          ))}
+          <div class="card">
+            <h3>其他縣市的作品也在同一頁</h3>
+            <p class="muted" style="margin-top: 0.5rem;">案例牆上放的都是已經上線的實站，包含你現在看的這個網站。沒有客戶見證，也沒有成效數字，因為那些我編不出來。</p>
+            <p class="fs-sm" style="margin-top: 0.75rem;"><a href="/cases/">看全部案例</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>登記資料與聯絡方式</h3>
+          <p class="fs-sm" style="margin-top: 0.75rem;"><strong>{LEGAL.company}</strong></p>
+          <p class="fs-sm muted" style="margin: 0.35rem 0 0;">統一編號 {LEGAL.taxId}</p>
+          <p class="fs-sm muted" style="margin: 0.35rem 0 0;">{LEGAL.address}</p>
+          {LEGAL.phone && <p class="fs-sm muted" style="margin: 0.35rem 0 0;">電話 <a href={`tel:${LEGAL.phone.replace(/[^0-9+]/g, "")}`}>{LEGAL.phone}</a></p>}
+          {LEGAL.gbpUrl && <p class="fs-sm muted" style="margin: 0.35rem 0 0;"><a href={LEGAL.gbpUrl}>Google 商家檔案</a></p>}
+          <p class="fs-xs muted" style="margin: 0.75rem 0 0;">Arthurs 是這家公司的服務品牌。這裡是辦公室，不是門市，來之前先約時間。</p>
+        </div>
+        <div class="card">
+          <h3>我不會跟你保證的事</h3>
+          <p class="muted" style="margin-top: 0.5rem;">不保證 Google 排名、不保證被 AI 推薦、不保證什麼時候會有詢問電話。這些沒有人保證得了。我承諾的是看資料、持續改，沒起色的時候我會查、會跟你講實話。</p>
+          <p class="fs-sm" style="margin-top: 0.75rem;"><a href="/qa/can-google-ranking-be-guaranteed/">有人跟我保證排第一頁，可信嗎</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-deep">
+    <div class="container text-center">
+      <h2 class="section-title mx-auto">在台中，我可以直接坐下來跟你講。</h2>
+      <p style="margin-top: 1rem; color: var(--color-text-on-dark);">把現在的網站網址傳給我，或直接說你想做什麼。沒有網站也可以，講一下公司在做什麼就行。</p>
+      <p style="margin-top: 1.75rem;"><Cta size="lg" /></p>
+    </div>
+  </section>
+</BaseLayout>

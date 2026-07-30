@@ -42,6 +42,17 @@ export const LEGAL = {
   ],
 };
 
+// 服務區域（在地訊號的單一來源）。base＝營業登記所在地（與 LEGAL.address 同一處，只留到行政區）；
+// meetup＝車程內、可以約當面談的縣市，用行政區全名餵 seo.ts 的 areaServed；meetupLabel＝同一批
+// 縣市的口語寫法，給頁面正文用（正文一律「台中」，schema 一律「臺中市」，兩種寫法刻意分開）。
+// 改這裡會同步 /taichung/ 的正文與 Organization 的 areaServed、llms-full 的服務區域段。
+export const SERVICE_AREAS = {
+  base: "臺中市西區",
+  meetup: ["臺中市", "彰化縣", "南投縣", "苗栗縣"],
+  meetupLabel: "台中、彰化、南投、苗栗",
+  remoteNote: "其他縣市線上進行，做出來的東西和費用都一樣。",
+};
+
 // 核心定位一句話（全站共用）：賣的是顧問服務，不是便宜建站。網站上不談價（金額走私下聯絡）。
 export const POSITIONING =
   "AI 這波，人人都用得上。你看不懂、沒空管網站也沒關係，把網站交給我。我用 AI 幫你做好、帶你上手，之後你自己用聊天更新。";
