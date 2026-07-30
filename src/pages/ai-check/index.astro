@@ -192,7 +192,20 @@ const HOWTO = "按下去，問題會複製到你的剪貼簿，ChatGPT 開在新
     const target = e.target as HTMLElement | null;
     const btn = target?.closest("[data-copy]") as HTMLAnchorElement | null;
     const text = btn?.dataset.copy;
-    if (!btn || !text || !navigator.clipboard) return;
+    if (!btn || !text) return;
+
+    // 量測這頁到底有沒有人動手（2026-07-30 補）。這是全站唯一的互動型資產，
+    // 沒有這個事件就分不出「來看了一眼」和「真的去問了 AI」。
+    // 只送按了哪一顆與有沒有填公司名，不送公司名本身，維持這頁不收資料的承諾。
+    const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+    if (gtag) {
+      gtag("event", "ai_ask", {
+        ask_id: btn.id || "demo",
+        has_company: Boolean(input && input.value.trim()),
+      });
+    }
+
+    if (!navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(
       () => {
         const label = btn.textContent;

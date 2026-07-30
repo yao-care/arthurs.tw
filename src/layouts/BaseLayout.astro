@@ -53,11 +53,35 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
     {gaId && (
       <>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-        <script is:inline define:vars={{ gaId }}>
+        <script is:inline define:vars={{ gaId, lineUrl: SITE.line }}>
           window.dataLayer = window.dataLayer || [];
           function gtag(){ dataLayer.push(arguments); }
+          // define:vars 會把這段包進 IIFE，gtag 因此只是區域函式。
+          // 掛回 window 才能讓各頁自己的 script（如 /ai-check/）送事件。
+          window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', gaId);
+
+          // 轉換量測（2026-07-30 補）。在此之前全站只有 gtag('config')，GA4 只看得到
+          // page_view 這類自動事件，量不到「有人真的來聯絡」。買任何流量之前得先有這一段，
+          // 否則只知道來了幾個人，不知道發生什麼事。
+          // 三個事件對應三個真實動作：按 LINE、按 Email、表單送出成功。
+          // 送出成功以到達 /website-check/thank-you/ 為準（表單成功會轉址過去）。
+          // 事件名 generate_lead 沿用 GA4 建議名稱，後台可直接標為關鍵事件。
+          document.addEventListener('click', function (e) {
+            var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            if (lineUrl && href.indexOf(lineUrl) === 0) {
+              gtag('event', 'line_click', { link_location: location.pathname, link_text: (a.textContent || '').trim().slice(0, 60) });
+            } else if (href.indexOf('mailto:') === 0) {
+              gtag('event', 'email_click', { link_location: location.pathname });
+            }
+          });
+
+          if (location.pathname.indexOf('/website-check/thank-you') === 0) {
+            gtag('event', 'generate_lead', { form_name: 'website_check' });
+          }
         </script>
       </>
     )}
