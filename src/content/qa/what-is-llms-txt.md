@@ -4,7 +4,7 @@ category: "Google 搜尋、AEO 與 GEO"
 answer: "llms.txt 是放在網站根目錄的純文字檔，把服務內容和重要頁面連結整理成 AI 容易讀取的格式；robots.txt 也要放行 AI 爬蟲，兩者搭配 AI 才進得來又看得懂。這個網站本身就是這樣設定的，你可以直接打開看。"
 order: 8
 updated: "2026-07-30"
-related: ["can-chatgpt-recommendation-be-guaranteed", "can-google-ranking-be-guaranteed"]
+related: ["can-chatgpt-recommendation-be-guaranteed", "can-google-ranking-be-guaranteed", "geo-vs-seo"]
 relatedArticles: ["chatgpt-doesnt-know-my-company", "how-to-get-chatgpt-to-mention-you"]
 ---
 
