@@ -4,7 +4,7 @@ category: "顧問與後續服務"
 answer: "可以，而且我們鼓勵。這套建站做法我們完全公開，還附一份可以下載的 skill，你會用 Claude 就能自己照著做，不用付我一毛錢。會的人自己來就好，真的不會、沒空，再把顧問費交給我幫你搞定。"
 order: 2
 updated: "2026-07-26"
-related: ["can-beginners-use-ai", "is-consulting-required", "what-does-the-service-include", "why-no-hosting-maintenance-fee"]
+related: ["why-not-ai-website-builder", "can-beginners-use-ai", "is-consulting-required", "what-does-the-service-include", "why-no-hosting-maintenance-fee"]
 relatedArticles: ["no-marketing-staff-how-to-update", "what-i-do-when-numbers-dont-move"]
 ---
 
@@ -13,6 +13,8 @@ relatedArticles: ["no-marketing-staff-how-to-update", "what-i-do-when-numbers-do
 我們不靠「把技術藏起來」賺錢。這個網站的原始檔是公開的，建站的方法也整理成一份 skill 放在網站上，你可以直接下載。你把它裝進 Claude Code，就能請 AI 照同一套做法，幫你建自己的網站。
 
 會不會有人下載了就不找我？會，而且沒關係。看得懂的人，自己做就好。會付顧問費的，是看不懂的、沒空的，或是想要有人一次幫他做到好、再帶他上手的老闆。
+
+做法都公開了，那顧問費到底買什麼？買的是判斷和負責。該寫哪些內容、哪些頁非有不可、數據沒起色的時候下一步改什麼，這些工具和 skill 都不會替你想。自己做，這些判斷你自己扛；交給我，就是我扛，做錯了有人可以找。
 
 ## 實際情境
 

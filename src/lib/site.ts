@@ -165,6 +165,7 @@ export const FEATURED_QA = [
   "can-google-ranking-be-guaranteed",
   "can-chatgpt-recommendation-be-guaranteed",
   "is-consulting-required",
+  "why-not-ai-website-builder",
   "what-functions-are-not-included",
 ];
 
