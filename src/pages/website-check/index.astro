@@ -8,8 +8,51 @@ const checks = [
   "AI 是否容易理解公司業務", "網站是否適合持續更新", "是否具備搜尋及流量資料",
   "網站是否掌握在你自己手中", "是否適合這個顧問服務",
 ];
+// 自我健檢清單：每一項都是不用工具、不用懂技術，自己一兩分鐘能做完的檢查。
+const selfChecks = [
+  {
+    t: "拿手機搜「你的服務＋地區」",
+    d: "比如你在台中做水電，就搜「台中 水電」。翻到第 2 頁還沒看到自己，代表用這種方式找你的客人，看不到你。",
+  },
+  {
+    t: "問 ChatGPT：「某某公司是做什麼的？」（填你的公司名）",
+    d: "答不出來，或講得跟事實有出入，代表 AI 目前讀不到或讀不懂你的網站。現在已經有人直接問 AI 找廠商，這一塊你是缺席的。",
+  },
+  {
+    t: "在 Google 搜尋框輸入 site: 加你的網址",
+    d: "中間不要空格，長得像 site:你的網址.com。這是在問 Google：你手上有我網站的哪幾頁。列出來只有一兩頁，或明顯比實際頁數少一截，代表 Google 沒把你的網站收齊，沒收進去的頁不會出現在任何搜尋結果裡。",
+  },
+  {
+    t: "打開自己的網站，看最新消息停在哪一年",
+    d: "最新一則的日期停在幾年前，訪客第一個念頭常常是：這間公司還有在做嗎。",
+  },
+  {
+    t: "用手機開自己的網站逛一圈",
+    d: "字小到要用手指放大、按鈕點不準、圖片超出畫面，中一個就算有問題。現在多數人是用手機看網站的。",
+  },
+  {
+    t: "在手機上點網站的電話號碼",
+    d: "點下去應該直接跳出撥號畫面。沒反應的話，客人得自己抄號碼再輸入一次；急著找人的客人不一定有這個耐心。",
+  },
+  {
+    t: "Google 搜自己的公司名稱",
+    d: "看排最前面的是不是你自己的網站。如果別人平台上的頁面（地圖、黃頁、臉書）排在你前面，客人第一眼看到的資訊放在別人手上，新不新、對不對，不見得由你決定。",
+  },
+  {
+    t: "隨便抽一頁，核對價格、營業時間、地址",
+    d: "跟現在的狀況對不上就是問題。過期的資訊會讓客人照著打電話、照著跑一趟，然後撲空。",
+  },
+  {
+    t: "首頁 10 秒測試",
+    d: "找一個沒看過你網站的朋友，給他 10 秒看首頁，然後問他你們是做什麼的。他講不出來，代表首頁寫的是你想講的話，不是客人要找的答案。",
+  },
+  {
+    t: "想改網站上的一行字，你知道要找誰嗎？",
+    d: "回想一下上次改網站等了多久。要翻半天才找得到當初做網站的人，或想不起帳號在誰手上，代表網站不在你自己手中。很多網站放到過期，原因就在這裡。",
+  },
+];
 ---
-<BaseLayout title="網站健檢" description="把現在的網站網址傳給我，先幫你看看問題在哪裡：內容是否過時、Google 與 AI 是否容易理解、是否適合改成 AI 網站。填表直接送出，或加 LINE 給我。" schemas={schemas}>
+<BaseLayout title="網站健檢" description="附 10 項不用懂技術、自己就能做的網站檢查：搜得到嗎、AI 認得你嗎、手機上看正常嗎。查完把網址傳給我，我再幫你看深一層。填表送出或加 LINE 都可以。" schemas={schemas}>
   <section class="page-head">
     <div class="container">
       <p class="breadcrumb"><a href="/">首頁</a> ／ 網站健檢</p>
@@ -54,6 +97,28 @@ const checks = [
           </form>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="section section-soft" id="self-check">
+    <div class="container">
+      <span class="eyebrow">自己先查</span>
+      <h2 class="section-title">網站健檢清單：這幾件事你自己就能查</h2>
+      <p class="lede">不用工具，不用懂技術，每件花一兩分鐘。查完你大概就知道自己的網站卡在哪。</p>
+      <ol class="flow" style="margin-top: 2rem;">
+        {selfChecks.map((c) => (
+          <li>
+            <strong>{c.t}</strong>
+            <p class="muted" style="margin: 0.35rem 0 0;">{c.d}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="muted" style="margin-top: 1.5rem; max-width: var(--maxw-prose);">
+        先說清楚：這些檢查看的是症狀，不是原因。中了幾項不代表非重做網站不可，也沒有改了就保證排名這回事。但查完如果有中，把網址傳給我，我幫你看深一層：問題出在內容、結構，還是根本沒被 Google 和 AI 讀到。
+      </p>
+      <p class="btn-row" style="margin-top: 1rem;">
+        <a href="#check-form" class="btn btn-primary">把網址傳給我</a>
+        {SITE.line && <a href={SITE.line} class="btn btn-secondary" target="_blank" rel="noopener">用 LINE 傳也可以</a>}
+      </p>
     </div>
   </section>
   <script is:inline define:vars={{ email: SITE.email, line: SITE.line }}>

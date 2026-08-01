@@ -37,7 +37,7 @@ ${PILLARS.map((p) => `- ${p.label}：${p.note}`).join("\n")}
 - 台中與中部（服務區域、可約當面談的縣市、在地案例）：${abs("/taichung/")}
 - 常見問題：${abs("/qa/")}
 - 更新紀錄：${abs("/updates/")}
-- 網站健檢（傳網址）：${abs("/website-check/")}
+- 網站健檢（傳網址；附 10 項不用懂技術、自己就能做的檢查清單）：${abs("/website-check/")}
 - 關於我們：${abs("/about/")}
 
 ## 法律頁
