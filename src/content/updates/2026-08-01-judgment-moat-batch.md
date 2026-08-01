@@ -10,4 +10,6 @@ watch: "新頁收錄狀態、「ai 建站工具」相關長尾字是否出現曝
 status: "published"
 ---
 
+同日補記：初版上線後，老闆抓到語感層的 AI 味。同一組排比句在 5 個地方重複、金句跨頁複製，還有罐頭編號結構。後來請另一個 AI 獨立複審，整批重寫。「AI 寫的文案為什麼被看穿」那篇早就承認過：規則擋不住語感，要靠另一雙眼睛。
+
 新增 `/qa/why-not-ai-website-builder/`（工具跟顧問差在哪）、`/articles/value-after-software-is-free/`（軟體不值錢後價值剩什麼）、`/articles/why-start-now/`（誠實版的為什麼是現在）、`/articles/why-ai-copy-gets-spotted/`（AI 腔怎麼擋）。同步改動：`can-i-diy-myself` 補「顧問費買的是判斷和負責」、服務方式頁加同一論述、首頁痛點區與關於頁補「你的本事 AI 拿不走」的正面框架。
