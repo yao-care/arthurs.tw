@@ -8,7 +8,7 @@ updated: "2026-08-01"
 reason: "本站大量用 AI 產內容，卻一直沒公開講怎麼避免 AI 腔。哈佛 Christina Wallace 受訪時一句「AI 寫的東西一秒就能看穿」把利害講透了，把本站實際在跑的守門做法整理成一篇。"
 sources: "思想實驗室 ep107 專訪哈佛商學院 Christina Wallace（YouTube 公開節目）、本站文案守門實作"
 aiHelp: "整理守門規則、產生初稿"
-humanReview: "待人工複核"
+humanReview: "2026-08-01 老闆過目確認，內容照登"
 related: ["no-marketing-staff-how-to-update", "value-after-software-is-free"]
 relatedQa: ["what-if-ai-makes-a-mistake", "can-beginners-use-ai"]
 citations:

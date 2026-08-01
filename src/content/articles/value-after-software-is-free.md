@@ -8,7 +8,7 @@ updated: "2026-08-01"
 reason: "老闆們看到滿街的 AI 建站工具，開始問「那我付錢給你買什麼」。這題站上一直沒有正面回答。剛好哈佛商學院 Christina Wallace 的公開訪談把這個邏輯講得很完整，整理成站上的說法。"
 sources: "思想實驗室 ep107 專訪哈佛商學院 Christina Wallace（YouTube 公開節目）"
 aiHelp: "整理訪談論點、對照本站服務設計、產生初稿"
-humanReview: "待人工複核"
+humanReview: "2026-08-01 老闆過目確認，內容照登"
 related: ["why-start-now", "what-i-do-when-numbers-dont-move"]
 relatedQa: ["why-not-ai-website-builder", "can-i-diy-myself", "how-much-does-it-cost"]
 citations:

@@ -5,7 +5,7 @@ page: "/qa/why-not-ai-website-builder/"
 reason: "站上一直沒有正面回答「AI 建站工具滿街都是，為什麼還要找人」。哈佛商學院 Christina Wallace 的公開訪談把邏輯講得很完整：軟體成本歸零後，值錢的是判斷、負責和客戶關係。照這條線補齊論述，順便把首頁痛點區從全負面框架改成「你已經有 AI 拿不走的東西」。"
 source: "思想實驗室 ep107 專訪 Christina Wallace（YouTube 公開節目）"
 aiHelp: "吸收訪談逐字稿、對照全站內容找缺口、產生初稿"
-humanReview: "待人工複核"
+humanReview: "2026-08-01 老闆過目確認，內容照登"
 watch: "新頁收錄狀態、「ai 建站工具」相關長尾字是否出現曝光"
 status: "published"
 ---
