@@ -13,7 +13,7 @@ description: 用 Claude Code 建一個「AI-Ready」的靜態網站——自己�
 - **Rankable**：內建 sitemap、robots、JSON-LD、乾淨的標題與描述，利於 Google 搜尋與 AI 問答引用。
 - **Human-Owned**：帳號、網址、原始檔全部在你自己的 GitHub 與網域下，隨時可轉移。
 
-> 這份是公開、通用版，不含任何特定主機的機密或內部設定。照做即可自建；真的卡住，也可以改用顧問服務代勞。
+> 這份是公開、通用版，不含任何特定主機的機密或內部設定，照做即可自建。
 
 ## 你需要準備
 - 一台電腦，裝好 [Claude Code](https://claude.com/claude-code) 與 Node.js（≥ 22.12）。
