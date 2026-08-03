@@ -59,6 +59,11 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 - **不捏造**客戶名稱、見證、數字、案例。`/cases/` 只放真實已上線作品（site.ts 的 CASES）。缺的證據（示範影片、成效數字）誠實標「錄製中／資料累積中」。
 - 去 AI 味：不用 emoji、不用「首先/其次/綜上所述」八股、不用浮誇形容詞；半形數字。
 
+## 公開 skill 的正本＝獨立 repo（2026-08-03 起）
+`ai-ready-website` skill 的**正本在 [yao-care/ai-ready-website](https://github.com/yao-care/ai-ready-website)（MIT）**，站上 `public/skills/ai-ready-website/SKILL.md` 是同步副本，**改動一律先改 repo 再同步過來**，不要只改站上這份（兩份漂移過一次就再也對不回去）。repo 內含兩支守門腳本與五份範本（token／schema／JSON-LD／sitemap／deploy）。
+- ⚠️ **搬任何檔案進該 repo 前先掃內部痕跡**：2026-08-03 第一次搬就帶出 5 處指向其他客戶站的註記（`dreamer868`／`folk.tw`／`yao.care`／`olderkkk`）與 arthurs.tw 網址。repo 對外宣稱「不含任何特定主機的內部設定」，掃描指令：`grep -rn "dreamer868\|folk\.tw\|yao\.care\|olderkkk\|arthurs\|weiqi\|kittyhub\|tlsr\|vuko\|evidencetoday\|twdro\|crinhealthcare"`。
+- **投稿版不得有導流句**：SKILL.md 原有「真的卡住，也可以改用顧問服務代勞」已移除，多份 awesome 清單明文排除導向付費服務的內容。`/diy/` 頁面本身保留「會的人自己做、不會的再找我」定位，兩者刻意分開。
+
 ## 單一真實來源
 - **事實與文案骨幹**：`src/lib/site.ts`（品牌、聯絡、導覽、五大定位、痛點、解法、方案、精選 QA、真實案例 CASES）。
 - **結構化資料**：`src/lib/seo.ts`（Organization / WebSite / Service / FAQPage / Breadcrumb / Article），由 `BaseLayout.astro` 與各頁輸出 JSON-LD。
