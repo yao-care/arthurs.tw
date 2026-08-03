@@ -52,7 +52,21 @@ const updates = defineCollection({
   }),
 });
 
-// 網站案例：目前案例牆由 site.ts 的 CASES 陣列驅動（真實已上線站），
-// 尚未改用 content collection，故此處不宣告 cases，避免死 schema。
+// 網站案例內頁。案例牆（/cases/）仍由 site.ts 的 CASES 驅動（名稱、產業、外連網址是事實層），
+// 這個集合只放內頁的敘述，用 slug 與 CASES 對應。內容一律取自公開可查證的觀察，
+// 不寫客戶見證、不寫經營成效（那些資料我們沒有）。
+const cases = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cases" }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    order: z.number().default(100),
+    updated: z.string(),
+    // observed：撰寫當日實際在該站看到的事實（含數字出處），供日後查核與更新
+    observed: z.string(),
+    aiHelp: z.string().optional(),
+    humanReview: z.string().optional(),
+  }),
+});
 
-export const collections = { qa, articles, updates };
+export const collections = { qa, articles, updates, cases };

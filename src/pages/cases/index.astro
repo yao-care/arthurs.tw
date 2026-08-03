@@ -3,7 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import { CASES } from "../../lib/site";
 import { breadcrumbSchema } from "../../lib/seo";
+import { getCollection } from "astro:content";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網站案例", path: "/cases/" }])];
+// 有寫內頁的案例才顯示「這個站怎麼做的」連結，避免連到不存在的頁。
+const detailed = new Set((await getCollection("cases")).map((e) => e.id));
 ---
 <BaseLayout title="網站案例" description="這裡放的都是已經上線的網站，點進去就是實站，不是示意圖。做過運動賽事、醫療協會、台中在地服務、健康工具、教育協會。你現在看的這個網站也算一個。" schemas={schemas}>
   <section class="page-head">
@@ -17,15 +20,18 @@ const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "網�
     <div class="container">
       <div class="grid grid-3">
         {CASES.map((c) => (
-          <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
+          <div class="card">
             <p style="margin: 0 0 0.5rem;">
               <span class="badge">{c.industry}</span>
               {c.self && <span class="badge badge-plan" style="margin-left: 0.4rem;">本站</span>}
             </p>
             <h3 style="font-size: var(--text-lg);">{c.name}</h3>
             <p class="muted">{c.desc}</p>
-            <p class="fs-xs" style="margin: 0;">{c.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →</p>
-          </a>
+            <p class="fs-xs" style="margin: 0 0 0.6rem;">
+              <a href={c.deep ?? c.url} target="_blank" rel="noopener">{c.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →</a>
+            </p>
+            {detailed.has(c.slug) && <p class="fs-sm" style="margin: 0;"><a href={`/cases/${c.slug}/`}>這個站怎麼做的</a></p>}
+          </div>
         ))}
       </div>
     </div>

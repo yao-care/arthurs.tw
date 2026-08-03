@@ -11,7 +11,7 @@ import { execSync } from 'node:child_process';
 // 鐵律：逐頁給真實日期。整份塞 new Date() 等於宣稱全站今天都改過，Google 會折扣整份 sitemap。
 function contentDates() {
   const map = new Map();
-  for (const dir of ['qa', 'articles']) {
+  for (const dir of ['qa', 'articles', 'cases']) {
     for (const f of readdirSync(`src/content/${dir}`)) {
       if (!f.endsWith('.md')) continue;
       const src = readFileSync(`src/content/${dir}/${f}`, 'utf8');
@@ -52,7 +52,7 @@ export default defineConfig({
         else if (['/website-check', '/pricing', '/service', '/taichung'].includes(path)) { item.priority = 0.9; item.changefreq = 'monthly'; }
         else if (path === '/qa' || path === '/articles' || path === '/updates') { item.priority = 0.8; item.changefreq = 'weekly'; }
         // 個別文章/QA 頁：承接長尾搜尋的主力，優先於 /about、/404 等一般頁
-        else if (path.startsWith('/articles/') || path.startsWith('/qa/')) { item.priority = 0.7; item.changefreq = 'monthly'; }
+        else if (path.startsWith('/articles/') || path.startsWith('/qa/') || path.startsWith('/cases/')) { item.priority = 0.7; item.changefreq = 'monthly'; }
         else { item.priority = 0.6; item.changefreq = 'monthly'; }
 
         // lastmod：內容頁取 frontmatter 的 updated，靜態頁取該頁原始檔最後一次 commit 日期。

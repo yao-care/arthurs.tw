@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import { CASES } from "../../lib/site";
+import { breadcrumbSchema, articleSchema } from "../../lib/seo";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("cases");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+// 案例牆的事實層（名稱、產業、實站網址）仍以 site.ts 的 CASES 為準，這裡只取用不複製。
+const meta = CASES.find((c) => c.slug === entry.id);
+const path = `/cases/${entry.id}/`;
+const schemas = [
+  breadcrumbSchema([
+    { name: "首頁", path: "/" },
+    { name: "網站案例", path: "/cases/" },
+    { name: meta?.name ?? d.title, path },
+  ]),
+  articleSchema({ title: d.title, description: d.summary, path, created: d.updated, updated: d.updated }),
+];
+---
+<BaseLayout title={d.title} description={d.summary} schemas={schemas} ogType="article">
+  <section class="page-head">
+    <div class="container prose">
+      <p class="breadcrumb"><a href="/">首頁</a> ／ <a href="/cases/">網站案例</a> ／ {meta?.name ?? d.title}</p>
+      {meta && <p style="margin: 0 0 0.5rem;"><span class="badge">{meta.industry}</span></p>}
+      <h1>{d.title}</h1>
+      <p class="lede">{d.summary}</p>
+      {meta && (
+        <p class="btn-row" style="margin-top: 1.25rem;">
+          <a href={meta.deep ?? meta.url} class="btn btn-primary" target="_blank" rel="noopener">看實站</a>
+          {meta.deep && <a href={meta.url} class="btn btn-secondary" target="_blank" rel="noopener">看首頁</a>}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose stack">
+      <Content />
+
+      <div class="card" style="margin-top: 2rem;">
+        <h2 style="font-size: var(--text-lg); margin-top: 0;">撰寫當日看到的事實</h2>
+        <p class="fs-sm muted" style="margin-top: 0.5rem;">{d.observed}</p>
+        <p class="fs-xs muted" style="margin-top: 0.75rem;">
+          這一段記的是寫這頁時實際在該站看到的東西。網站會一直更新，數字可能已經和現在不同，點上面的連結去看最新的。
+          {d.humanReview && <span>人工確認：{d.humanReview}。</span>}
+        </p>
+      </div>
+
+      <p class="fs-sm muted" style="margin-top: 1.5rem;">
+        這些網站的內容與經營都屬於各自的業主，這裡只描述公開頁面上看得到的做法，不代表對方的經營成效。
+      </p>
+
+      <p style="margin-top: 1.5rem;"><Cta /></p>
+    </div>
+  </section>
+</BaseLayout>
