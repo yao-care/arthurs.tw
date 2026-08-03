@@ -87,10 +87,10 @@ export const BRAND = { word: "Arthurs", acronym: "Arthur", plural: "s" };
 // hi = label 裡要上品牌色的字母索引（即該承諾在 Arthurs 拼字裡佔的字母）：
 // AI-Ready 佔 A（index 0）與 R（index 3，"AI-Ready" 的 R），其餘取首字。由上往下讀＝ARTHUR。
 export const PILLARS = [
-  { key: "ai-ready", chars: "AR", hi: [0, 3], label: "AI-Ready", title: "AI-Ready 可交給 AI 維護", note: "能交給 ChatGPT、Claude 等 AI 協助維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。" },
+  { key: "ai-ready", chars: "AR", hi: [0, 3], label: "AI-Ready", title: "AI-Ready 可交給 AI 維護", note: "能交給 ChatGPT、Claude 等 AI 協助維護", desc: "網站能交給 ChatGPT、Claude 等 AI 協助更新，不必回頭找廠商。", href: "/articles/what-ai-cannot-do-for-your-website/" },
   { key: "trackable", chars: "T", hi: [0], label: "Trackable", title: "Trackable 資料看得到", note: "串接 Search Console、Google Analytics", desc: "串接 Google Search Console 與 Analytics，知道客戶怎麼找到你、看了什麼。", href: "/qa/what-can-i-see-with-search-console-analytics/" },
   { key: "human-owned", chars: "H", hi: [0], label: "Human-Owned", title: "Human-Owned 網站是你的", note: "帳號、網址、網站資料都屬於你", desc: "帳號、網址、網站資料全部屬於你，隨時可以自己管理或交給別人接手。", href: "/qa/who-owns-the-website/" },
-  { key: "updatable", chars: "U", hi: [0], label: "Updatable", title: "Updatable 聊天就能更新", note: "不必操作複雜後台，用聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。" },
+  { key: "updatable", chars: "U", hi: [0], label: "Updatable", title: "Updatable 聊天就能更新", note: "不必操作複雜後台，用聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI 就好。", href: "/articles/how-to-tell-ai-to-change-website/" },
   { key: "rankable", chars: "R", hi: [0], label: "Rankable", title: "Rankable 容易被找到", note: "為 Google 搜尋、AEO、GEO 打好基礎", desc: "資料結構化、該有的頁面都齊，為 Google 搜尋與 AI 問答（AEO、GEO）打好基礎，讓客戶更容易找到你。", href: "/qa/can-google-ranking-be-guaranteed/" },
 ];
 

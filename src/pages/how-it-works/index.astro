@@ -4,7 +4,7 @@ import Cta from "../../components/Cta.astro";
 import { breadcrumbSchema } from "../../lib/seo";
 const schemas = [breadcrumbSchema([{ name: "首頁", path: "/" }, { name: "AI 如何運作", path: "/how-it-works/" }])];
 const mechanisms = [
-  { title: "跟 AI 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI。它整理標題、介紹與圖片，改好後你確認差異才正式更新。" },
+  { title: "跟 AI 聊天就能更新", desc: "新增產品、修改介紹、更新案例，用一般說話的方式告訴 AI。它整理標題、介紹與圖片，改好後你確認差異才正式更新。", href: "/articles/how-to-tell-ai-to-change-website/" },
   { title: "改錯了能還原", desc: "改壞了、或版面不對，查看修改紀錄、比較前後差異，選回先前正確的版本就好。" },
   { title: "為 Google 與 AI 整理好", desc: "資料結構化、該有的頁面都齊，讓搜尋引擎和 AI 問答更容易正確認識你的公司。" },
   { title: "所有權與交接", desc: "帳號、網址、網站資料都建立在你自己持有的空間裡。完整交接後，你可以自己管理，也可以交給別人接手。" },
@@ -28,7 +28,13 @@ const updateFlow = [
   <section class="section">
     <div class="container">
       <div class="grid grid-2">
-        {mechanisms.map((m) => (<div class="card"><h3>{m.title}</h3><p class="muted">{m.desc}</p></div>))}
+        {mechanisms.map((m) => (
+          <div class="card">
+            <h3>{m.title}</h3>
+            <p class="muted">{m.desc}</p>
+            {m.href && <p style="margin-top: 0.5rem;"><a href={m.href}>了解更多</a></p>}
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -64,7 +70,8 @@ const updateFlow = [
       <ol class="flow" style="margin-top: 2rem;">
         {updateFlow.map((s) => <li>{s}</li>)}
       </ol>
-      <p class="muted" style="margin-top: 1.5rem;">會自己來的人：這套做法我們公開，可以到<a href="/diy/">自己動手做</a>下載 skill，自己建站。</p>
+      <p class="muted" style="margin-top: 1.5rem;">這套流程多久跑一次才合理，沒有固定答案，判斷方式見<a href="/articles/website-update-rhythm/">網站多久更新一次才合理</a>。</p>
+      <p class="muted" style="margin-top: 0.75rem;">會自己來的人：這套做法我們公開，可以到<a href="/diy/">自己動手做</a>下載 skill，自己建站。</p>
       <p class="btn-row" style="margin-top: 1rem;">
         <Cta />
         <a href="/diy/" class="btn btn-secondary">自己動手做</a>
