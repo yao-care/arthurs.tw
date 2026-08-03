@@ -63,6 +63,10 @@ export const NAV = [
   { label: "服務方式", href: "/service/" },
   { label: "AI 如何運作", href: "/how-it-works/" },
   { label: "案例", href: "/cases/" },
+  // 文章放在案例與費用之間：那是「我在評估你」到「我要問價」的轉折點，還在觀望的人會往旁邊看。
+  // 2026-08-03 加。此前 25 篇文章只有頁尾一個入口，而近期唯一拿到點擊的頁面就是文章內頁，
+  // 搜尋進來的訪客讀完一篇沒有路可以看第二篇。
+  { label: "文章", href: "/articles/" },
   { label: "方案與費用", href: "/pricing/" },
   { label: "常見問題", href: "/qa/" },
 ];
