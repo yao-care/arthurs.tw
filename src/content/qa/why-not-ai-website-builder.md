@@ -3,7 +3,7 @@ question: "AI 建站工具那麼多，我用工具做一個就好，跟找你差
 category: "顧問與後續服務"
 answer: "工具能產出網站，但不會告訴你哪個版本對你的生意是對的，出錯也沒人扛。找我，是我幫你決定該做什麼、出了問題有人負責，網站和帳號還都在你名下，不會被綁在工具的平台上。"
 order: 3
-updated: "2026-08-01"
+updated: "2026-08-04"
 related: ["can-i-diy-myself", "is-consulting-required", "what-does-the-service-include", "who-owns-the-website"]
 relatedArticles: ["value-after-software-is-free", "no-marketing-staff-how-to-update"]
 ---
@@ -19,6 +19,18 @@ relatedArticles: ["value-after-software-is-free", "no-marketing-staff-how-to-upd
 再來是所有權。多數建站工具是租的：網站住在平台上，月費一停站就下線，想搬家會發現資料很難帶走。我做的網站放在你自己名下的空間，帳號、網址、資料都是你的，跟工具平台無關。
 
 還有交接。工具產完網站就結束了，內容從此又沒人管。我的重點反而在後面：教到你自己會用 AI 更新網站為止，之後不用月費，也不用回頭找我。
+
+### 那 WordPress、Wix 這些呢
+
+老闆去打聽，最常聽到的其實是這幾個名字，所以一起講。
+
+Wix、Shopline 這一類是租平台。做起來快，版面也漂亮，但網站住在對方的系統裡，月費一停就下線，要搬家會發現內容不好帶走。這一點和 AI 建站工具是同一個問題。
+
+WordPress 是另一種。它可以裝在你自己租的空間上，東西是你的，能做的功能也多。代價是它要一直顧：系統、外掛、佈景主題都得更新，不更新有資安風險，更新了又可能撞版。這些事沒人管，網站兩年後就會出狀況。這一段我另外寫過：[官網維護到底在維護什麼](/articles/what-website-maintenance-actually-is/)。
+
+我做的是靜態網站，沒有那些會過期的外掛，也沒有月費，網站空間和網址都開在你名下。缺點要先講：需要會員登入、線上刷卡、訂位系統這類功能，它做不到，那種案子你該去找做 WordPress 或電商平台的人。哪些不適合，另一題有寫：[哪些網站不適合這個顧問服務](/qa/what-functions-are-not-included/)。
+
+至於「套版還是手刻」，這個問題本身沒那麼重要。真正決定客人看不看得懂的是頁面上寫了什麼，不是版型從哪來的。
 
 ## 實際情境
 

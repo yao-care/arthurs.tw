@@ -9,7 +9,7 @@ reason: "近一週 GSC 裡「seo保證第一頁」相關字給了本站 16 次�
 sources: "GSC 查詢數據、Google 搜尋中心官方文件"
 aiHelp: "分析搜尋意圖、整理論點、產生初稿"
 humanReview: "老闆定調後撰寫：口徑收斂、不用定罪詞；真實案例採泛化寫法，不補細節"
-related: ["what-i-do-when-numbers-dont-move", "value-after-software-is-free"]
+related: ["seo-or-ads", "what-i-do-when-numbers-dont-move", "value-after-software-is-free"]
 relatedQa: ["can-google-ranking-be-guaranteed", "can-chatgpt-recommendation-be-guaranteed"]
 citations:
   - name: "Google 搜尋中心：你需要 SEO 服務嗎？"

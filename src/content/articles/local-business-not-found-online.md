@@ -9,7 +9,7 @@ reason: "地域字（台中 網站架設、台中 公司網站等 7 個釘選字
 sources: "客戶提問、seo-ops 釘選字覆蓋盤點"
 aiHelp: "整理在地經營者的實際處境、產生初稿"
 humanReview: "2026-08-01 撰寫，未指名任何行業，案例採泛化"
-related: ["why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years"]
+related: ["website-or-social-media", "why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years"]
 relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
 ---
 

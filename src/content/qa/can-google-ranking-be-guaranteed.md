@@ -5,7 +5,7 @@ answer: "不可信。排名是 Google 的系統在決定，沒有人保證得了
 order: 1
 updated: "2026-08-01"
 related: ["can-chatgpt-recommendation-be-guaranteed", "what-if-ai-makes-a-mistake", "what-can-i-see-with-search-console-analytics"]
-relatedArticles: ["seo-guaranteed-first-page", "what-i-do-when-numbers-dont-move", "why-google-cant-find-my-company", "website-not-updated-for-years"]
+relatedArticles: ["seo-guaranteed-first-page", "seo-or-ads", "what-i-do-when-numbers-dont-move", "why-google-cant-find-my-company", "website-not-updated-for-years"]
 ---
 
 ## 詳細說明

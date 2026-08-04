@@ -9,7 +9,7 @@ reason: "越來越多客戶會直接問 ChatGPT 找廠商，老闆試著問自�
 sources: "客戶提問、搜尋字詞、網站 QA 缺口"
 aiHelp: "整理問題、建立架構、產生初稿"
 humanReview: "已檢查技術內容、價格範圍及服務承諾"
-related: ["how-to-get-chatgpt-to-mention-you", "website-not-updated-for-years"]
+related: ["how-to-get-chatgpt-to-mention-you", "website-or-social-media", "website-not-updated-for-years"]
 relatedQa: ["can-chatgpt-recommendation-be-guaranteed", "what-if-ai-makes-a-mistake"]
 citations:
   - name: "GEO: Generative Engine Optimization（生成式引擎優化，KDD 2024）"
