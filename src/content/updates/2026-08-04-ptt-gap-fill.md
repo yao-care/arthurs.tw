@@ -21,3 +21,5 @@ status: "published"
 - 「侵權」這個說法，補進[用 AI 做的網站內容會有版權問題嗎](/articles/ai-content-copyright/)
 
 不多開頁是刻意的。目前站上被追蹤的 71 個網址裡，有 40 個 Google 從來沒有爬過。在這種狀況下多寫幾頁，只是把排隊的隊伍拉更長，先補既有頁面比較實在。
+
+2026-08-05 補上這一批漏掉的最後一項：「找廠商之前該自己查什麼」。[報價為什麼差那麼多](/articles/why-website-quotes-vary-so-much/)加了發包前的自查清單，[做 SEO 還是下廣告](/articles/seo-or-ads/)加了外包怎麼挑。
