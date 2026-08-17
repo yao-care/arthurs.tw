@@ -50,7 +50,7 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 - **新增一題 QA**：在 `src/content/qa/` 新增 `<slug>.md`，填齊 frontmatter；若要上首頁精選，於 `src/lib/site.ts` 的 `FEATURED_QA` 加一筆。
 - **新增一篇文章**：在 `src/content/articles/` 新增 `<slug>.md`。
 - **記一筆更新**：在 `src/content/updates/` 新增 `<date>-<slug>.md`（會顯示在 `/updates/`）。**注意：站上沒有 content-lab 這一頁**——`/content-lab/` 實測 404、不在 sitemap、全站無連結，2026-07-26 前它一直被誤列在 seo-ops 的追蹤與催收錄清單裡（日報天天報「Google 還沒發現」，其實是頁根本不存在），現已移除。別再把它寫回任何清單或連結。
-- **新增內容頁後要同步 seo-ops 追蹤清單**：`/root/seo-ops/sites/arthurs.tw.json` 的 `trackUrls`（GSC 逐頁收錄檢查）與 `indexPing.urls`（每日推 Google Indexing API）**不會自動跟著 sitemap 長**。2026-07-26 前這兩份清單只有固定頁與列表頁，而近一週 11 次曝光 100% 來自文章／QA 內頁 → 真正在賺搜尋的資產全在監測盲區，日報的「文章 收錄 1/1」其實只是列表頁自己（補進內頁後實測為 5/8、QA 7/13）。新增一篇文章或一題 QA，記得兩份清單各加一行。
+- **新增內容頁後要同步 seo-ops 追蹤清單**：`/root/seo-ops/sites/arthurs.tw.json` 的 `trackUrls`（GSC 逐頁收錄檢查）**不會自動跟著 sitemap 長**。`indexPing` 已於 2026-08-17 停用，普通文章／QA／案例不再送 Google Indexing API；新增一篇文章或一題 QA，只需補進 `trackUrls`，不要恢復第二份催收錄清單。
 
 ## 文案原則（務必遵守）
 - **受眾中性、不分行業（2026-07-20 老闆定案）**：受眾＝任何想搭上 AI 紅利、但看不懂 AI／沒空管網站的人，不論行業、不論懂不懂 AI。**不得**把受眾綁定任何特定行業別（早期曾誤寫成某某『產業老闆』，已全數清掉，別再寫回），也**不得**換成另一個窄族群（中小企業／小店／工作室／接案者…）。泛稱用「老闆」「很多人」「不少公司」「你」即可；痛點（網站沒人更新、沒有行銷人手、資料零散過時、不懂技術後台）是普世的，不要冠上任何行業。
@@ -77,9 +77,9 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 
 ## 數據串接現況（2026-07-24 校正，原「待補」多已完成）
 - **聯絡管道**：✅ 已填。`SITE.email` = `service@yao.care`、`SITE.line` = LINE 加好友連結。`/website-check/` 表單**實際走 formsubmit.co 的 ajax 端點轉寄到 `SITE.email`**（2026-07-25 讀碼校正；原本寫「走 mailto」是錯的，mailto 只是表單旁的備援按鈕）。這是唯一會把訪客資料交給第三方的地方，隱私權政策已據此列出。
-- **GA4**：✅ 已接。`site.ts` `gaId: "G-86T9ZDJGYH"` 全站輸出（`BaseLayout.astro` 亦支援 `PUBLIC_GA_ID` 覆寫）。實測有數據流入。
+- **GA4**：✅ 已接。`site.ts` `gaId: "G-86T9ZDJGYH"` 全站輸出（`BaseLayout.astro` 亦支援 `PUBLIC_GA_ID` 覆寫）。實測有數據流入；`BaseLayout.astro` 已送 `line_click`／`email_click`／`generate_lead`，需在 GA4 後台確認並把 `generate_lead` 標成 Key event，才把聯絡意圖列入主 KPI。
 - **GSC**：✅ 已接。`sc-domain:arthurs.tw` 驗證完成、sitemap 已提交；納入 seo-ops 每日收集（`/root/seo-ops/sites/arthurs.tw.json`，服務帳號 `/root/.config/arthurs/ga4-sa.json` 唯讀拉 GA4+GSC）。cron：collect 22:00／反思 00:40／大腦 01:15／週報週一。
-- **催收錄 indexPing**：2026-07-24 起已打開。**2026-07-29 由靜態清單改為動態腳本**（`indexPing.command` = `node /root/seo-ops/bin/index-ping-uncovered.mjs --site arthurs.tw`，`indexPing.urls` 已移除）。**病灶**：靜態清單每日推 33 個，實測 18 個早已收錄、12 個卡 `Discovered`（推了無效），真正有效只有 1 個——30/33 純浪費；而 Indexing API 的 200/日是 **GCP 專案層級、跨站共用**配額，實測 07-28 那次 arthurs 已經是「成功 1／失敗 30」，錯誤還被 `catch { fail++ }` 吞掉不印。改動態後只送「Google 還不知道的網址」，實測 34 個候選只送 3 個。**新增頁面只要維護 `trackUrls` 一份**（腳本從它取候選），不必再同步第二份清單。原本寫「對 10 個重點頁推送」已過時。
+- **催收錄 indexPing**：**2026-08-17 起停用**。Google Indexing API 官方適用範圍是 `JobPosting` 或直播事件頁；本站一般文章、QA、案例不使用。保留 sitemap 提交、URL Inspection（少數重要頁）與 GSC coverage 監測；不要再用 Indexing API 催收錄。`trackUrls` 仍是唯一的逐頁監測清單。
 - **曝光現況（2026-07-24）**：站新、自然搜尋足跡極薄（GSC 近一週曝光個位數、流量幾乎全直接進站）。增曝光靠內容量×收錄速度×站外連結，非設定問題。
 - **🚫 自有站之間互連＝禁止（2026-07-29 老闆確認）**：不得為了 SEO 從 yao-care 家族的其他自有站連過來。屬 PBN 類做法，判成連結操作的風險高於收益。**沒禁的是第三方／賺來的站外訊號**——老闆 2026-07-24 已批准一份待辦，提站外建議一律先從這份提，別自己另想：① ~~Bing Webmaster 註冊＋提交 sitemap~~ **已完成（2026-07-29 老闆確認已匯入）**；索引筆數只能在 Webmaster Tools 後台看，伺服器端 curl `site:` 查詢會被 Bing 擋成 0 筆，別據此判定沒收錄。② ~~建 Wikidata item 餵 Knowledge Graph~~ **2026-08-02 老闆判定不可行、劃掉：Wikidata 有收錄門檻（需嚴肅的公開來源佐證），本站無媒體報導，送上去會被刪。別再提這條。** ③ 媒體投稿（INSIDE／TechOrange／Meet） ④ 開源 skill 進 awesome list ⑤ 社群真誠回答 ⑥ ~~把 `/website-check/` 打磨成可被引用資產~~ **已完成（2026-08-01 加 10 項自我健檢清單）**。**例外**：`/cases/` 連客戶實站是產品內容，不是連結建設，照做。跨站版本見 `.claude/ops/seo-ops.md` 同名章節。
 - **品牌色**：目前為深藍青＋暖琥珀佔位，用戶確認後可調 `variables.css`。
