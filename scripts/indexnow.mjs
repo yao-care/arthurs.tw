@@ -14,6 +14,8 @@ const base = (f) => f.split("/").pop().replace(/\.[^.]+$/, "");
 // 把 repo 檔路徑對應成正式站 URL（結尾斜線版；GH Pages 目錄式路由）。
 function toUrl(file) {
   if (!file) return null;
+  // 表單成功頁是 noindex 的轉換流程，不送 IndexNow。
+  if (file === "src/pages/website-check/thank-you.astro") return null;
   if (file.startsWith("src/content/qa/") && file.endsWith(".md")) return `${ORIGIN}/qa/${base(file)}/`;
   if (file.startsWith("src/content/articles/") && file.endsWith(".md")) return `${ORIGIN}/articles/${base(file)}/`;
   // 更新紀錄無個別頁，變動時推 /updates/ 列表

@@ -11,8 +11,9 @@ interface Props {
   description?: string;
   schemas?: object[];
   ogType?: string;
+  robots?: string;
 }
-const { title, description = SITE.tagline, schemas = [], ogType = "website" } = Astro.props;
+const { title, description = SITE.tagline, schemas = [], ogType = "website", robots = "index, follow, max-image-preview:large" } = Astro.props;
 const fullTitle = title === SITE.name ? title : `${title}｜${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 const ogImage = new URL("/og.png", Astro.site ?? Astro.url.origin).href;
@@ -29,7 +30,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={robots} />
     {/* Open Graph */}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -66,7 +67,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
           // page_view 這類自動事件，量不到「有人真的來聯絡」。買任何流量之前得先有這一段，
           // 否則只知道來了幾個人，不知道發生什麼事。
           // 三個事件對應三個真實動作：按 LINE、按 Email、表單送出成功。
-          // 送出成功以到達 /website-check/thank-you/ 為準（表單成功會轉址過去）。
+          // 送出成功以到達 /website-check/thank-you/ 為準；表單頁先寫入一次性標記，
+          // 避免訪客直接重開感謝頁時重複計算轉換。
           // 事件名 generate_lead 沿用 GA4 建議名稱，後台可直接標為關鍵事件。
           document.addEventListener('click', function (e) {
             var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
@@ -79,8 +81,9 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
             }
           });
 
-          if (location.pathname.indexOf('/website-check/thank-you') === 0) {
+          if (location.pathname.indexOf('/website-check/thank-you') === 0 && sessionStorage.getItem('arthurs_lead_submitted') === '1') {
             gtag('event', 'generate_lead', { form_name: 'website_check' });
+            sessionStorage.removeItem('arthurs_lead_submitted');
           }
         </script>
       </>

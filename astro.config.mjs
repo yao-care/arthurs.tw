@@ -46,6 +46,11 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [
     sitemap({
+      // 表單成功頁是轉換流程，不是搜尋內容；不要讓它佔 sitemap 的索引配額。
+      filter(page) {
+        const path = new URL(page).pathname.replace(/\/$/, '') || '/';
+        return path !== '/website-check/thank-you';
+      },
       serialize(item) {
         const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
         if (path === '/') { item.priority = 1.0; item.changefreq = 'weekly'; }

@@ -142,6 +142,7 @@ const selfChecks = [
           body: JSON.stringify(data),
         });
         if (r.ok) {
+          sessionStorage.setItem("arthurs_lead_submitted", "1");
           window.location.href = "/website-check/thank-you/";
         } else {
           throw new Error("bad status");
