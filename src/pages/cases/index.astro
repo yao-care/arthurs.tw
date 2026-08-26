@@ -27,10 +27,11 @@ const detailed = new Set((await getCollection("cases")).map((e) => e.id));
             </p>
             <h3 style="font-size: var(--text-lg);">{c.name}</h3>
             <p class="muted">{c.desc}</p>
-            <p class="fs-xs" style="margin: 0 0 0.6rem;">
-              <a href={c.deep ?? c.url} target="_blank" rel="noopener">{c.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →</a>
+            {/* 站內內頁擺主位、實站外連降為次要：來查我們是誰的人一旦跳去客戶站就不會回來。 */}
+            {detailed.has(c.slug) && <p class="fs-sm" style="margin: 0 0 0.5rem;"><a href={`/cases/${c.slug}/`}>這個站怎麼做的 →</a></p>}
+            <p class="fs-xs" style="margin: 0;">
+              <a href={c.deep ?? c.url} target="_blank" rel="noopener">直接看實站：{c.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</a>
             </p>
-            {detailed.has(c.slug) && <p class="fs-sm" style="margin: 0;"><a href={`/cases/${c.slug}/`}>這個站怎麼做的</a></p>}
           </div>
         ))}
       </div>
@@ -74,7 +75,6 @@ const detailed = new Set((await getCollection("cases")).map((e) => e.id));
       <p>
         中部像這樣的工廠和店家很多。東西做了幾十年，網路上卻幾乎查不到。要補的東西其實很明確，就是把你實際在做的事，用客人會講的話寫出來。<a href="/qa/which-areas-do-you-serve/">台中和中部可以約見面</a>。
       </p>
-      <p class="muted">其他案例還在整理。之後每個案例會補上一頁，寫這家原本卡在哪裡、後來怎麼做的。</p>
       <p><Cta /></p>
     </div>
   </section>

@@ -16,10 +16,12 @@ const faq = faqSchema(
   featured.slice(0, 10).map((slug) => ({ question: questionOf(slug), answer: answerOf(slug) })).filter((x) => x.answer)
 );
 const caseWall = CASES;
+// 有寫內頁的案例才連站內，避免連到不存在的頁（判斷方式與 /cases/ 一致）。
+const detailed = new Set((await getCollection("cases")).map((e) => e.id));
 ---
 <BaseLayout
   title="AI 網站顧問，幫你把網站建好、帶你上手"
-  description="網站做完就放著？我用 AI 幫你把舊網站換成自己擁有、能聊天更新的新網站，交接、帶你上手。看不懂沒關係，AI 這波人人都用得上。"
+  description="網站做完就放著沒人管？我用 AI 幫你重做一個網站，網址和帳號都開在你名下。做完交接給你，帶你上手，之後用聊天就能改。看不懂沒關係。"
   schemas={[serviceSchema(), faq]}
 >
   {/* 1. Hero */}
@@ -46,7 +48,7 @@ const caseWall = CASES;
   <section class="section section-light">
     <div class="container">
       <span class="eyebrow">你不孤單</span>
-      <h2 class="section-title">你不是沒有網站，<br />而是網站沒有人持續經營。</h2>
+      <h2 class="section-title">網站你有，<br />只是好幾年沒有人動過。</h2>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {PAINS.map((p) => (
           <div class="card">
@@ -66,9 +68,9 @@ const caseWall = CASES;
   <section class="section">
     <div class="container">
       <span class="eyebrow">核心解法</span>
-      <h2 class="section-title">你需要的，不是再做一個放著不動的網站。</h2>
+      <h2 class="section-title">再做一個放著不動的網站，沒有意義。</h2>
       <p class="lede">
-        我們把你手上的公司資料，整理成一個好維護、你自己也顧得動的新網站。不需要學複雜後台，也不必每次修改都回頭找網站公司。
+        我們用你手上現有的公司資料，做一個你自己顧得動的新網站。不用學複雜後台，改東西也不必每次都回頭找網站公司。
       </p>
       <div class="grid grid-2" style="margin-top: 2rem;">
         {SOLUTIONS.map((s, i) => (
@@ -86,7 +88,7 @@ const caseWall = CASES;
   <section class="section section-soft">
     <div class="container">
       <span class="eyebrow">為什麼叫 Arthurs</span>
-      <h2 class="section-title">這個名字不是隨便取的，<br />是我們對每個網站的五個承諾。</h2>
+      <h2 class="section-title">這個名字拆開來，<br />是我們對每個網站的五個承諾。</h2>
       <p class="brand-word" aria-label="Arthurs">
         {PILLARS.map((p) => <span class="brand-word-live">{p.chars}</span>)}<span class="brand-word-tail">s</span>
       </p>
@@ -155,7 +157,7 @@ const caseWall = CASES;
   <section class="section section-deep">
     <div class="container">
       <span class="eyebrow">網站所有權</span>
-      <h2 class="section-title">我們不是把你留在系統裡，而是把網站完整交給你。</h2>
+      <h2 class="section-title">網站做完就整套交給你，<br />不留在我們的系統裡。</h2>
       <div class="grid grid-2" style="margin-top: 1.5rem; gap: 0.75rem;">
         {OWNERSHIP.map((o) => (
           <div class="card" style="background: var(--color-white-a12); border-color: var(--color-white-a20); color: var(--color-text-on-dark); box-shadow: none;">
@@ -164,7 +166,7 @@ const caseWall = CASES;
         ))}
       </div>
       <p style="margin-top: 1.5rem; max-width: 46ch;">
-        未來即使不再與我們合作，網站仍然可以繼續使用，也可以交給其他人接手。
+        以後不找我們了，網站照常能用，要換人接手也可以。
       </p>
     </div>
   </section>
@@ -173,14 +175,25 @@ const caseWall = CASES;
   <section class="section">
     <div class="container">
       <span class="eyebrow">真實作品</span>
-      <h2 class="section-title">我們替不同產業，把資料整理成能上線使用的網站。</h2>
+      <h2 class="section-title">這幾個網站都在線上，點進去就看得到。</h2>
       <div class="grid grid-3" style="margin-top: 2rem;">
         {caseWall.map((c) => (
-          <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
-            <span class="badge">{c.industry}</span>
-            <h3 style="margin-top: 0.6rem;">{c.name}</h3>
-            <p class="muted">{c.desc}</p>
-          </a>
+          /* 有站內內頁就連站內：首頁的訪客多半還在確認我們是誰，跳去客戶站就不會回來。 */
+          detailed.has(c.slug)
+            ? (
+              <a href={`/cases/${c.slug}/`} class="card card-link">
+                <span class="badge">{c.industry}</span>
+                <h3 style="margin-top: 0.6rem;">{c.name}</h3>
+                <p class="muted">{c.desc}</p>
+              </a>
+            )
+            : (
+              <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
+                <span class="badge">{c.industry}</span>
+                <h3 style="margin-top: 0.6rem;">{c.name}</h3>
+                <p class="muted">{c.desc}</p>
+              </a>
+            )
         ))}
       </div>
       <p style="margin-top: 1.5rem;"><a href="/cases/" class="btn btn-secondary">看全部案例</a></p>
@@ -209,7 +222,7 @@ const caseWall = CASES;
     <div class="container text-center">
       <h2 class="section-title mx-auto">先不用決定要不要重做網站。</h2>
       <p class="lede mx-auto" style="margin-top: 1rem;">
-        把現在的網站網址傳給我。我先幫你看看：哪些內容已經過時、Google 是否容易理解、AI 是否能正確認識你的公司，以及是否適合改成 AI 網站。
+        把現在的網站網址傳給我。我先看三件事：內容過期了沒、Google 讀不讀得懂、AI 講不講得出你在做什麼。看完再告訴你值不值得重做。
       </p>
       <p style="margin-top: 1.75rem;">
         <Cta size="lg" />
