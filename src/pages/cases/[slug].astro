@@ -43,6 +43,8 @@ const schemas = [
 
   <section class="section">
     <div class="container prose stack">
+      {/* 截圖是該站首頁的實際畫面，不是示意圖 */}
+      <img class="case-hero" src={`/images/cases/${entry.id}.webp`} width="800" height="500" loading="lazy" decoding="async" alt={`${meta?.name ?? d.title} 網站首頁畫面`} />
       <Content />
 
       <div class="card" style="margin-top: 2rem;">

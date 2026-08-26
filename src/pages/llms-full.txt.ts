@@ -36,6 +36,7 @@ export const GET: APIRoute = async ({ site }) => {
   );
   const qa = await getCollection("qa");
   const updates = (await getCollection("updates")).sort((a, b) => b.data.date.localeCompare(a.data.date));
+  const cases = await getCollection("cases");
 
   const out: string[] = [];
   const push = (...lines: string[]) => out.push(...lines);
@@ -132,7 +133,14 @@ export const GET: APIRoute = async ({ site }) => {
   for (const c of CASES) {
     push(`### ${c.name}（${c.industry}）`, `網址：${c.url}`);
     if (c.deep) push(`代表內頁：${c.deep}`);
-    push(c.desc, "");
+    // 卡片上的 desc 只有一句，案例的完整前後對照在 src/content/cases/<slug>.md，
+    // 有內頁就把內頁全文推進來，否則 AI 讀到的案例會比站上薄一大截。
+    const detail = cases.find((entry) => entry.id === c.slug);
+    if (detail) {
+      push(`案例內頁：${abs(`/cases/${c.slug}/`)}`, "", detail.data.summary, "", mdToText(detail.body ?? ""), "");
+    } else {
+      push(c.desc, "");
+    }
   }
 
   rule();

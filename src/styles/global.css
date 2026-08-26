@@ -255,3 +255,25 @@ strong { font-weight: 700; }
 .x-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
 .x-list li { position: relative; padding-left: 1.8rem; margin: 0; color: var(--color-ink-soft); }
 .x-list li::before { content: "—"; position: absolute; left: 0; top: 0; color: var(--color-ink-muted); font-weight: 800; }
+
+/* ── 案例卡：實站截圖置頂，卡片文字壓到一行（2026-08-26） ── */
+/* 截圖是各站首頁的實際畫面，非示意圖；產生方式見 scripts/case-shots.mjs。 */
+.case-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.case-shot {
+  display: block; width: 100%; aspect-ratio: 8 / 5; object-fit: cover; object-position: top center;
+  background: var(--color-bg-soft); border-bottom: 1px solid var(--color-line);
+}
+.case-card-body {
+  padding: clamp(1rem, 2.5vw, 1.35rem); display: flex; flex-direction: column;
+  gap: 0.5rem; flex: 1;
+}
+.case-card-body h3 { margin: 0; font-size: var(--text-lg); }
+.case-card-body p { margin: 0; }
+.case-card-links { margin-top: auto; display: grid; gap: 0.3rem; }
+
+/* 案例內頁的首圖 */
+.case-hero {
+  display: block; width: 100%; max-width: 100%; height: auto;
+  border: 1px solid var(--color-line); border-radius: var(--radius);
+  box-shadow: var(--shadow-card); margin-bottom: 1.5rem;
+}

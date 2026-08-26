@@ -179,21 +179,19 @@ const detailed = new Set((await getCollection("cases")).map((e) => e.id));
       <div class="grid grid-3" style="margin-top: 2rem;">
         {caseWall.map((c) => (
           /* 有站內內頁就連站內：首頁的訪客多半還在確認我們是誰，跳去客戶站就不會回來。 */
-          detailed.has(c.slug)
-            ? (
-              <a href={`/cases/${c.slug}/`} class="card card-link">
-                <span class="badge">{c.industry}</span>
-                <h3 style="margin-top: 0.6rem;">{c.name}</h3>
-                <p class="muted">{c.desc}</p>
-              </a>
-            )
-            : (
-              <a href={c.deep ?? c.url} class="card card-link" target="_blank" rel="noopener">
-                <span class="badge">{c.industry}</span>
-                <h3 style="margin-top: 0.6rem;">{c.name}</h3>
-                <p class="muted">{c.desc}</p>
-              </a>
-            )
+          <a
+            href={detailed.has(c.slug) ? `/cases/${c.slug}/` : (c.deep ?? c.url)}
+            class="card card-link case-card"
+            {...(detailed.has(c.slug) ? {} : { target: "_blank", rel: "noopener" })}
+          >
+            {/* 截圖是該站首頁的實際畫面，不是示意圖 */}
+            <img class="case-shot" src={`/images/cases/${c.slug}.webp`} width="800" height="500" loading="lazy" decoding="async" alt={`${c.name} 網站首頁畫面`} />
+            <span class="case-card-body">
+              <span class="badge">{c.industry}</span>
+              <h3>{c.name}</h3>
+              <p class="muted">{c.desc}</p>
+            </span>
+          </a>
         ))}
       </div>
       <p style="margin-top: 1.5rem;"><a href="/cases/" class="btn btn-secondary">看全部案例</a></p>

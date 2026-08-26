@@ -178,18 +178,18 @@ export const FEATURED_QA = [
 // desc＝該站真正拿得出手的亮點（非空泛描述）；deep＝最能代表亮點的內頁（卡片深連過去，無則連首頁）。
 // 順序刻意讓題材交錯，秀出服務面向多元。
 export const CASES = [
-  { slug: "arthurs", name: "本站 Arthurs", industry: "AI 網站服務", url: "https://arthurs.tw", self: true, desc: "建站這行都說自己專業，客戶分不出差別。這個站把自己當交付物，改了什麼全記在更新紀錄裡，做錯的也留著。" },
-  { slug: "evidencetoday", name: "本日有據", industry: "健康科普", url: "https://evidencetoday.news/", deep: "https://evidencetoday.news/articles/autonomic-nervous-dysfunction-anxiety-guide/", desc: "業主本業是藥師，不是做網站的。現在整站的內容優化，他一個人做得完。" },
-  { slug: "yao-care", name: "yao.care", industry: "醫療 AI", url: "https://www.yao.care/", deep: "https://www.yao.care/medical/txgnn/methodology", desc: "原本網站放著沒人看。現在客戶會自己回站上讀東西，因為連自己哪裡不準都寫出來了。" },
-  { slug: "crin-healthcare", name: "國際醫療減碳協會", industry: "醫療／非營利", url: "https://crinhealthcare.org/", deep: "https://crinhealthcare.org/case-studies/ndmc-kaohsiung/", desc: "做的事一直很扎實，成效卻停在結案報告裡。13 家醫院的成果用同一組欄位寫成可查證的案例後，記者找得到素材了。" },
-  { slug: "dreamer868", name: "尊茂財務規劃", industry: "財務規劃", url: "https://www.dreamer868.com/", deep: "https://www.dreamer868.com/articles/family-story-42/", desc: "顧問滿肚子專業，客戶卻接不上話。改成拿法院真實判決當故事，逐篇引判決字號，同時明文化名。" },
-  { slug: "appi-news", name: "APPI News", industry: "新聞媒體", url: "https://appi.news/", deep: "https://appi.news/articles/taiwan-health-data-why-now/", desc: "原本每篇報導都靠人從頭撐到尾。流程定下來、重複的部分交給 AI 之後，該有的查證欄位一個都沒少。" },
-  { slug: "weiqi-kids", name: "好棋寶寶協會", industry: "兒童教育／協會", url: "https://www.weiqi.kids/", desc: "協會辦活動，來幫忙的人專長差很多。靠 AI 把人和事串起來，公益、工具、研究三條線各自有人接。" },
-  { slug: "folk", name: "神酷 folk", industry: "文化／民俗", url: "https://folk.tw/", deep: "https://folk.tw/deities/mazu", desc: "宮廟最大的問題是客群斷層。資料逐條掛來源、有爭議就並陳，年輕人查得到也看得懂。" },
-  { slug: "sutta-io", name: "sutta.io 原典研經", industry: "佛學／知識工具", url: "https://sutta.io/", deep: "https://sutta.io/topics/marana/", desc: "用 AI 碰經典最怕讀者分不出哪句是原典。正典與 AI 分成兩層，AI 產的白話在頁面上掛徽章。" },
-  { slug: "olderkkk", name: "鄭骨館體雕中心", industry: "在地健康服務", url: "https://www.olderkkk.com/", deep: "https://www.olderkkk.com/method/", desc: "老闆只知道網站做了沒人看。真正卡住的是文案不敢寫具體，因為沒有人告訴過他界線在哪。" },
-  { slug: "vuko", name: "Vuko 呼吸練習", industry: "健康工具", url: "https://www.vuko.life/", deep: "https://www.vuko.life/guides/binaural-beats-for-sleep.html", desc: "雙耳拍頻原本得買專門的硬體裝置。現在戴一般市售耳機、連上網站就能用。" },
-  { slug: "twdro", name: "台灣無人機足球（飛球）", industry: "運動賽事平台", url: "https://twdro.net", deep: "https://twdro.net/rules/compare/", desc: "同一項比賽四套官方規則，數字互相打架。逐欄比對做成工具，但明講不代為解釋規則。" },
+  { slug: "arthurs", name: "本站 Arthurs", industry: "AI 網站服務", url: "https://arthurs.tw", self: true, desc: "把自己當交付物。改了什麼全記在更新紀錄裡，做錯的也留著。" },
+  { slug: "evidencetoday", name: "本日有據", industry: "健康科普", url: "https://evidencetoday.news/", deep: "https://evidencetoday.news/articles/autonomic-nervous-dysfunction-anxiety-guide/", desc: "業主本業是藥師。現在整站的內容優化，他一個人做得完。" },
+  { slug: "yao-care", name: "yao.care", industry: "醫療 AI", url: "https://www.yao.care/", deep: "https://www.yao.care/medical/txgnn/methodology", desc: "原本網站沒人看。現在客戶會自己回站上讀東西。" },
+  { slug: "crin-healthcare", name: "國際醫療減碳協會", industry: "醫療／非營利", url: "https://crinhealthcare.org/", deep: "https://crinhealthcare.org/case-studies/ndmc-kaohsiung/", desc: "成效原本停在結案報告裡。寫成查得到的案例後，記者找得到素材。" },
+  { slug: "dreamer868", name: "尊茂財務規劃", industry: "財務規劃", url: "https://www.dreamer868.com/", deep: "https://www.dreamer868.com/articles/family-story-42/", desc: "顧問滿肚子專業，客戶接不上話。改用法院真實判決當故事。" },
+  { slug: "appi-news", name: "APPI News", industry: "新聞媒體", url: "https://appi.news/", deep: "https://appi.news/articles/taiwan-health-data-why-now/", desc: "原本每篇都靠人硬撐。流程定下來，重複的部分交給 AI。" },
+  { slug: "weiqi-kids", name: "好棋寶寶協會", industry: "兒童教育／協會", url: "https://www.weiqi.kids/", desc: "來幫忙的人專長差很多。靠 AI 把人和事串起來。" },
+  { slug: "folk", name: "神酷 folk", industry: "文化／民俗", url: "https://folk.tw/", deep: "https://folk.tw/deities/mazu", desc: "宮廟客群斷層。資料掛得出來源，年輕人查得到也看得懂。" },
+  { slug: "sutta-io", name: "sutta.io 原典研經", industry: "佛學／知識工具", url: "https://sutta.io/", deep: "https://sutta.io/topics/marana/", desc: "用 AI 碰經典，最怕讀者分不出哪句是原典。現在頁面上分得出來。" },
+  { slug: "olderkkk", name: "鄭骨館體雕中心", industry: "在地健康服務", url: "https://www.olderkkk.com/", deep: "https://www.olderkkk.com/method/", desc: "老闆只知道網站沒人看。卡住的其實是文案不敢寫具體。" },
+  { slug: "vuko", name: "Vuko 呼吸練習", industry: "健康工具", url: "https://www.vuko.life/", deep: "https://www.vuko.life/guides/binaural-beats-for-sleep.html", desc: "原本得買專門硬體。現在一般耳機開網頁就能用。" },
+  { slug: "twdro", name: "台灣無人機足球（飛球）", industry: "運動賽事平台", url: "https://twdro.net", deep: "https://twdro.net/rules/compare/", desc: "四套官方規則互相打架。現在逐欄比得出來。" },
 ];
 
 // QA 分類（/qa/ 用）
