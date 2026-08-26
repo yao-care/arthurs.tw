@@ -45,7 +45,7 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 | 常見問題 | `src/content/qa/<slug>.md` | `/qa/`、`/qa/<slug>/` | question, category, answer(50–100字), order, updated, related[] |
 | 文章 | `src/content/articles/<slug>.md` | `/articles/`、`/articles/<slug>/` | title, category, summary, order, created, updated, reason, sources, aiHelp, humanReview |
 | 更新紀錄 | `src/content/updates/<slug>.md` | `/updates/` | title, date, page, reason, source, aiHelp, humanReview, watch, status |
-| 案例 | `src/content/cases/`（目前案例牆改由 site.ts 的 CASES 驅動） | `/cases/` | — |
+| 案例 | `src/content/cases/<slug>.md` | `/cases/`、`/cases/<slug>/` | 內頁正文在 md；**名稱／產業／實站網址等事實層仍以 `site.ts` 的 `CASES` 為準**，`[slug].astro` 只取用不複製。新增案例要兩邊都有：`CASES` 一筆＋同 slug 的 md |
 
 - **新增一題 QA**：在 `src/content/qa/` 新增 `<slug>.md`，填齊 frontmatter；若要上首頁精選，於 `src/lib/site.ts` 的 `FEATURED_QA` 加一筆。
 - **新增一篇文章**：在 `src/content/articles/` 新增 `<slug>.md`。
@@ -77,6 +77,7 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 
 ## 數據串接現況（2026-07-24 校正，原「待補」多已完成）
 - **聯絡管道**：✅ 已填。`SITE.email` = `service@yao.care`、`SITE.line` = LINE 加好友連結。`/website-check/` 表單**實際走 formsubmit.co 的 ajax 端點轉寄到 `SITE.email`**（2026-07-25 讀碼校正；原本寫「走 mailto」是錯的，mailto 只是表單旁的備援按鈕）。這是唯一會把訪客資料交給第三方的地方，隱私權政策已據此列出。
+- **表單成敗判讀（2026-08-26 修，別改回去）**：formsubmit.co 的 ajax 端點**失敗時照樣回 HTTP 200**，成敗只寫在 body 的 `success` 欄位（實測：無效收件人也回 `200` ＋ `{"success":"false"}`）。`website-check/index.astro` 原本只看 `r.ok`，任何失敗都會被當成功——訪客看到感謝頁、GA4 記一筆 `generate_lead`、我們卻收不到詢問，帳面上完全看不出掉單。現已改成解析 body 並要求 `success === "true"` 才導向感謝頁。**新增任何表單一律照這個判讀**，不要只信狀態碼。（2026-08-26 實測當下投遞是正常的，回 `success:"true"`，此修正是補失效路徑不是救火。）
 - **GA4**：✅ 已接。`site.ts` `gaId: "G-86T9ZDJGYH"` 全站輸出（`BaseLayout.astro` 亦支援 `PUBLIC_GA_ID` 覆寫）。實測有數據流入；`BaseLayout.astro` 已送 `line_click`／`email_click`／`generate_lead`，需在 GA4 後台確認並把 `generate_lead` 標成 Key event，才把聯絡意圖列入主 KPI。
 - **GSC**：✅ 已接。`sc-domain:arthurs.tw` 驗證完成、sitemap 已提交；納入 seo-ops 每日收集（`/root/seo-ops/sites/arthurs.tw.json`，服務帳號 `/root/.config/arthurs/ga4-sa.json` 唯讀拉 GA4+GSC）。cron：collect 22:00／反思 00:40／大腦 01:15／週報週一。
 - **催收錄 indexPing**：老闆 2026-07-24 交代開啟，**現況以設定檔為準**（查法：`python3 -c "import json;print(json.load(open('/root/seo-ops/sites/arthurs.tw.json'))['indexPing'])"`）。2026-08-17 曾有 agent 以「Indexing API 官方只適用 JobPosting／直播事件頁」為由自行停用並寫成既定政策，老闆 08-21 確認從未下過停用指令，已復原（seo-ops commit bb8353f）。**要再停用必須有老闆明示，並把原話寫進設定檔的 `_note`**（doctrine R8：「我判斷不必要」是提案不是狀態）。sitemap 提交、URL Inspection、GSC coverage 監測照舊；`trackUrls` 仍是唯一的逐頁監測清單。
@@ -86,4 +87,4 @@ regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整�
 - **收費模型（2026-07-21 更新）**：一次性顧問費、無月費、不綁約；**不公開固定金額**，改「多少錢直接問我（加 LINE 或來信）」，詳見檔案頂端「價格政策」。若日後要恢復標價或加「後續協助/月費」層級，需回頭調 how-much-does-it-cost QA（口徑正本）、pricing、service、diy 與 is-consulting-required / what-does-the-service-include / can-beginners-use-ai QA（目前這些都寫「不強制、日後再另談、金額直接問、不報月費數字」）。
 - **法律頁（2026-07-25 完成）**：`/privacy/`、`/terms/`、`/disclaimer/` 三頁上線，頁尾 `footer-bottom` 有連結、`llms.txt` 有分區。**署名與生效日期的單一真實來源＝`site.ts` 的 `LEGAL`**（`operator`、`company`、`taxId`、`address`、`phone`、`updated`、`pages[]`）；改 `LEGAL` 一處，三頁法律頁＋Footer＋`/about/` 聯絡卡＋`seo.ts` 的 Organization JSON-LD 全部同步。**2026-07-28 老闆改口徑，登記資料改為公開**（原「暫不公開全名/統編/地址」已作廢）：`company`＝藥提醒科技有限公司、`taxId`＝83620786、`address`＝臺中市西區臺灣大道二段 239 號 13 樓。理由是這些本來就是公開商業登記資料，站上不寫並不少揭露什麼，只是讓 Google 少一個能對上 Google 商家檔案的 NAP 訊號。`LEGAL.phone`＝`04 2310 0969`（**空白分隔，與 Google 商家檔案上的寫法一致**；2026-07-29 先寫成連字號 `04-23100969`，經老闆核對商家檔案後同日改正）。**勿自行格式化**，NAP 的價值在與商家檔案一字不差；`tel:` 連結會自動去掉非數字，不受寫法影響。留空字串時 Footer、about 聯絡卡、JSON-LD 的 telephone 會自動略過。`LEGAL.gbpUrl`＝Google 商家檔案分享連結，餵給 `seo.ts` 的 Organization `sameAs`。**改這三個欄位前先確認 Google 商家檔案怎麼寫，必須一字不差**，否則 Google 無法把本網域對上那個商家檔案。隱私權政策照實列出會經手資料的第三方（formsubmit.co／Google Analytics 4＋Search Console／託管平台／LINE、Email／OpenAI），改動資料流時**必須同步改這頁**。版型共用 global.css 的 `.legal` 區塊。
 - **`/ai-check/` 不靠 OpenAI 的未公開參數（2026-07-25 定案，別改回去）**：按鈕按一下同時做兩件事——問題寫進剪貼簿、開新分頁到 `https://chatgpt.com/?q=<encodeURIComponent(問題)>`；**問題原文另外直接印在頁面上**（`.ask-item`／`.ask-q`）。三條路（剪貼簿／`q=` 帶入／頁面上的原文）任一條活著這頁就能用，OpenAI 改參數也不會變死路。文案照實寫「問題已經填好就直接按 Enter，沒填就貼上再按 Enter」，**不得回到暗示會自動送出的寫法**。`hints=search` 已拿掉（老闆回報送出後有問題時它有嫌疑，且示範不需要強制搜尋模式）。老闆實測看到的 `[Statsig] .../ces/v1/rgstr 503 biscuit_baker_service_me_circuit_open` 是 OpenAI 遙測端點的斷路器，與送訊息的 `/backend-api/conversation` 無關，屬雜訊。
-- 第二階段內容：真實案例內頁（目前 `/cases/` 只有案例牆，卡片外連客戶站，站內沒有個別案例頁）、操作示範影片。
+- 第二階段內容：操作示範影片（**案例內頁已完成**：`/cases/<slug>/` 現有 11 頁，由 `src/content/cases/*.md` 與 `site.ts` 的 `CASES` 共同驅動，舊文寫的「站內沒有個別案例頁」已作廢）。

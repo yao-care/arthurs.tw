@@ -141,11 +141,18 @@ const selfChecks = [
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify(data),
         });
+        // formsubmit 失敗時仍回 HTTP 200，成敗只寫在 body 的 success 欄位（2026-08-26 實測）。
+        // 只看 r.ok 會把「信根本沒寄出」當成功：訪客看到感謝頁、GA4 記一筆 generate_lead，我們卻收不到詢問。
+        let ok = false;
         if (r.ok) {
+          const body = await r.json().catch(() => null);
+          ok = body ? String(body.success) === "true" : false;
+        }
+        if (ok) {
           sessionStorage.setItem("arthurs_lead_submitted", "1");
           window.location.href = "/website-check/thank-you/";
         } else {
-          throw new Error("bad status");
+          throw new Error("submit rejected");
         }
       } catch (err) {
         btn.disabled = false;
