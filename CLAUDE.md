@@ -34,6 +34,7 @@ pnpm check:design       # 只跑設計規範守門
 
 ### 語感層：獨立 agent 審查（`.claude/settings.json` 的 PostToolUse hook）
 regex 守門只擋固定樣式；「一句太繞、名詞化、對仗過工整」這種語感層 AI 味要**在寫的 session 當場、由獨立的另一雙眼睛審**。已設 PostToolUse agent hook（`if` 限 `src/content/**`、`src/lib/site.ts`、`src/pages/**` 的 Write/Edit）：改到文案就自動 spawn 一個獨立 Sonnet agent 讀該檔、挑 AI 味回報，作者當場修。
+- ⚠️ **繞過漏洞（2026-08-26 實地踩到）**：hook 的 matcher 是 `Write|Edit`，**用 Bash 跑 sed／python 改檔不會觸發**。build 裡的 regex 守門（`check-copy`）照樣會跑，但語感那道會整個跳過，而語感正是 regex 抓不到的那一半。改 `src/content/**`、`src/lib/site.ts`、`src/pages/**` 的**文案**時一律用 Write/Edit 工具；真的用了 Bash 批次改（例如一次換 12 條 `CASES.desc`），改完必須自己逐條複看那幾種樣式，並在回覆裡講明 hook 沒觸發，不要當作已經過關。
 - **啟用注意**：hook 檔若在 session 開始時不存在，設定監看不會生效，需開一次 `/hooks` 或重啟該 session 才會開始觸發（之後自動）。
 - 這是「很強的自動關卡」，非數學意義 100%（LLM 判斷有機率性）；仍以人最終定稿為準。
 
