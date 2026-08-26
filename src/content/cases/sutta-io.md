@@ -20,6 +20,12 @@ humanReview: "2026-08-26 改寫。前後差別由本站負責人口述並確認�
 
 重點在後半段。契約寫在文件裡讀者不會去看，所以界線要出現在頁面上，AI 產出的白話翻譯掛著徽章，一眼就知道這段是誰寫的。
 
+<figure class="case-figure">
+  <img src="/images/cases/sutta-io-deep.webp" width="800" height="500" loading="lazy" decoding="async" alt="sutta.io 主題頁的畫面，AI 產出的白話翻譯掛著標示徽章。" />
+  <figcaption>徽章直接出現在讀者眼前，不需要先去讀站方的政策文件。</figcaption>
+</figure>
+
+
 研經頁三欄並排：巴利原文逐字可點查字根與詞形、AI 產的白話漢譯、漢譯阿含的段落對照。想深究的人可以逐字追，只想讀懂的人看中間那欄就好。
 
 ## 界線不只畫在 AI 上

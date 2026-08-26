@@ -24,6 +24,12 @@ humanReview: "2026-08-26 改寫。前後差別由本站負責人口述：宮廟�
 
 農民曆的宜忌註明依據哪一部典籍逐條考據，還附上卷數出處。媽祖頁寫明相關廟宇 1,051 間，出處是內政部全國宗教資訊網這種具名來源。
 
+<figure class="case-figure">
+  <img src="/images/cases/folk-deep.webp" width="800" height="500" loading="lazy" decoding="async" alt="神酷 folk 媽祖頁的畫面，資料下方列出具名出處。" />
+  <figcaption>每一條資料都掛得出來源，查到的人可以自己點過去核對。</figcaption>
+</figure>
+
+
 ## 版權那條也是為了年輕人
 
 公有領域的籤詩本文可以收錄並標版本，現代人寫的解籤文字有著作權、不抄錄，站上的分項解讀為原創。

@@ -22,6 +22,12 @@ humanReview: "2026-08-26 改寫。前後差別由本站負責人口述：雙耳�
 
 第二層是把程式碼公開。MIT 授權、附 GitHub 連結，不信的人可以自己去看。這比任何隱私政策都有說服力。
 
+<figure class="case-figure">
+  <img src="/images/cases/vuko-deep.webp" width="800" height="500" loading="lazy" decoding="async" alt="Vuko 指南頁的畫面，標有更新日期與醫療免責。" />
+  <figcaption>指南頁除了教怎麼用，也寫出相關研究的限制，並掛出可以點過去的 PubMed 文獻。</figcaption>
+</figure>
+
+
 ## 其他做到的事
 
 功能面是六種模式對應不同用途，每個模式的頻率直接標在頁面上，不藏。指南文章有更新日期、醫療免責、以及一段「哪些人要留意」。它也誠實寫出相關研究的限制，說樣本小、方法不一致。

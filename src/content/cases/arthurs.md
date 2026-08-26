@@ -28,6 +28,12 @@ sitemap 每一頁都帶真實的更新日期，來源是內容檔的更新欄位
 
 做錯又改回來的也在裡面，沒有挑好的寫。一個只放成功紀錄的更新頁，跟「我們很專業」是同一種東西。
 
+<figure class="case-figure">
+  <img src="/images/cases/arthurs-deep.webp" width="800" height="500" loading="lazy" decoding="async" alt="arthurs.tw 更新紀錄頁的畫面，逐筆列出改動與原因。" />
+  <figcaption>這頁就在站上，你現在就可以翻，看有沒有挑好的寫。</figcaption>
+</figure>
+
+
 ## 我們不會說的
 
 這頁不會告訴你這個站帶來多少客戶。老實說目前很少，自然搜尋的流量幾乎是零，我們自己每天在量，數字難看的時候也沒有停止量。

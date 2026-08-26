@@ -18,6 +18,12 @@ humanReview: "2026-08-26 改寫。前後差別由本站負責人口述並確認�
 
 四套規則逐欄並排。教育部 115 年全國競賽規則的最大起飛重是 300 公克，天穹盃是 110 公克以下，這種差距不比對根本不會發現。每一套規則都有自己的獨立頁面，可以點回去看原文。
 
+<figure class="case-figure">
+  <img src="/images/cases/twdro-deep.webp" width="800" height="500" loading="lazy" decoding="async" alt="無人機足球規則比較器，四套官方規則逐欄並排的畫面。" />
+  <figcaption>四套規則攤在同一張表上，數字打架的地方一眼就看得出來。</figcaption>
+</figure>
+
+
 ## 但比較器上還有一句話
 
 各欄位以官方規則書原文為準，本站不代為解釋規則。
