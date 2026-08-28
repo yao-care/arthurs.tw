@@ -10,10 +10,10 @@
 
 import pw from '/root/seo-ops/node_modules/playwright/index.js';
 const { chromium } = pw;
-import sharpPkg from '/root/arthurs.tw/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js';
+import sharpPkg from '/mnt/yao-care/arthurs.tw/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js';
 const sharp = sharpPkg.default || sharpPkg;
 import fs from 'node:fs';
-const OUT='/root/arthurs.tw/public/images/cases';
+const OUT='/mnt/yao-care/arthurs.tw/public/images/cases';
 fs.mkdirSync(OUT,{recursive:true});
 const sites=[
  ['arthurs','https://arthurs.tw/'],
