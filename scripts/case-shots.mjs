@@ -8,7 +8,7 @@
 // 相依：playwright 與 sharp 都不在本 repo 的相依裡，走絕對路徑借用主機上既有的安裝。
 // 網站改版後要重跑，否則卡片上的圖會跟實站對不起來。
 
-import pw from '/root/seo-ops/node_modules/playwright/index.js';
+import pw from '/mnt/yao-care/seo-ops/node_modules/playwright/index.js';
 const { chromium } = pw;
 import sharpPkg from '/mnt/yao-care/arthurs.tw/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js';
 const sharp = sharpPkg.default || sharpPkg;
