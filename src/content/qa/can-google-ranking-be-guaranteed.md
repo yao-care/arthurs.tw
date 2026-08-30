@@ -3,7 +3,7 @@ question: "有人跟我保證 SEO 一定排到 Google 第一頁，可信嗎？"
 category: "Google 搜尋、AEO 與 GEO"
 answer: "不可信。排名是 Google 的系統在決定，沒有人保證得了。你可以反問對方一句：三個月後沒動靜，你要做什麼？答不出來的就是話術。我的做法是先查卡在哪一關，Google 還沒收、排太後面、沒人點、沒人打電話，這四關差很遠。"
 order: 1
-updated: "2026-08-01"
+updated: "2026-08-30"
 related: ["can-chatgpt-recommendation-be-guaranteed", "what-if-ai-makes-a-mistake", "what-can-i-see-with-search-console-analytics"]
 relatedArticles: ["seo-guaranteed-first-page", "seo-or-ads", "what-i-do-when-numbers-dont-move", "why-google-cant-find-my-company", "website-not-updated-for-years"]
 ---
@@ -12,11 +12,9 @@ relatedArticles: ["seo-guaranteed-first-page", "seo-or-ads", "what-i-do-when-num
 
 不可信。排名是 Google 的系統在決定的，外面沒有人動得了它。跟你保證一定上第一頁的人，賣的是他自己也做不到的東西。
 
-正在被這種說法推銷的話，有一句可以直接問回去：**三個月後沒動靜，你要做什麼？** 講得出「我會先查是哪一關卡住，查完告訴你我要改什麼」，這個人手上有方法。只會重複跟你保證、講不出沒起色時怎麼辦，那就是話術。
+那種保證背後通常在賣什麼、簽約前該問哪幾句、Google 官方自己怎麼說，完整拆在這篇：[SEO 保證第一頁，能信嗎](/articles/seo-guaranteed-first-page/)。這題底下要講的是另一件事：對方答不出來，或是你已經做了一陣子卻沒起色，你要怎麼自己查卡在哪裡。
 
 我自己也不保證排名。我能承諾的是看資料、持續改，沒起色的時候會查、會跟你講，也會老實說這個方向還走不走得下去。
-
-正在被推銷「保證第一頁」方案的話，那種保證背後通常在賣什麼、簽約前該問哪幾句，我拆在這篇：[保證上 Google 第一頁，能信嗎](/articles/seo-guaranteed-first-page/)。
 
 ### 沒起色的時候，先查卡在哪一關
 

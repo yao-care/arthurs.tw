@@ -65,7 +65,7 @@ relatedQa: ["how-much-does-it-cost", "what-does-the-service-include", "what-func
 - **問做完歸誰**。網址和帳號登記在誰名下，這句話一定要在簽約前問，不是交件時才問
 - **有人推薦的也要查**。同業推薦、論壇上看到的，一樣照上面幾項走一遍
 
-有一種情況要特別小心：對方一開口就保證排名。網站還沒看、關鍵字還沒討論就能保證，那句話本身就有問題，我另外寫過一篇：[保證上 Google 第一頁，能信嗎](/articles/seo-guaranteed-first-page/)。
+有一種情況要特別小心：對方一開口就保證排名。網站還沒看、關鍵字還沒討論就能保證，那句話本身就有問題，我另外寫過一篇：[SEO 保證第一頁，能信嗎](/articles/seo-guaranteed-first-page/)。
 
 ### 拿到報價單，這幾句問回去
 

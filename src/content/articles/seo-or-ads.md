@@ -37,7 +37,7 @@ relatedQa: ["can-google-ranking-be-guaranteed", "what-functions-are-not-included
 - **停掉之後**：廣告停了，流量當天就沒。SEO 累積起來的頁面停了還在，只是會慢慢退
 - **可控程度**：廣告的預算、字、對象都是你決定的。SEO 的排名是 Google 決定的，你只能改自己這一邊
 - **成本走向**：廣告是持續支出，你付得愈久花愈多。SEO 是前期投入，後面主要是維持
-- **能不能保證**：廣告買得到位置。SEO 沒有人能保證排名，有人跟你保證第一頁，那句話本身就有問題，我另外寫過一篇：[保證上 Google 第一頁，能信嗎](/articles/seo-guaranteed-first-page/)
+- **能不能保證**：廣告買得到位置。SEO 沒有人能保證排名，有人跟你保證第一頁，那句話本身就有問題，我另外寫過一篇：[SEO 保證第一頁，能信嗎](/articles/seo-guaranteed-first-page/)
 
 ### 什麼狀況先做廣告
 
