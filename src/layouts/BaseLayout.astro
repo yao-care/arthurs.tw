@@ -52,14 +52,33 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
     {gaId && (
-      <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-        <script is:inline define:vars={{ gaId, lineUrl: SITE.line }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){ dataLayer.push(arguments); }
-          // define:vars 會把這段包進 IIFE，gtag 因此只是區域函式。
-          // 掛回 window 才能讓各頁自己的 script（如 /ai-check/）送事件。
-          window.gtag = gtag;
+      <script is:inline define:vars={{ gaId, lineUrl: SITE.line, siteHost: new URL(SITE.url).hostname }}>
+        // GA4 只在正式網域、且不是內部瀏覽時才載入（2026-09-07 補）。
+        // 在此之前 gtag 無條件輸出：pnpm dev／pnpm preview 開的 localhost 頁面照打 GA4，
+        // 老闆自己巡站也照算，全期 139 個 session 有 128 個是 direct，KPI 讀出來全是我們自己。
+        // 內部標記：任一頁網址帶 ?internal=1 就在這台瀏覽器記住、之後全站都不送；?internal=0 解除。
+        // 判斷放在瀏覽器端而不是 GA4 後台的資料篩選器，是因為篩選器要另外到後台建、建了還得從「測試」切到「啟用」，
+        // 少一步就等於沒做；這裡直接不送，沒有第二步。
+        var internal = false;
+        try {
+          var flag = new URLSearchParams(location.search).get('internal');
+          if (flag === '1') localStorage.setItem('arthurs_internal', '1');
+          else if (flag === '0') localStorage.removeItem('arthurs_internal');
+          internal = localStorage.getItem('arthurs_internal') === '1';
+        } catch (e) {}
+        var onSite = location.hostname === siteHost;
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        // define:vars 會把這段包進 IIFE，gtag 因此只是區域函式。
+        // 掛回 window 才能讓各頁自己的 script（如 /ai-check/）送事件；不載入時也掛，事件只進佇列不會出去。
+        window.gtag = gtag;
+
+        if (onSite && !internal) {
+          var tag = document.createElement('script');
+          tag.async = true;
+          tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+          document.head.appendChild(tag);
           gtag('js', new Date());
           gtag('config', gaId);
 
@@ -85,8 +104,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID ?? SITE.gaId;
             gtag('event', 'generate_lead', { form_name: 'website_check' });
             sessionStorage.removeItem('arthurs_lead_submitted');
           }
-        </script>
-      </>
+        }
+      </script>
     )}
   </head>
   <body class="has-mobile-cta">
