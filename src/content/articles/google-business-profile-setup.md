@@ -1,16 +1,19 @@
 ---
-title: "Google 商家檔案要不要錢？申請、驗證與最常卡住的地方"
+title: "Google 商家申請要不要錢？資格、驗證與最常卡住的地方"
 category: "客戶為什麼找不到公司"
 summary: "商家檔案本身免費，Google 沒有向你收費。整理申請流程、驗證要等多久、以及最多人卡住的地方：名稱地址電話的寫法必須跟網站上一字不差。"
 order: 21
 created: "2026-08-03"
-updated: "2026-08-03"
+updated: "2026-10-02"
 reason: "「google 商家 要錢嗎／怎麼申請／怎麼驗證／要審核多久」是這輪搜尋建議裡最大的一群，代表在地生意的老闆正卡在這一關。站上只在一篇文章裡順帶提過商家檔案，沒有一頁完整回答。這也是我們一直建議老闆自己做、成本最低的一件事。"
 sources: "Google 搜尋建議的實際查詢字、實際設定經驗"
 aiHelp: "整理流程與常見卡點、產生初稿"
 humanReview: "2026-08-03 撰寫，流程與費用性質皆為可驗證事實，未寫審核天數的保證值"
 related: ["local-business-not-found-online", "why-google-cant-find-my-company"]
 relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
+citations:
+  - name: "Google 商家檔案說明：新增商家檔案或聲明商家檔案擁有權"
+    url: "https://support.google.com/business/answer/2911778?hl=zh-Hant"
 ---
 
 ## 直接答案
@@ -28,6 +31,18 @@ relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
 老闆卡住的通常不是不知道要做，是流程細節找不到人問：要準備什麼、驗證會用什麼方式、寫錯了能不能改。這篇把這幾件事講完。
 
 ## 完整說明
+
+### 先確認你有沒有資格申請
+
+商家檔案不是每個生意都能開。Google 的說明寫得很明白，只有符合商家檔案使用資格的商家，才能新增或聲明地點擁有權。大致的判準是：客人有地方可以到訪，或你會親自到客人那邊服務。純線上、客人沒有地方可去、你也不出門拜訪的生意，通常不符合。
+
+不確定自己算不算，先看 Google 的資格說明再動手，比申請到一半被退回省事。
+
+### 申請的步驟
+
+Google 官方的流程只有四步：前往 business.google.com/add，按「向 Google 登錄您的商家」，照畫面填商家詳情，最後選驗證方式。官方頁面也寫明，新增商家或聲明擁有權可以免付費。
+
+如果 Google 地圖上已經搜得到你的店，那是別人或系統先建的檔案，不用重開。在地圖搜尋店名，選「聲明商家擁有權」，再走驗證即可。重開一個，反而會造成重複的檔案。
 
 ### 申請要準備的東西
 
