@@ -5,7 +5,7 @@ answer: "SEO 顧的是網頁在 Google 排名靠前；GEO 顧的是 ChatGPT、Pe
 order: 9
 updated: "2026-07-31"
 related: ["what-is-llms-txt", "can-chatgpt-recommendation-be-guaranteed", "can-google-ranking-be-guaranteed"]
-relatedArticles: ["chatgpt-doesnt-know-my-company", "how-to-get-chatgpt-to-mention-you"]
+relatedArticles: ["chatgpt-doesnt-know-my-company", "how-to-get-chatgpt-to-mention-you", "seo-guaranteed-first-page"]
 ---
 
 ## 詳細說明

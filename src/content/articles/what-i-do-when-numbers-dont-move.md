@@ -9,7 +9,7 @@ reason: "老闆真正擔心的不是有沒有保證，是錢付了、三個月�
 sources: "客戶提問、本站 Search Console 與 Analytics 實際數據"
 aiHelp: "整理四關的判斷方式、產生初稿"
 humanReview: "已確認四關的處理方式與實際做法一致，未加入任何成效或時間承諾"
-related: ["why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company"]
+related: ["why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company", "seo-guaranteed-first-page"]
 relatedQa: ["can-google-ranking-be-guaranteed", "can-chatgpt-recommendation-be-guaranteed"]
 citations:
   - name: "Google 搜尋中心：Search Console 索引狀態報表說明"

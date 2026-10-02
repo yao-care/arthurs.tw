@@ -9,7 +9,7 @@ reason: "站上講「被 AI 找得到」講了很多原理，但一直沒有實�
 sources: "2026-07-28 於 Google AI 模式實際查詢，畫面已存檔；站上既有文章與常見問題的缺口"
 aiHelp: "整理實測紀錄、建立架構、產生初稿"
 humanReview: "已比對截圖與文中敘述一致，確認沒有做出保證被 AI 推薦的說法，並在文中揭露 yao.care 與本站為同一經營者"
-related: ["how-to-get-chatgpt-to-mention-you", "chatgpt-doesnt-know-my-company"]
+related: ["how-to-get-chatgpt-to-mention-you", "chatgpt-doesnt-know-my-company", "seo-guaranteed-first-page"]
 relatedQa: ["can-chatgpt-recommendation-be-guaranteed", "can-google-ranking-be-guaranteed"]
 citations:
   - name: "GEO: Generative Engine Optimization（生成式引擎優化，KDD 2024）"

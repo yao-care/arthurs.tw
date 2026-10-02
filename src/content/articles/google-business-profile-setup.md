@@ -9,7 +9,7 @@ reason: "「google 商家 要錢嗎／怎麼申請／怎麼驗證／要審核多
 sources: "Google 搜尋建議的實際查詢字、實際設定經驗"
 aiHelp: "整理流程與常見卡點、產生初稿"
 humanReview: "2026-08-03 撰寫，流程與費用性質皆為可驗證事實，未寫審核天數的保證值"
-related: ["local-business-not-found-online", "why-google-cant-find-my-company"]
+related: ["local-business-not-found-online", "why-google-cant-find-my-company", "seo-guaranteed-first-page"]
 relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
 citations:
   - name: "Google 商家檔案說明：新增商家檔案或聲明商家檔案擁有權"

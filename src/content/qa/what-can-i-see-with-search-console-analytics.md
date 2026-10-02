@@ -5,7 +5,7 @@ answer: "看得到訪客用什麼字詞搜尋、被看到幾次、點了幾次�
 order: 1
 updated: "2026-07-26"
 related: ["what-does-the-service-include", "can-google-ranking-be-guaranteed"]
-relatedArticles: ["why-google-cant-find-my-company"]
+relatedArticles: ["why-google-cant-find-my-company", "seo-guaranteed-first-page"]
 ---
 
 ## 詳細說明

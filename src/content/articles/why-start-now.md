@@ -9,7 +9,7 @@ reason: "「再看看」「等 AI 更成熟再說」是最常見的觀望理由�
 sources: "思想實驗室 ep107 專訪哈佛商學院 Christina Wallace（YouTube 公開節目）、本站 GSC 收錄實務經驗"
 aiHelp: "整理論點、產生初稿"
 humanReview: "2026-08-01 老闆過目確認，內容照登"
-related: ["value-after-software-is-free", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years"]
+related: ["value-after-software-is-free", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years", "seo-guaranteed-first-page"]
 relatedQa: ["how-much-does-it-cost", "is-consulting-required", "can-google-ranking-be-guaranteed"]
 citations:
   - name: "思想實驗室 ep107：專訪哈佛商學院 Christina Wallace"

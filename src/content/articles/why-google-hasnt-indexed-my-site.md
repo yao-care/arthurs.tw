@@ -9,7 +9,7 @@ reason: "「google 收錄／google 收錄網站」在搜尋建議裡持續出現
 sources: "Google 搜尋建議的實際查詢字、本站 Search Console 的實際覆蓋率資料"
 aiHelp: "整理資料、產生初稿"
 humanReview: "2026-08-03 撰寫，數據取自本站 Search Console 實際紀錄，未推及他站"
-related: ["why-google-cant-find-my-company", "what-seo-score-tools-really-tell-you", "why-start-now"]
+related: ["why-google-cant-find-my-company", "what-seo-score-tools-really-tell-you", "why-start-now", "seo-guaranteed-first-page"]
 relatedQa: ["can-google-ranking-be-guaranteed", "what-can-i-see-with-search-console-analytics"]
 ---
 
