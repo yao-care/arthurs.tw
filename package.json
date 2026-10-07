@@ -6,7 +6,7 @@
   "engines": { "node": ">=22.12.0" },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-design.mjs && node scripts/check-copy.mjs && astro build",
+    "build": "node scripts/check-design.mjs && node scripts/check-copy.mjs && astro build && node scripts/check-sitemap-noindex.mjs dist",
     "preview": "astro preview",
     "check:design": "node scripts/check-design.mjs",
     "check:copy": "node scripts/check-copy.mjs"
