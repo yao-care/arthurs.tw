@@ -9,7 +9,7 @@ reason: "地域字（台中 網站架設、台中 公司網站等 7 個釘選字
 sources: "客戶提問、seo-ops 釘選字覆蓋盤點"
 aiHelp: "整理在地經營者的實際處境、產生初稿"
 humanReview: "2026-08-01 撰寫，未指名任何行業，案例採泛化"
-related: ["website-or-social-media", "why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years", "seo-guaranteed-first-page"]
+related: ["google-business-profile-setup", "website-or-social-media", "why-google-cant-find-my-company", "chatgpt-doesnt-know-my-company", "website-not-updated-for-years", "seo-guaranteed-first-page"]
 relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
 ---
 
@@ -35,7 +35,7 @@ relatedQa: ["which-areas-do-you-serve", "can-google-ranking-be-guaranteed"]
 
 ### 這幾樣東西不在，就等於沒開門
 
-- **Google 商家檔案**：地圖上有沒有你、地址電話對不對、營業時間新不新。這個免費，自己就能弄，很多人卡在這一關
+- **Google 商家檔案**：地圖上有沒有你、地址電話對不對、營業時間新不新。這個免費，自己就能弄，很多人卡在這一關（申請步驟與常見卡點：[Google 商家申請要不要錢](/articles/google-business-profile-setup/)）
 - **一個查得到你在做什麼的網站**：只有公司簡介和聯絡方式不夠，客人想知道的是你實際做哪些東西、做成什麼樣子
 - **一致的名稱地址電話**：網站、地圖、各種平台上的寫法要一樣。這幾個地方寫得不一樣，機器很難確定講的是不是同一家
 

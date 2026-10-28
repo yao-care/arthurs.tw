@@ -5,7 +5,7 @@ answer: "台中和中部一帶可以約見面，其他縣市線上進行。做�
 order: 4
 updated: "2026-07-28"
 related: ["is-consulting-required", "what-does-the-service-include", "how-much-does-it-cost"]
-relatedArticles: ["why-google-cant-find-my-company", "no-marketing-staff-how-to-update"]
+relatedArticles: ["google-business-profile-setup", "why-google-cant-find-my-company", "no-marketing-staff-how-to-update"]
 ---
 
 ## 詳細說明
