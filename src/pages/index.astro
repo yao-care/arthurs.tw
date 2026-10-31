@@ -6,15 +6,12 @@ import {
   SITE, PAINS, SOLUTIONS, STEPS, PLAN, OWNERSHIP,
   FEATURED_QA, PILLARS, CASES, POSITIONING,
 } from "../lib/site";
-import { serviceSchema, faqSchema } from "../lib/seo";
+import { serviceSchema } from "../lib/seo";
 
 const qa = await getCollection("qa");
 const answerOf = (slug: string) => qa.find((q) => q.id === slug)?.data.answer ?? "";
 const questionOf = (slug: string) => qa.find((q) => q.id === slug)?.data.question ?? "";
 const featured = [...new Set(FEATURED_QA)].filter((slug) => qa.some((q) => q.id === slug));
-const faq = faqSchema(
-  featured.slice(0, 10).map((slug) => ({ question: questionOf(slug), answer: answerOf(slug) })).filter((x) => x.answer)
-);
 const caseWall = CASES;
 // 有寫內頁的案例才連站內，避免連到不存在的頁（判斷方式與 /cases/ 一致）。
 const detailed = new Set((await getCollection("cases")).map((e) => e.id));
@@ -22,7 +19,7 @@ const detailed = new Set((await getCollection("cases")).map((e) => e.id));
 <BaseLayout
   title="AI 網站顧問，幫你把網站建好、帶你上手"
   description="網站做完就放著沒人管？我用 AI 幫你重做一個網站，網址和帳號都開在你名下。做完交接給你，帶你上手，之後用聊天就能改。看不懂沒關係。"
-  schemas={[serviceSchema(), faq]}
+  schemas={[serviceSchema()]}
 >
   {/* 1. Hero */}
   <section class="hero section">
