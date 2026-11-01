@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import { getCollection, render } from "astro:content";
-import { breadcrumbSchema, faqSchema } from "../../lib/seo";
+import { breadcrumbSchema } from "../../lib/seo";
 
 export async function getStaticPaths() {
   const qa = await getCollection("qa");
@@ -27,7 +27,6 @@ const schemas = [
     { name: "常見問題", path: "/qa/" },
     { name: d.question, path: `/qa/${entry.id}/` },
   ]),
-  faqSchema([{ question: d.question, answer: d.answer }]),
 ];
 ---
 <BaseLayout title={d.question} description={d.answer} schemas={schemas} ogType="article">
